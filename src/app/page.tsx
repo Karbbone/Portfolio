@@ -25,7 +25,7 @@ export default function Home() {
       <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border">
         <div className="flex-[2]">
           <h1 className="text-2xl font-caption font-bold text-center">
-            J AIME TRAVAILLER AVEC
+            {"J'AIME TRAVAILLER AVEC"}
           </h1>
           <div className="flex gap-4">
             <Card className="w-1/3">

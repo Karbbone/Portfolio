@@ -29,10 +29,13 @@ export const Hero = () => {
             className="lg:text-3xl sm:text-2xl text-xl font-caption"
             sequence={[
               "DÉVELOPPEUR JUNIOR",
+              1250,
               "DÉVELOPPEUR FRONT-END",
+              1250,
               "DÉVELOPPEUR BACK-END",
+              1250,
             ]}
-            speed={1}
+            speed={50}
             style={{
               whiteSpace: "pre-line",
               fontWeight: "bold",
@@ -48,6 +51,16 @@ export const Hero = () => {
           curieux et apprendre de nouvelles technologies ne me fait pas peur.
         </p>
         <div className="mt-10 gap-10 flex items-center justify-center">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button>EMAIL</Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Contact moi !</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
