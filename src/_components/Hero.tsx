@@ -1,7 +1,5 @@
 "use client";
 import { Section } from "./Section";
-import avatar from "./coding-concept-illustration/3301602.jpg";
-import githublogo from "./github-icon.svg";
 import linkedin from "./linkedin-icon.svg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -11,6 +9,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { GithubIcon } from "./svg_icons/GithubIcon";
+import { LinkedinIcon } from "./svg_icons/LinkedinIcon";
 
 export const Hero = () => {
   return (
@@ -60,11 +60,7 @@ export const Hero = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <Image
-                  src={githublogo}
-                  alt="GitHub-logo"
-                  className="w-12 h-auto rounded-full"
-                />
+                <GithubIcon size={40} color="white" />
               </TooltipTrigger>
               <TooltipContent>
                 <p>Visite mon GitHub !</p>
@@ -74,11 +70,7 @@ export const Hero = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <Image
-                  src={linkedin}
-                  alt="Linkedin-logo"
-                  className="w-12 h-auto rounded-full"
-                />
+                <LinkedinIcon size={40} color="white" />
               </TooltipTrigger>
               <TooltipContent>
                 <p>Visite mon Linkedin !</p>
