@@ -1,12 +1,10 @@
 "use client";
 import { Section } from "./Section";
-import avatar from "./avataaars.svg";
+import avatar from "./coding-concept-illustration/3301602.jpg";
 import githublogo from "./github-icon.svg";
 import linkedin from "./linkedin-icon.svg";
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Tooltip,
   TooltipContent,
@@ -17,38 +15,26 @@ import {
 export const Hero = () => {
   return (
     <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border ">
-      <div className="flex-[2]">
-        <h1 className="text-2xl font-caption font-bold mb-3">
-          Bonjour ! je suis
-        </h1>
-        <h1 className="text-5xl font-caption font-bold mb-3">
-          Clement Maillet
-        </h1>
+      <div className="flex-[2] text-center pt-10 pb-4">
+        <div className="flex flex-col items-center">
+          <h1 className="text-6xl font-caption font-bold mb-3">
+            Clément Maillet
+          </h1>
+        </div>
+        <h1 className="text-4xl font-caption font-bold mb-3">20 ans</h1>
         <div className="h-100">
-          <TypeAnimation
-            className="lg:text-3xl sm:text-2xl text-xl font-caption"
-            sequence={[
-              "DÉVELOPPEUR JUNIOR",
-              1250,
-              "DÉVELOPPEUR FRONT-END",
-              1250,
-              "DÉVELOPPEUR BACK-END",
-              1250,
-            ]}
-            speed={50}
-            style={{
-              whiteSpace: "pre-line",
-              fontWeight: "bold",
-            }}
-            repeat={Infinity}
-          />
+          <p className="lg:text-3xl sm:text-2xl text-xl font-caption">
+            Développeur Junior
+          </p>
         </div>
         <p className="font-sans mt-3 text-l">
           Je suis un développeur junior passionné par le développement web
-          moderne ainsi que le développement logiciel. Pour le moment je
-          souhaite être développeur full-stack afin que je puisse dans le futur
-          me spécialiser soit dans la back-end ou bien le front-end. Je suis
-          curieux et apprendre de nouvelles technologies ne me fait pas peur.
+          moderne
+          <br />
+          Diplomé d&apos;un <span className="text-key font-bold">BUT</span>{" "}
+          Informatique (<span className="text-key font-bold">BAC +3</span>) à
+          l&apos;IUT de <span className="text-key font-bold">VANNES</span>
+          &nbsp;
         </p>
         <div className="mt-10 gap-10 flex items-center justify-center">
           <TooltipProvider>
@@ -100,13 +86,11 @@ export const Hero = () => {
             </Tooltip>
           </TooltipProvider>
         </div>
-      </div>
-      <div className="flex-1 p-2 flex items-center justify-center">
-        <Image
-          src={avatar}
-          alt="Clement Avatar"
-          className="w-2/3 mt-4 sm:mt-0  sm:w-full h-auto bg-white rounded-full"
-        />
+        <div className="mt-4">
+          <span className="font-bold text-key">
+            Actuellement en recherche d&apos;un poste
+          </span>
+        </div>
       </div>
     </Section>
   );

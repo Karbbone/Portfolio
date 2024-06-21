@@ -24,6 +24,7 @@
     --destructive-foreground: 0 0% 100%;
     --ring: 210 17% 82%;
     --radius: 0.5rem;
+    --key: 142, 67%, 58%;
   }
 
   .dark {
@@ -46,6 +47,7 @@
     --destructive: 1 86% 57%;
     --destructive-foreground: 0 0% 100%;
     --ring: 210 17% 82%;
+    --key: hsl(142, 67%, 58%);
   }
 }
 
