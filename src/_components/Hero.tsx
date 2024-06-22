@@ -47,16 +47,6 @@ export const Hero = () => {
           </TooltipProvider>
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger asChild>
-                <Button>MON CV</Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Télécharge mon CV !</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
               <TooltipTrigger>
                 <GithubIcon size={40} color="white" />
               </TooltipTrigger>
