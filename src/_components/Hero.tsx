@@ -17,11 +17,9 @@ export const Hero = () => {
     <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border ">
       <div className="flex-[2] text-center pt-10 pb-4">
         <div className="flex flex-col items-center">
-          <h1 className="text-6xl font-caption font-bold mb-3">
-            Clément Maillet
-          </h1>
+          <h1 className="text-6xl mb-3 italic">Clément Maillet</h1>
         </div>
-        <h1 className="text-4xl font-caption font-bold mb-3">20 ans</h1>
+        <h1 className="text-3xl font-caption mb-3">20 ans</h1>
         <div className="h-100">
           <p className="lg:text-3xl sm:text-2xl text-xl font-caption">
             Développeur Junior

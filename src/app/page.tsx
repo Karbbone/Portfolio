@@ -7,6 +7,7 @@ import iutlogo from "../_components/iutvannes.png";
 import mediamaglogo from "../_components/mediamag.png";
 import { Card } from "@/components/ui/card";
 import React from "react";
+import { SchoolSection } from "@/_components/SchoolSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <Hero />
       <TechSection />
+      <SchoolSection />
       <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border">
         <div className="flex-[2]">
           <h1 className="text-2xl font-caption font-bold text-center">
