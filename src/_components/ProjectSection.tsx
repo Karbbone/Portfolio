@@ -3,10 +3,14 @@ import { Section } from "@/_components/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import pokemonStudio from "../_components/pokemonStudio.png";
 import pokemonStudioIcon from "../_components/pokemonStudioIcon.png";
+import todaysFlag from "../_components/todaysFlag.png";
+import todaysFlagIcon from "../_components/todaysFlagIcon.png";
 import Image from "next/image";
 import { GithubIcon } from "./svg_icons/GithubIcon";
 import { ReactIcon } from "./svg_icons/ReactIcon";
 import { TsIcon } from "./svg_icons/TsIcon";
+import { SassIcon } from "./svg_icons/SassIcon";
+import { LinkIcon } from "./svg_icons/LinkIcon";
 
 export const ProjectSection = () => {
   return (
@@ -22,19 +26,26 @@ export const ProjectSection = () => {
                 <div className="flex items-center gap-4">
                   <div
                     className="
-                  flex  items-center gap-1"
+                  flex  items-center gap-2"
                   >
                     <Image
                       src={pokemonStudioIcon}
                       alt="pokemon-studio-icon"
-                      className="w-[35] h-[35]"
+                      className="w-[40px] h-[40px]"
                     />
                     <span>Pokémon Studio</span>
                   </div>
                   <ReactIcon size={35} color="white" />
                   <TsIcon size={35} color="white" />
                 </div>
-                <div>
+                <div className="flex gap-4">
+                  <a
+                    href="https://pokemonworkshop.com/fr/studio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkIcon size={35} color="white" />
+                  </a>
                   <a
                     href="https://github.com/PokemonWorkshop/PokemonStudio"
                     target="_blank"
@@ -73,19 +84,27 @@ export const ProjectSection = () => {
                 <div className="flex items-center gap-4">
                   <div
                     className="
-                  flex  items-center gap-1"
+                  flex  items-center gap-3"
                   >
                     <Image
-                      src={pokemonStudioIcon}
+                      src={todaysFlagIcon}
                       alt="pokemon-studio-icon"
-                      className="w-[35] h-[35]"
+                      className="w-[35px] h-[35px]"
                     />
                     <span>Today&apos;s Flag</span>
                   </div>
                   <ReactIcon size={35} color="white" />
                   <TsIcon size={35} color="white" />
+                  <SassIcon size={35} color="white" />
                 </div>
-                <div>
+                <div className="flex gap-4">
+                  <a
+                    href="https://todays-flag.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkIcon size={35} color="white" />
+                  </a>
                   <a
                     href="https://github.com/PokemonWorkshop/PokemonStudio"
                     target="_blank"
@@ -99,8 +118,8 @@ export const ProjectSection = () => {
             <CardContent className="flex gap-8">
               <div className="flex-[3]">
                 <Image
-                  src={pokemonStudio}
-                  alt="pokemon-studio"
+                  src={todaysFlag}
+                  alt="todays-flag"
                   className="w-full h-auto"
                 />
               </div>
