@@ -47,7 +47,7 @@ export const SchoolSection = () => {
         <h2 className="text-2xl font-caption font-bold text-center mt-2 mb-4">
           {"Mon parcours scolaire"}
         </h2>
-        <div className="justify-center h-full py-8 relative">
+        <div className="justify-center h-full p-4 relative">
           {schoolData.map((school, index) => (
             <div
               key={index}

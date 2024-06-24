@@ -41,7 +41,7 @@ export const TechSection = () => {
           </h2>
           <HeartIcon size={32} color="white" />
         </div>
-        <div className="flex flex-col md:flex-row gap-4 md:justify-center">
+        <div className="flex flex-col md:flex-row gap-4 md:justify-center py-4">
           {techs.map((tech) => (
             <Card key={tech.name} className="md:w-1/6">
               <CardHeader>

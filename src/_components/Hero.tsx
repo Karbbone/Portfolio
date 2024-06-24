@@ -50,7 +50,13 @@ export const Hero = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <GithubIcon size={40} color="white" />
+                <a
+                  href="https://github.com/Karbbone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GithubIcon size={40} color="white" />
+                </a>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Visite mon GitHub !</p>

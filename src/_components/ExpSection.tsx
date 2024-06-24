@@ -36,7 +36,7 @@ export const ExpSection = () => {
         <h2 className="text-2xl font-caption font-bold text-center mt-2 mb-4">
           {"Mes expériences"}
         </h2>
-        <div className="justify-center h-full py-8 relative">
+        <div className="justify-center h-full py-4 relative">
           {expData.map((school, index) => (
             <div
               key={index}
