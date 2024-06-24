@@ -78,7 +78,7 @@ export const SchoolSection = () => {
               </CardContent>
             </Card>
           </div>
-          <div className="w-2 bg-key h-4/5 absolute left-1/2 top-8"></div>
+          <div className="w-2 bg-key h-[89%] absolute left-1/2 top-9"></div>
         </div>
       </div>
     </Section>
