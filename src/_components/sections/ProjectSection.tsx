@@ -7,12 +7,11 @@ import todaysFlag from "../todaysFlag.png";
 import todaysFlagIcon from "../todaysFlagIcon.png";
 import Image from "next/image";
 import { LinkIcon } from "../svg_icons/LinkIcon";
-import { GithubIcon } from "./svg_icons/GithubIcon";
-import { ReactIcon } from "./svg_icons/ReactIcon";
-import { TsIcon } from "./svg_icons/TsIcon";
-import { SassIcon } from "./svg_icons/SassIcon";
-import { LinkIcon } from "./svg_icons/LinkIcon";
-import { ElectronIcon } from "./svg_icons/ElectronIcon";01bccf3d63a26c40e64b895c2e1d3639b7685d1:src/_components/ProjectSection.tsx
+import { GithubIcon } from "../svg_icons/GithubIcon";
+import { ReactIcon } from "../svg_icons/ReactIcon";
+import { TsIcon } from "../svg_icons/TsIcon";
+import { SassIcon } from "../svg_icons/SassIcon";
+import { ElectronIcon } from "../svg_icons/ElectronIcon";
 
 export const ProjectSection = () => {
   return (
