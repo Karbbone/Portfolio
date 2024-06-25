@@ -11,6 +11,7 @@ import { ReactIcon } from "./svg_icons/ReactIcon";
 import { TsIcon } from "./svg_icons/TsIcon";
 import { SassIcon } from "./svg_icons/SassIcon";
 import { LinkIcon } from "./svg_icons/LinkIcon";
+import { ElectronIcon } from "./svg_icons/ElectronIcon";
 
 export const ProjectSection = () => {
   return (
@@ -37,6 +38,7 @@ export const ProjectSection = () => {
                   </div>
                   <ReactIcon size={35} color="white" />
                   <TsIcon size={35} color="white" />
+                  <ElectronIcon size={35} color="white" />
                 </div>
                 <div className="flex gap-4">
                   <a
