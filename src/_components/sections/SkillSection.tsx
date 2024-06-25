@@ -13,7 +13,7 @@ export const SkillSection = () => {
           {"Mes compétences"}
         </h2>
         <div className="justify-center py-4 flex flex-col gap-8">
-          <div className="py-4 grid md:grid-cols-2  grid-cols-1 justify-center gap-2">
+          <div className="grid md:grid-cols-2  grid-cols-1 justify-center gap-2">
             <Card>
               <CardHeader>
                 <div className="flex justify-between items-center">
@@ -21,6 +21,13 @@ export const SkillSection = () => {
                   <TeamIcon size={40} color="white" />
                 </div>
               </CardHeader>
+              <CardContent>
+                <p>
+                  J&apos;apprécie grandement le travail d&apos;équipe et le
+                  partage de mes connaissances pour favoriser une croissance
+                  collective.
+                </p>
+              </CardContent>
             </Card>
             <Card>
               <CardHeader>
@@ -29,6 +36,12 @@ export const SkillSection = () => {
                   <PuzzleIcon size={40} color="white" />
                 </div>
               </CardHeader>
+              <CardContent>
+                <p>
+                  Je suis pleinement capable de m&apos;adapter rapidement à de
+                  nouvelles technologies et à des environnements variés.
+                </p>
+              </CardContent>
             </Card>
             <Card className="card md:col-span-2">
               <CardHeader>
@@ -37,6 +50,15 @@ export const SkillSection = () => {
                   <GlassIcon size={40} color="white" />
                 </div>
               </CardHeader>
+              <CardContent>
+                <p>
+                  Ma curiosité naturelle me pousse à explorer et à maîtriser de
+                  nouvelles technologies, enrichissant ainsi mes connaissances
+                  chaque jour. Cette soif d&apos;apprendre stimule mon
+                  développement professionnel continu et renforce ma capacité à
+                  innover.
+                </p>
+              </CardContent>
             </Card>
           </div>
         </div>
