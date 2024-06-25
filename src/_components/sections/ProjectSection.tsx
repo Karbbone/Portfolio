@@ -60,7 +60,7 @@ export const ProjectSection = () => {
               </div>
               <div className="flex-1 md:flex-[3] min-w-0">
                 <p>
-                  Pokémon studio est une application web qui permet de créée son
+                  Pokémon studio est une application web qui permet de créer son
                   propre jeu pokémon. Cet outil est totalement modulable ce qui
                   permet à l&apos;utilisateur de créer un jeu pokémon unique.
                 </p>
