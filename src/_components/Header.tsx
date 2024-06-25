@@ -1,5 +1,5 @@
 "use client";
-import { Section } from "./Section";
+import { Section } from "./sections/Section";
 import { useCallback } from "react";
 
 export const Header = () => {

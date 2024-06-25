@@ -1,54 +1,43 @@
 import React from "react";
-import { Section } from "@/_components/Section";
+import { Section } from "@/_components/sections/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import iutlogo from "../_components/iutvannes.png";
-import lyceelogo from "../_components/lycee.png";
+import mediamaglogo from "../mediamag.png";
 
-const schoolData = [
-  {
-    title: "BUT Informatique",
-    year: "2023/2024",
-    degree: "BAC +3",
-    description:
-      "Bachelor universitaire de technologie à l'IUT de Vannes en Alternance chez Médiamag Système",
-    logo: iutlogo,
-    alt: "iut-logo",
-    alignment: "md:justify-start",
-    margin: "md:pl-4 md:pr-28",
-  },
-  {
-    title: "DUT Informatique",
-    year: "2021/2023",
-    degree: "BAC +2",
-    description: "Diplôme universitaire de technologie à l'IUT de Vannes",
-    logo: iutlogo,
-    alt: "iut-logo",
-    alignment: "md:justify-end",
-    margin: "md:pl-28 md:pr-4",
-  },
-  {
-    title: "BAC Général",
-    year: "2020-2021",
-    degree: "",
-    description:
-      "Bac Général spécialité Informatique/Mathématiques option Mathématiques expertes au Lycée Marcelin Berthelot à Questembert",
-    logo: lyceelogo,
-    alt: "lycee-logo",
-    alignment: "md:justify-start",
-    margin: "md:pl-4 md:pr-28",
-  },
-];
+export const ExpSection = () => {
+  const expData = [
+    {
+      title: "Médiamag Système",
+      year: "2023/2024 Alternance",
+      tech: "React, Adonis, MySQL",
+      description:
+        "Développement d'une application web d'enregistrement d'audio (Web Services)",
+      logo: mediamaglogo,
+      alt: "iut-logo",
+      alignment: "md:justify-start",
+      margin: "md:pl-4 md:pr-28",
+    },
+    {
+      title: "Médiamag Système",
+      year: "2023 Stage + CDD",
+      tech: "React, Express, MySQL",
+      description:
+        "Développement d'une application web de gestion du système d'information (Web Services)",
+      logo: mediamaglogo,
+      alt: "iut-logo",
+      alignment: "md:justify-end",
+      margin: "md:pl-28 md:pr-4",
+    },
+  ];
 
-export const SchoolSection = () => {
   return (
     <Section className="my-9 flex items-center sm:items-start bg-background rounded border">
       <div className="flex-[2]">
         <h2 className="text-2xl font-caption font-bold text-center mt-2 mb-4">
-          {"Mon parcours scolaire"}
+          {"Mes expériences"}
         </h2>
-        <div className="justify-center h-full p-4 relative">
-          {schoolData.map((school, index) => (
+        <div className="justify-center h-full py-4 relative">
+          {expData.map((school, index) => (
             <div
               key={index}
               className={`w-full flex ${school.alignment} justify-center mb-16 md:mb-0 ${school.margin}`}
@@ -71,7 +60,7 @@ export const SchoolSection = () => {
                 </CardHeader>
                 <CardContent className="flex items-center justify-center">
                   <p>
-                    <span className="text-key font-bold">{school.degree}</span>{" "}
+                    <span className="text-key font-bold">{school.tech}</span>{" "}
                     <br />
                     {school.description}
                   </p>

@@ -1,11 +1,11 @@
 import React from "react";
-import { ReactIcon } from "./svg_icons/ReactIcon";
-import { JavaIcon } from "./svg_icons/JavaIcon";
-import { TsIcon } from "./svg_icons/TsIcon";
-import { MongoIcon } from "./svg_icons/MongoIcon";
-import { MysqlIcon } from "./svg_icons/MysqlIcon";
-import { Section } from "@/_components/Section";
-import { HeartIcon } from "./svg_icons/HeartIcon";
+import { ReactIcon } from "../svg_icons/ReactIcon";
+import { JavaIcon } from "../svg_icons/JavaIcon";
+import { TsIcon } from "../svg_icons/TsIcon";
+import { MongoIcon } from "../svg_icons/MongoIcon";
+import { MysqlIcon } from "../svg_icons/MysqlIcon";
+import { Section } from "@/_components/sections/Section";
+import { HeartIcon } from "../svg_icons/HeartIcon";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const TechSection = () => {

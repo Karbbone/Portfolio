@@ -9,8 +9,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { GithubIcon } from "./svg_icons/GithubIcon";
-import { LinkedinIcon } from "./svg_icons/LinkedinIcon";
+import { GithubIcon } from "../svg_icons/GithubIcon";
+import { LinkedinIcon } from "../svg_icons/LinkedinIcon";
 
 export const Hero = () => {
   return (

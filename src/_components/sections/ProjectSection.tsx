@@ -1,16 +1,16 @@
 import React from "react";
-import { Section } from "@/_components/Section";
+import { Section } from "@/_components/sections/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import pokemonStudio from "../_components/pokemonStudio.png";
-import pokemonStudioIcon from "../_components/pokemonStudioIcon.png";
-import todaysFlag from "../_components/todaysFlag.png";
-import todaysFlagIcon from "../_components/todaysFlagIcon.png";
+import pokemonStudio from "../pokemonStudio.png";
+import pokemonStudioIcon from "../pokemonStudioIcon.png";
+import todaysFlag from "../todaysFlag.png";
+import todaysFlagIcon from "../todaysFlagIcon.png";
 import Image from "next/image";
-import { GithubIcon } from "./svg_icons/GithubIcon";
-import { ReactIcon } from "./svg_icons/ReactIcon";
-import { TsIcon } from "./svg_icons/TsIcon";
-import { SassIcon } from "./svg_icons/SassIcon";
-import { LinkIcon } from "./svg_icons/LinkIcon";
+import { GithubIcon } from "../svg_icons/GithubIcon";
+import { ReactIcon } from "../svg_icons/ReactIcon";
+import { TsIcon } from "../svg_icons/TsIcon";
+import { SassIcon } from "../svg_icons/SassIcon";
+import { LinkIcon } from "../svg_icons/LinkIcon";
 
 export const ProjectSection = () => {
   return (
