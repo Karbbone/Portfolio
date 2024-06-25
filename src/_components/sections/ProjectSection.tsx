@@ -20,27 +20,19 @@ export const ProjectSection = () => {
         <h2 className="text-2xl font-caption font-bold text-center mt-2 mb-4">
           {"Mes projets"}
         </h2>
-        <div className="justify-center h-full py-4 flex flex-col gap-8">
-          <Card className="w-full">
+        <div className="justify-center py-4 flex flex-col gap-8">
+          <Card className="w-full h-full">
             <CardHeader>
-              <CardTitle className="overflow-hidden overflow-ellipsis text-xl justify-between items-center flex">
-                <div className="flex items-center gap-4">
-                  <div
-                    className="
-                  flex  items-center gap-2"
-                  >
-                    <Image
-                      src={pokemonStudioIcon}
-                      alt="pokemon-studio-icon"
-                      className="w-[40px] h-[40px]"
-                    />
-                    <span>Pokémon Studio</span>
-                  </div>
-                  <ReactIcon size={35} color="white" />
-                  <TsIcon size={35} color="white" />
-                  <ElectronIcon size={35} color="white" />
+              <CardTitle className="overflow-hidden text-xl justify-between items-center flex">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src={pokemonStudioIcon}
+                    alt="pokemon-studio-icon"
+                    className="w-[50px] h-[50px]"
+                  />
+                  <span>Pokémon Studio</span>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex items-center md:gap-6 gap-2">
                   <a
                     href="https://pokemonworkshop.com/fr/studio"
                     target="_blank"
@@ -58,48 +50,45 @@ export const ProjectSection = () => {
                 </div>
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex gap-8">
-              <div className="flex-[3]">
+            <CardContent className="flex flex-col md:flex-row gap-4 md:gap-8 min-w-0">
+              <div className="flex-1 md:flex-[3] min-w-0">
                 <Image
                   src={pokemonStudio}
                   alt="pokemon-studio"
-                  className="w-full h-auto"
+                  className="max-w-full h-auto object-contain"
                 />
               </div>
-              <div className="flex-[3]">
+              <div className="flex-1 md:flex-[3] min-w-0">
                 <p>
                   Pokémon studio est une application web qui permet de créée son
                   propre jeu pokémon. Cet outil est totalement modulable ce qui
-                  permet a l&apos;utilisateur de crée un jeu pokémon unique.
+                  permet à l&apos;utilisateur de créer un jeu pokémon unique.
                 </p>
                 <p className="mt-4">
                   Contribution sur mon temps libre au projet avec une équipe
                   organisée de manière agile, réunion de sprint et répartition
                   des tâches.
                 </p>
+                <div className="inline-flex gap-12 mt-4 border p-2">
+                  <ReactIcon size={35} color="white" />
+                  <TsIcon size={35} color="white" />
+                  <ElectronIcon size={35} color="white" />
+                </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="w-full">
+          <Card className="w-full h-full">
             <CardHeader>
-              <CardTitle className="overflow-hidden overflow-ellipsis text-xl justify-between items-center flex">
+              <CardTitle className="overflow-hidden text-xl justify-between items-center flex">
                 <div className="flex items-center gap-4">
-                  <div
-                    className="
-                  flex  items-center gap-3"
-                  >
-                    <Image
-                      src={todaysFlagIcon}
-                      alt="pokemon-studio-icon"
-                      className="w-[35px] h-[35px]"
-                    />
-                    <span>Today&apos;s Flag</span>
-                  </div>
-                  <ReactIcon size={35} color="white" />
-                  <TsIcon size={35} color="white" />
-                  <SassIcon size={35} color="white" />
+                  <Image
+                    src={todaysFlagIcon}
+                    alt="todays-flag-icon"
+                    className="w-[40px] h-[40px]"
+                  />
+                  <span>Today&apos;s Flag</span>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex items-center  md:gap-6 gap-2">
                   <a
                     href="https://todays-flag.vercel.app/"
                     target="_blank"
@@ -108,7 +97,7 @@ export const ProjectSection = () => {
                     <LinkIcon size={35} color="white" />
                   </a>
                   <a
-                    href="https://github.com/PokemonWorkshop/PokemonStudio"
+                    href="https://github.com/Karbbone/TodaysFlag"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -117,15 +106,15 @@ export const ProjectSection = () => {
                 </div>
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex gap-8">
-              <div className="flex-[3]">
+            <CardContent className="flex flex-col md:flex-row gap-4 md:gap-8 min-w-0">
+              <div className="flex-1 md:flex-[3] min-w-0">
                 <Image
                   src={todaysFlag}
                   alt="todays-flag"
-                  className="w-full h-auto"
+                  className="max-w-full h-auto object-contain"
                 />
               </div>
-              <div className="flex-[3]">
+              <div className="flex-1 md:flex-[3] min-w-0">
                 <p>
                   Today&apos;s Flag est une application web qui permet de
                   deviner le pays se cachant derrière un drapeau chaque jour. En
@@ -136,6 +125,11 @@ export const ProjectSection = () => {
                 <p className="mt-4">
                   Projet 100% personnel, réalisé sur mon temps libre.
                 </p>
+                <div className="inline-flex gap-12 mt-4 border p-2">
+                  <ReactIcon size={35} color="white" />
+                  <TsIcon size={35} color="white" />
+                  <SassIcon size={35} color="white" />
+                </div>
               </div>
             </CardContent>
           </Card>
