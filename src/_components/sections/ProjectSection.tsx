@@ -15,7 +15,7 @@ import { ElectronIcon } from "../svg_icons/ElectronIcon";
 
 export const ProjectSection = () => {
   return (
-    <Section className="my-9 flex items-center sm:items-start bg-background rounded border">
+    <Section className="my-9 flex items-center sm:items-start">
       <div className="flex-[2]">
         <h2 className="text-2xl font-caption font-bold text-center mt-2 mb-4">
           {"Mes projets"}

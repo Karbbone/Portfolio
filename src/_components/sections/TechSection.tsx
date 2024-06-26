@@ -33,7 +33,7 @@ export const TechSection = () => {
   ];
 
   return (
-    <Section className="my-9 flex  items-center sm:items-start bg-background rounded border">
+    <Section className="my-9 flex  items-center sm:items-start">
       <div className="flex-[2]">
         <div className="flex justify-center items-center gap-3 mt-2 mb-4">
           <h2 className="text-2xl font-caption font-bold text-center">
@@ -43,7 +43,13 @@ export const TechSection = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-4 md:justify-center py-4">
           {techs.map((tech) => (
-            <Card key={tech.name} className="md:w-1/6">
+            <Card
+              key={tech.name}
+              className="md:w-1/6"
+              style={{
+                boxShadow: "0 2px 5px 0px hsl(142, 67%, 58%)",
+              }}
+            >
               <CardHeader>
                 <CardTitle className="overflow-hidden overflow-ellipsis">
                   {tech.name}
