@@ -1,53 +1,77 @@
-import React, { FormEvent, useState } from "react";
+import React from "react";
 import { Section } from "@/_components/sections/Section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-interface Mail {
-  société: string;
-  email: string;
-  tel: string;
-  message: string;
-}
+import { useForm } from "@formspree/react";
+import toast, { Toaster } from "react-hot-toast";
+
 export const MailSection = () => {
-  const [mail, setMail] = useState<Mail>({
-    société: "",
-    email: "",
-    tel: "",
-    message: "",
-  });
+  const [state, handleSubmit] = useForm("TOKKEN ENV FORMSPREE");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("mail");
-  };
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const loadingToast = toast.loading("Envoi en cours...", {
+      style: {
+        background: "#333",
+        color: "#fff",
+      },
+    });
 
-  const handleChange = (e: { target: { id: any; value: any } }) => {
-    const { id, value } = e.target;
-    setMail((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
+    try {
+      await handleSubmit(event);
+      toast.dismiss(loadingToast);
+      if (state.errors) {
+        toast.error("Une erreur est survenue, veuillez réessayer.", {
+          icon: "❌",
+          style: {
+            background: "#333",
+            color: "#fff",
+          },
+          duration: 4000,
+          position: "top-center",
+        });
+      }
+      toast("Message envoyé avec succès !", {
+        icon: "✅",
+        style: {
+          background: "#333",
+          color: "#fff",
+        },
+        duration: 4000,
+        position: "top-center",
+      });
+    } catch (error) {
+      toast.dismiss(loadingToast);
+      toast.error("Une erreur est survenue, veuillez réessayer.", {
+        style: {
+          background: "#333",
+          color: "#fff",
+        },
+        duration: 4000,
+        position: "top-center",
+      });
+    }
   };
 
   return (
     <Section className="my-9 flex items-center sm:items-start bg-background rounded border">
+      <Toaster />
       <div className="flex-[2]">
         <h2 className="text-2xl font-caption font-bold text-center mt-2 mb-4">
-          {"Me contacter"}
+          Me contacter
         </h2>
         <div className="justify-center py-4 flex flex-col gap-8">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={onSubmit}>
             <div className="flex flex-col md:flex-row gap-8">
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="société">Société</Label>
                 <Input
                   type="text"
+                  name="société"
                   id="société"
                   placeholder="Société"
-                  value={mail.société}
-                  onChange={handleChange}
                 />
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -55,9 +79,8 @@ export const MailSection = () => {
                 <Input
                   type="email"
                   id="email"
+                  name="email"
                   placeholder="exemple@exemple.com"
-                  value={mail.email}
-                  onChange={handleChange}
                 />
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -65,10 +88,9 @@ export const MailSection = () => {
                 <Input
                   type="tel"
                   id="tel"
+                  name="tel"
                   maxLength={10}
                   placeholder="06 00 00 00 00"
-                  value={mail.tel}
-                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -77,11 +99,10 @@ export const MailSection = () => {
               <Textarea
                 id="message"
                 placeholder="Votre message."
-                value={mail.message}
-                onChange={handleChange}
+                name="message"
               ></Textarea>
             </div>
-            <Button type="submit" className="w-28">
+            <Button type="submit" disabled={state.submitting} className="w-28">
               Envoyer
             </Button>
           </form>
