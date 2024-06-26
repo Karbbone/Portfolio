@@ -14,7 +14,7 @@ import { LinkedinIcon } from "../svg_icons/LinkedinIcon";
 
 export const Hero = () => {
   return (
-    <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start">
+    <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border ">
       <div className="flex-[2] text-center pt-10 pb-4">
         <div className="flex flex-col items-center">
           <h1 className="text-6xl mb-3 italic text-gray-200">

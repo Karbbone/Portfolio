@@ -33,7 +33,7 @@ export const TechSection = () => {
   ];
 
   return (
-    <Section className="my-9 flex  items-center sm:items-start">
+    <Section className="my-9 flex  items-center sm:items-start bg-background rounded border">
       <div className="flex-[2]">
         <div className="flex justify-center items-center gap-3 mt-2 mb-4">
           <h2 className="text-2xl font-caption font-bold text-center">
