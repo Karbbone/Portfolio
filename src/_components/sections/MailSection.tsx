@@ -8,7 +8,7 @@ import { useForm } from "@formspree/react";
 import toast, { Toaster } from "react-hot-toast";
 
 export const MailSection = () => {
-  const [state, handleSubmit] = useForm("TOKKEN ENV FORMSPREE");
+  const [state, handleSubmit] = useForm("xeojjnzv");
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,6 +32,7 @@ export const MailSection = () => {
           duration: 4000,
           position: "top-center",
         });
+        return;
       }
       toast("Message envoyé avec succès !", {
         icon: "✅",
