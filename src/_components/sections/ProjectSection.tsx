@@ -1,9 +1,9 @@
 import React from "react";
 import { Section } from "@/_components/sections/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import pokemonStudio from "../pokemonStudio.png";
+import pokemonStudio from "../pokemonStudioPic.png";
 import pokemonStudioIcon from "../pokemonStudioIcon.png";
-import todaysFlag from "../todaysFlag.png";
+import todaysFlag from "../todaysFlagPic.png";
 import todaysFlagIcon from "../todaysFlagIcon.png";
 import Image from "next/image";
 import { LinkIcon } from "../svg_icons/LinkIcon";
