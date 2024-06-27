@@ -7,8 +7,10 @@ import { MysqlIcon } from "../svg_icons/MysqlIcon";
 import { Section } from "@/_components/sections/Section";
 import { HeartIcon } from "../svg_icons/HeartIcon";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTheme } from "next-themes";
 
 export const TechSection = () => {
+  const { theme } = useTheme();
   const techs = [
     {
       name: "React",
@@ -39,7 +41,7 @@ export const TechSection = () => {
           <h2 className="text-2xl font-caption font-bold text-center">
             {"Mes technologies de"}
           </h2>
-          <HeartIcon size={32} color="white" />
+          <HeartIcon size={32} color={theme == "dark" ? "white" : "black"} />
         </div>
         <div className="flex flex-col md:flex-row gap-6 md:justify-center py-4">
           {techs.map((tech) => (
@@ -56,7 +58,11 @@ export const TechSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex items-center justify-center">
-                <tech.Logo size={56} color="white" className="w-12 h-12" />
+                <tech.Logo
+                  size={56}
+                  color={theme == "dark" ? "white" : "black"}
+                  className="w-12 h-12"
+                />
               </CardContent>
             </Card>
           ))}

@@ -12,8 +12,10 @@ import { ReactIcon } from "../svg_icons/ReactIcon";
 import { TsIcon } from "../svg_icons/TsIcon";
 import { SassIcon } from "../svg_icons/SassIcon";
 import { ElectronIcon } from "../svg_icons/ElectronIcon";
-
+import { useTheme } from "next-themes";
 export const ProjectSection = () => {
+  const { theme } = useTheme();
+
   return (
     <Section className="my-9 flex items-center sm:items-start bg-background rounded border">
       <div className="flex-[2]">
@@ -38,14 +40,20 @@ export const ProjectSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkIcon size={35} color="white" />
+                    <LinkIcon
+                      size={35}
+                      color={theme == "dark" ? "white" : "black"}
+                    />
                   </a>
                   <a
                     href="https://github.com/PokemonWorkshop/PokemonStudio"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <GithubIcon size={35} color="white" />
+                    <GithubIcon
+                      size={35}
+                      color={theme == "dark" ? "white" : "black"}
+                    />
                   </a>
                 </div>
               </CardTitle>
@@ -70,9 +78,18 @@ export const ProjectSection = () => {
                   des tâches.
                 </p>
                 <div className="inline-flex gap-12 mt-4 border p-2">
-                  <ReactIcon size={35} color="white" />
-                  <TsIcon size={35} color="white" />
-                  <ElectronIcon size={35} color="white" />
+                  <ReactIcon
+                    size={35}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
+                  <TsIcon
+                    size={35}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
+                  <ElectronIcon
+                    size={35}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
                 </div>
               </div>
             </CardContent>
@@ -94,14 +111,20 @@ export const ProjectSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkIcon size={35} color="white" />
+                    <LinkIcon
+                      size={35}
+                      color={theme == "dark" ? "white" : "black"}
+                    />
                   </a>
                   <a
                     href="https://github.com/Karbbone/TodaysFlag"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <GithubIcon size={35} color="white" />
+                    <GithubIcon
+                      size={35}
+                      color={theme == "dark" ? "white" : "black"}
+                    />
                   </a>
                 </div>
               </CardTitle>
@@ -126,9 +149,18 @@ export const ProjectSection = () => {
                   Projet 100% personnel, réalisé sur mon temps libre.
                 </p>
                 <div className="inline-flex gap-12 mt-4 border p-2">
-                  <ReactIcon size={35} color="white" />
-                  <TsIcon size={35} color="white" />
-                  <SassIcon size={35} color="white" />
+                  <ReactIcon
+                    size={35}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
+                  <TsIcon
+                    size={35}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
+                  <SassIcon
+                    size={35}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
                 </div>
               </div>
             </CardContent>

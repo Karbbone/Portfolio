@@ -11,13 +11,15 @@ import {
 } from "@/components/ui/tooltip";
 import { GithubIcon } from "../svg_icons/GithubIcon";
 import { LinkedinIcon } from "../svg_icons/LinkedinIcon";
+import { useTheme } from "next-themes";
 
 export const Hero = () => {
+  const { theme } = useTheme();
   return (
     <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border ">
       <div className="flex-[2] text-center pt-10 pb-4">
         <div className="flex flex-col items-center">
-          <h1 className="text-6xl mb-3 italic text-gray-200">
+          <h1 className="text-6xl mb-3 italic text-foreground">
             Clément Maillet
           </h1>
         </div>
@@ -55,7 +57,10 @@ export const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <GithubIcon size={40} color="white" />
+                  <GithubIcon
+                    size={40}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
                 </a>
               </TooltipTrigger>
               <TooltipContent>
@@ -66,7 +71,10 @@ export const Hero = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <LinkedinIcon size={40} color="white" />
+                <LinkedinIcon
+                  size={40}
+                  color={theme == "dark" ? "white" : "black"}
+                />
               </TooltipTrigger>
               <TooltipContent>
                 <p>Visite mon Linkedin !</p>

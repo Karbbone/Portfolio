@@ -3,6 +3,7 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { Nunito } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/_components/ThemeProvider";
 
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-caption" });
 
@@ -19,10 +20,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={cn(GeistSans.variable, nunito.variable, "font-sans h-full")}
+        className={cn(
+          GeistSans.variable,
+          nunito.variable,
+          "font-sans h-full bg-body"
+        )}
         id="body"
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlassIcon } from "../svg_icons/GlassIcon";
 import { TeamIcon } from "../svg_icons/TeamIcon";
 import { PuzzleIcon } from "../svg_icons/PuzzleIcon";
+import { useTheme } from "next-themes";
 
 const skills = [
   {
@@ -31,6 +32,7 @@ const skills = [
 ];
 
 export const SkillSection = () => {
+  const { theme } = useTheme();
   return (
     <Section className="my-9 flex items-center sm:items-start bg-background rounded border">
       <div className="flex-[2]">
@@ -48,7 +50,10 @@ export const SkillSection = () => {
                 <CardHeader>
                   <div className="flex justify-between items-center">
                     <CardTitle>{title}</CardTitle>
-                    <Icon size={40} color="white" />
+                    <Icon
+                      size={40}
+                      color={theme == "dark" ? "white" : "black"}
+                    />
                   </div>
                 </CardHeader>
                 <CardContent>

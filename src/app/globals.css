@@ -11,6 +11,7 @@ h1,
 
 @layer base {
   :root {
+    --background-body: 0 0% 5%;
     --background: 0 0% 12%;
     --foreground: 210 17% 82%;
     --muted: 216 12% 15%;
@@ -34,8 +35,34 @@ h1,
     --key: 142, 67%, 58%;
   }
 
+  .light {
+    --background-body: 0 0% 100%;
+    --background: 0 0% 95%;
+    --foreground: 0 0% 18%;
+    --muted: 0 12% 90%;
+    --muted-foreground: 0 12% 30%;
+    --popover: 0 0% 95%;
+    --popover-foreground: 0 0% 8%;
+    --card: 0 0% 90%;
+    --card-foreground: 0 0% 13%;
+    --border: 0 0% 93%;
+    --input: 0 0% 90%;
+    --primary: 174 42% 65%;
+    --primary-foreground: 174 42% 5%;
+    --secondary: 174 30% 25%;
+    --secondary-foreground: 174 30% 85%;
+    --accent: 0 0% 83%;
+    --accent-foreground: 0 0% 23%;
+    --destructive: 6 83% 36%;
+    --destructive-foreground: 6 83% 96%;
+    --ring: 174 42% 65%;
+    --radius: 0.5rem;
+    --key: 142, 67%, 40%;
+  }
+
   .dark {
-    --background: 216 28% 7%;
+    --background-body: 0 0% 5%;
+    --background: 0 0% 12%;
     --foreground: 210 17% 82%;
     --muted: 216 12% 15%;
     --muted-foreground: 216 12% 65%;
@@ -43,8 +70,8 @@ h1,
     --popover-foreground: 210 17% 92%;
     --card: 216 28% 5%;
     --card-foreground: 210 17% 87%;
-    --border: 216 18% 12%;
-    --input: 216 18% 15%;
+    --border: 0 0% 20%;
+    --input: 0 0% 40%;
     --primary: 210 17% 82%;
     --primary-foreground: 210 17% 22%;
     --secondary: 210 7% 25%;
@@ -54,7 +81,8 @@ h1,
     --destructive: 1 86% 57%;
     --destructive-foreground: 0 0% 100%;
     --ring: 210 17% 82%;
-    --key: hsl(142, 67%, 58%);
+    --radius: 0.5rem;
+    --key: 142, 67%, 58%;
   }
 }
 
@@ -73,5 +101,5 @@ h1,
   background-repeat: repeat;
   background-size: 200px 200px;
   background-position: 20% 10%; */
-  background-color: #0c0c0c;
+  /* background-color: #0c0c0c; */
 }

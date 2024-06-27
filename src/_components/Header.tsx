@@ -1,20 +1,15 @@
 "use client";
 import { Section } from "./sections/Section";
 import { useCallback, useState } from "react";
+import { ModeToggle } from "@/_components/ModeToggle";
 
 export const Header = () => {
-  const [theme, setTheme] = useState("dark");
-
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }, []);
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   return (
     <header className="sticky z-50 top-0 bg-background">
@@ -26,12 +21,7 @@ export const Header = () => {
         >
           Clément.M
         </a>
-        <div
-          className="cursor-pointer select-none"
-          onClick={() => toggleTheme()}
-        >
-          <span>{theme === "light" ? "🌙" : "🌞"}</span>
-        </div>
+        <ModeToggle />
       </Section>
     </header>
   );
