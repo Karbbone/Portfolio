@@ -1,7 +1,5 @@
 "use client";
 import { Section } from "./Section";
-import linkedin from "./linkedin-icon.svg";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -11,6 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { GithubIcon } from "../svg_icons/GithubIcon";
 import { LinkedinIcon } from "../svg_icons/LinkedinIcon";
+import { NameIcon } from "../svg_icons/NameIcon";
 import { useTheme } from "next-themes";
 
 export const Hero = () => {
@@ -18,10 +17,11 @@ export const Hero = () => {
   return (
     <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border ">
       <div className="flex-[2] text-center pt-10 pb-4">
-        <div className="flex flex-col items-center">
-          <h1 className="text-6xl mb-3 italic text-foreground">
-            Clément Maillet
-          </h1>
+        <div className="flex flex-col items-center mb-8">
+          <NameIcon
+            width={500}
+            color={theme == "dark" ? "white" : "black"}
+          ></NameIcon>
         </div>
         <h1 className="text-3xl font-caption mb-3">20 ans</h1>
         <div className="h-100">
