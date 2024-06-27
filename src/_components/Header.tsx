@@ -12,7 +12,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="sticky z-50 top-0 bg-background">
+    <header className="sticky z-50 top-0 bg-background border-b border-b-4">
       <Section className="flex items-center justify-between">
         <a
           id="header-name"

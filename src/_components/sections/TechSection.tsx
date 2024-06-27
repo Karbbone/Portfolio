@@ -38,7 +38,7 @@ export const TechSection = () => {
     <Section className="my-9 flex  items-center sm:items-start bg-background rounded border">
       <div className="flex-[2]">
         <div className="flex justify-center items-center gap-3 mt-2 mb-4">
-          <h2 className="text-2xl font-caption font-bold text-center">
+          <h2 className="text-3xl font-caption font-bold text-center text-key">
             {"Mes technologies de"}
           </h2>
           <HeartIcon size={32} color={theme == "dark" ? "white" : "black"} />
