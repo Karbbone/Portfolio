@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-caption" });
 
 export const metadata: Metadata = {
-  title: "Clement Maillet",
+  title: "Clément Maillet",
   description: "Portfolio de Clément Maillet",
 };
 
