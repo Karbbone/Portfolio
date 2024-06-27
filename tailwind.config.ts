@@ -28,6 +28,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         body: "hsl(var(--background-body))",
+        icon: "hsl(var(--icon))",
         foreground: "hsl(var(--foreground))",
         key: "hsl(var(--key))",
         primary: {

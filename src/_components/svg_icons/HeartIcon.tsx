@@ -5,7 +5,7 @@ export const HeartIcon = (
 ) => {
   return (
     <svg
-      fill={props.color}
+      className="fill-icon"
       width={props.size}
       height={props.size}
       viewBox="0 0 24 24"

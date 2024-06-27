@@ -57,10 +57,7 @@ export const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <GithubIcon
-                    size={40}
-                    color={theme == "dark" ? "white" : "black"}
-                  />
+                  <GithubIcon size={40} />
                 </a>
               </TooltipTrigger>
               <TooltipContent>

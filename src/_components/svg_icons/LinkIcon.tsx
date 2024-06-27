@@ -11,13 +11,13 @@ export const LinkIcon = (
       height={props.size}
       viewBox="0 0 1280.000000 1280.000000"
       preserveAspectRatio="xMidYMid meet"
+      className="fill-icon"
     >
       <metadata>
         Created by potrace 1.15, written by Peter Selinger 2001-2017
       </metadata>
       <g
         transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-        fill={props.color}
         stroke="none"
       >
         <path
