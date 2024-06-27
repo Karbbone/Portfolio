@@ -1,4 +1,5 @@
 "use client";
+import { useCallback } from "react";
 import { Section } from "./Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +14,13 @@ import { NameIcon } from "../svg_icons/NameIcon";
 import { useTheme } from "next-themes";
 
 export const Hero = () => {
+  const toContact = useCallback(() => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  }, []);
+
   const { theme } = useTheme();
   return (
     <Section className="my-9 flex flex-col items-center sm:flex-row sm:items-start bg-background rounded border ">
@@ -41,7 +49,7 @@ export const Hero = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button>EMAIL</Button>
+                <Button onClick={(e) => toContact()}>Me contacter</Button>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Contact moi !</p>
