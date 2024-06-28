@@ -28,6 +28,7 @@ export const Hero = () => {
         <div className="flex flex-col items-center mb-8">
           <div className="w-full sm:w-[75%] md:w-[60%]">
             <NameIcon></NameIcon>
+            <div className="h-2 bg-key mt-3 line-name w-[0%]"></div>
           </div>
         </div>
         <h1 className="text-3xl font-caption mb-3">20 ans</h1>

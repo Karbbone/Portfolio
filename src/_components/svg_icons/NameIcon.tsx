@@ -16,6 +16,7 @@ export const NameIcon = (
         const paths = svgRef.current.querySelectorAll(
           ".path"
         ) as NodeListOf<SVGPathElement>;
+        svgRef.current.classList.remove("hidden");
         paths.forEach((path, index) => {
           const length = path.getTotalLength();
           path.style.strokeDasharray = `${length}px`;
@@ -32,7 +33,24 @@ export const NameIcon = (
         });
       }
     };
+    const animationLine = () => {
+      const lines = document.querySelectorAll(
+        ".line-name"
+      ) as NodeListOf<HTMLDivElement>;
+      lines.forEach((line, index) => {
+        setTimeout(() => {
+          anime({
+            targets: line,
+            width: ["0%", "100%"],
+            duration: 700,
+            easing: "linear",
+          });
+        }, 3000);
+      });
+    };
+
     animatePaths();
+    animationLine();
   }, []);
 
   return (
@@ -42,7 +60,7 @@ export const NameIcon = (
       height={props.height}
       viewBox="0 0 811.5 113.401"
       xmlns="http://www.w3.org/2000/svg"
-      className="fill-transparent stroke-icon"
+      className="fill-transparent stroke-icon hidden"
     >
       <g
         id="svgGroup"
