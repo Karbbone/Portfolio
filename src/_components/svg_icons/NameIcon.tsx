@@ -42,14 +42,14 @@ export const NameIcon = (
       height={props.height}
       viewBox="0 0 811.5 113.401"
       xmlns="http://www.w3.org/2000/svg"
-      className="fill-transparant stroke-icon"
+      className="fill-transparent stroke-icon"
     >
       <g
         id="svgGroup"
         stroke-linecap="round"
         fill-rule="evenodd"
         font-size="9pt"
-        strokeWidth="3px" // Converti de mm à px, ajustez selon votre besoin
+        strokeWidth="3px"
       >
         <path
           className="path"
