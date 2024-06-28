@@ -1,0 +1,40 @@
+#github-icon {
+  transition: transform 0.4s ease-in-out;
+}
+
+#github-icon:hover {
+  transform: scale(1.2);
+}
+
+#linkedin-icon {
+  transition: transform 0.4s ease-in-out;
+}
+
+#linkedin-icon:hover {
+  transform: scale(1.2);
+}
+
+@keyframes slideBackground {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  color: white; /* Assurez-vous que le texte reste lisible */
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, var(--key) 50%, #fff 50%);
+  transition: background-position 0.5s, color 0.5s; /* Transition douce */
+  animation: slideBackground 3s ease-in-out infinite alternate;
+}
+
+.button:hover {
+  background-position: 100% 50%;
+  color: #000; /* Changez la couleur du texte au survol si nécessaire */
+}

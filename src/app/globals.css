@@ -1,13 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+US+Trad:wght@100..400&display=swap");
-
-h1,
-#header-name {
-  font-family: "Playwrite US Trad";
-  font-weight: 400;
-}
+@import url("./animation.css");
 
 @layer base {
   .light {
@@ -34,6 +28,7 @@ h1,
     --ring: 174 42% 65%;
     --radius: 0.5rem;
     --key: 142, 67%, 40%;
+    --key-button: 142, 67%, 40%;
   }
 
   .dark {
@@ -60,6 +55,7 @@ h1,
     --ring: 210 17% 82%;
     --radius: 0.5rem;
     --key: 142, 67%, 58%;
+    --key-button: 142, 67%, 40%;
   }
 }
 

@@ -103,9 +103,15 @@ export const MailSection = () => {
                 name="message"
               ></Textarea>
             </div>
-            <Button type="submit" disabled={state.submitting} className="w-28">
-              Envoyer
-            </Button>
+            <div className="text-right">
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="w-28 px-6 py-2 text-white bg-keybutton rounded transition-all duration-300 ease-in-out hover:brightness-[0.88]"
+              >
+                Envoyer
+              </button>
+            </div>
           </form>
         </div>
       </div>

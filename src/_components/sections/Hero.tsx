@@ -47,17 +47,22 @@ export const Hero = () => {
           &nbsp;
         </p>
         <div className="mt-10 gap-10 flex items-center justify-center">
-          <TooltipProvider>
+          <TooltipProvider delayDuration={200}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button onClick={(e) => toContact()}>Me contacter</Button>
+                <button
+                  className="px-6 py-2 text-white bg-keybutton rounded transition-all duration-300 ease-in-out hover:brightness-[0.88]"
+                  onClick={(e) => toContact()}
+                >
+                  Me contacter
+                </button>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Contact moi !</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <TooltipProvider>
+          <TooltipProvider delayDuration={200}>
             <Tooltip>
               <TooltipTrigger>
                 <a
@@ -73,7 +78,7 @@ export const Hero = () => {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <TooltipProvider>
+          <TooltipProvider delayDuration={200}>
             <Tooltip>
               <TooltipTrigger>
                 <LinkedinIcon

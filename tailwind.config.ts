@@ -29,6 +29,7 @@ const config = {
         background: "hsl(var(--background))",
         body: "hsl(var(--background-body))",
         icon: "hsl(var(--icon))",
+        keybutton: "hsl(var(--key-button))",
         foreground: "hsl(var(--foreground))",
         key: "hsl(var(--key))",
         primary: {
