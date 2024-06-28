@@ -17,8 +17,12 @@ export const Header = () => {
   return (
     <header className="sticky z-50 top-0 bg-background border-b border-b-4">
       <Section className="flex items-center justify-between">
-        <a onClick={scrollToTop} className="cursor-pointer select-none p-2">
+        <a
+          onClick={scrollToTop}
+          className="cursor-pointer select-none p-2 transition-transform duration-500 hover:scale-110"
+        >
           <NameDotIcon
+            className=""
             id="header-name"
             width={120}
             color={theme == "dark" ? "white" : "black"}
