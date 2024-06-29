@@ -34,23 +34,23 @@ export const ProjectSection = () => {
                   />
                   <span>Pokémon Studio</span>
                 </div>
-                <div className="flex items-center md:gap-6 gap-2">
-                  <a
-                    href="https://pokemonworkshop.com/fr/studio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkIcon
-                      size={35}
-                      color={theme == "dark" ? "white" : "black"}
-                    />
-                  </a>
+                <div className="flex items-center md:gap-6 gap-2 px-4">
                   <a
                     href="https://github.com/PokemonWorkshop/PokemonStudio"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <GithubIcon
+                      size={35}
+                      color={theme == "dark" ? "white" : "black"}
+                    />
+                  </a>
+                  <a
+                    href="https://pokemonworkshop.com/fr/studio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkIcon
                       size={35}
                       color={theme == "dark" ? "white" : "black"}
                     />
@@ -105,23 +105,23 @@ export const ProjectSection = () => {
                   />
                   <span>Today&apos;s Flag</span>
                 </div>
-                <div className="flex items-center  md:gap-6 gap-2">
-                  <a
-                    href="https://todays-flag.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkIcon
-                      size={35}
-                      color={theme == "dark" ? "white" : "black"}
-                    />
-                  </a>
+                <div className="flex items-center  md:gap-6 gap-2 px-4">
                   <a
                     href="https://github.com/Karbbone/TodaysFlag"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <GithubIcon
+                      size={35}
+                      color={theme == "dark" ? "white" : "black"}
+                    />
+                  </a>
+                  <a
+                    href="https://todays-flag.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkIcon
                       size={35}
                       color={theme == "dark" ? "white" : "black"}
                     />

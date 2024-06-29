@@ -14,6 +14,14 @@
   transform: scale(1.2);
 }
 
+#link-icon {
+  transition: transform 0.4s ease-in-out;
+}
+
+#link-icon:hover {
+  transform: scale(1.2);
+}
+
 @keyframes slideBackground {
   from {
     background-position: 0% 50%;
