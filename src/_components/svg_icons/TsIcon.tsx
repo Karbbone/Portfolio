@@ -1,7 +1,11 @@
 import React, { ComponentPropsWithoutRef } from "react";
 
 export const TsIcon = (
-  props: ComponentPropsWithoutRef<"svg"> & { size?: number; color?: string }
+  props: ComponentPropsWithoutRef<"svg"> & {
+    size?: number;
+    color?: string;
+    animation?: boolean;
+  }
 ) => {
   return (
     <svg
@@ -11,6 +15,7 @@ export const TsIcon = (
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
+      className={props.animation ? "ts-icon" : ""}
     >
       <title>TypeScript</title>
       <g>

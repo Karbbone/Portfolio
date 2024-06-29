@@ -61,6 +61,7 @@ export const TechSection = () => {
                 <tech.Logo
                   size={56}
                   color={theme == "dark" ? "white" : "black"}
+                  animation={true}
                   className="w-12 h-12"
                 />
               </CardContent>

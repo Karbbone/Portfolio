@@ -9,8 +9,7 @@ export const LinkIcon = (
       height={props.size}
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
-      className="fill-icon"
-      id="link-icon"
+      className="fill-icon link-icon"
     >
       <path
         fill-rule="evenodd"
