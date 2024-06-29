@@ -30,6 +30,18 @@
   animation: balanceIcon 1.5s ease-in-out infinite alternate;
 }
 
+.mysql-icon {
+  animation: rotateAndTranslateDophin 1.5s ease-in-out infinite alternate;
+}
+
+.mongo-icon {
+  animation: balanceIcon 1.5s ease-in-out infinite alternate;
+}
+
+.java-icon {
+  animation: redJavaAnimation 2s ease-in-out infinite alternate;
+}
+
 @keyframes rotateIcon {
   from {
     transform: rotate(0deg);
@@ -45,5 +57,24 @@
   }
   to {
     transform: rotate(10deg);
+  }
+}
+
+@keyframes redJavaAnimation {
+  from {
+    transform: translateX(8px) translateY(14px);
+  }
+  to {
+    transform: translateX(-8px) translateY(-10px);
+    fill: red;
+  }
+}
+
+@keyframes rotateAndTranslateDophin {
+  from {
+    transform: rotate(0deg) translateX(20px);
+  }
+  to {
+    transform: rotate(-30deg) translateX(-10px);
   }
 }

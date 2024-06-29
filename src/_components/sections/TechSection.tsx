@@ -57,7 +57,7 @@ export const TechSection = () => {
                   {tech.name}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex items-center justify-center">
+              <CardContent className="flex items-center justify-center mt-2">
                 <tech.Logo
                   size={56}
                   color={theme == "dark" ? "white" : "black"}
