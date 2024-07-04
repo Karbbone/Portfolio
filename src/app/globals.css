@@ -5,6 +5,8 @@
 
 @layer base {
   .light {
+    --text-toast: 0, 0%, 20%;
+    --background-toast: 0, 0%, 100%;
     --icon: 0 0% 0%;
     --background-body: 0 0% 100%;
     --background: 0 0% 95%;
@@ -32,6 +34,8 @@
   }
 
   .dark {
+    --text-toast: 0, 0%, 100%;
+    --background-toast: 0, 0%, 20%;
     --icon: 0 0% 100%;
     --background-body: 0 0% 5%;
     --background: 0 0% 12%;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Section } from "@/_components/sections/Section";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,56 +8,60 @@ import toast, { Toaster } from "react-hot-toast";
 
 export const MailSection = () => {
   const [state, handleSubmit] = useForm("xeojjnzv");
+  const refTel = React.useRef<HTMLInputElement>(null);
+  const refEmail = React.useRef<HTMLInputElement>(null);
+  const refMessage = React.useRef<HTMLTextAreaElement>(null);
+  const refSociete = React.useRef<HTMLInputElement>(null);
+  const handleTelInput = (e: React.FormEvent<HTMLInputElement>) => {
+    const input = e.currentTarget;
+    input.value = input.value.replace(/\D/g, "");
+  };
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const loadingToast = toast.loading("Envoi en cours...", {
-      style: {
-        background: "#333",
-        color: "#fff",
-      },
-    });
-
-    try {
-      await handleSubmit(event);
-      toast.dismiss(loadingToast);
-      if (state.errors) {
-        toast.error("Une erreur est survenue, veuillez réessayer.", {
-          icon: "❌",
-          style: {
-            background: "#333",
-            color: "#fff",
-          },
-          duration: 4000,
-          position: "top-center",
-        });
-        return;
+    if ((event.target as HTMLFormElement).checkValidity()) {
+      try {
+        await handleSubmit(event);
+        if (state.errors) {
+          toast.custom((t) => (
+            <div className="bg-toast p-3 border border-gray-200 rounded-lg shadow-lg text-white text-center flex gap-2 items-center text-texttoast">
+              <span>❌</span>
+              Une erreur est survenue, veuillez réessayer.
+            </div>
+          ));
+        } else {
+          toast.custom((t) => (
+            <div className="bg-toast p-3 border border-gray-200 rounded-lg shadow-lg text-white text-center flex gap-2 items-center text-texttoast">
+              <span>✅</span>
+              Message envoyé avec succès !
+            </div>
+          ));
+          if (refTel.current) refTel.current.value = "";
+          if (refEmail.current) refEmail.current.value = "";
+          if (refMessage.current) refMessage.current.value = "";
+          if (refSociete.current) refSociete.current.value = "";
+        }
+      } catch (error) {
+        toast.custom((t) => (
+          <div className="bg-toast p-3 border border-gray-200 rounded-lg shadow-lg text-white text-center flex gap-2 items-center text-texttoast">
+            <span>❌</span>
+            Une erreur est survenue, veuillez réessayer.
+          </div>
+        ));
       }
-      toast("Message envoyé avec succès !", {
-        icon: "✅",
-        style: {
-          background: "#333",
-          color: "#fff",
-        },
-        duration: 4000,
-        position: "top-center",
-      });
-    } catch (error) {
-      toast.dismiss(loadingToast);
-      toast.error("Une erreur est survenue, veuillez réessayer.", {
-        style: {
-          background: "#333",
-          color: "#fff",
-        },
-        duration: 4000,
-        position: "top-center",
-      });
+    } else {
+      toast.custom((t) => (
+        <div className="bg-toast p-3 border border-gray-200 rounded-lg shadow-lg text-white text-center flex gap-2 items-center text-texttoast">
+          <span>❌</span>
+          Veuillez remplir correctement tous les champs.
+        </div>
+      ));
     }
   };
 
   return (
     <Section className="my-9 flex items-center sm:items-start bg-background rounded border">
-      <Toaster />
+      <Toaster position="top-right" />
       <div className="flex-[2]">
         <h2 className="text-3xl font-caption font-bold text-center mt-2 mb-4 text-key">
           Me contacter
@@ -73,6 +76,11 @@ export const MailSection = () => {
                   name="société"
                   id="société"
                   placeholder="Société"
+                  minLength={2}
+                  maxLength={50}
+                  required
+                  className="input-class"
+                  ref={refSociete}
                 />
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -82,6 +90,9 @@ export const MailSection = () => {
                   id="email"
                   name="email"
                   placeholder="exemple@exemple.com"
+                  required
+                  className="input-class"
+                  ref={refEmail}
                 />
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -91,7 +102,12 @@ export const MailSection = () => {
                   id="tel"
                   name="tel"
                   maxLength={10}
-                  placeholder="06 00 00 00 00"
+                  pattern="^[0-9]{10}$"
+                  placeholder="0600000000"
+                  required
+                  className="input-class"
+                  onInput={(e) => handleTelInput(e)}
+                  ref={refTel}
                 />
               </div>
             </div>
@@ -99,9 +115,14 @@ export const MailSection = () => {
               <Label htmlFor="message">Votre message</Label>
               <Textarea
                 id="message"
-                placeholder="Votre message."
                 name="message"
+                placeholder="Votre message."
+                minLength={10}
+                required
+                className="textarea-class"
+                ref={refMessage}
               ></Textarea>
+              <span className="error-message">(minimum 10 caractères)</span>
             </div>
             <div className="text-right">
               <button

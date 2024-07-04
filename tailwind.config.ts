@@ -29,6 +29,8 @@ const config = {
         background: "hsl(var(--background))",
         body: "hsl(var(--background-body))",
         icon: "hsl(var(--icon))",
+        toast: "hsl(var(--background-toast))",
+        texttoast: "hsl(var(--text-toast))",
         keybutton: "hsl(var(--key-button))",
         foreground: "hsl(var(--foreground))",
         key: "hsl(var(--key))",
