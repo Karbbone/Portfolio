@@ -32,20 +32,23 @@ export const Hero = () => {
             <div className="h-2 bg-key mt-3 line-name w-[0%]"></div>
           </div>
         </div>
-        <h1 className="text-3xl font-caption mb-3">20 ans</h1>
-        <div className="h-100">
-          <p className="lg:text-3xl sm:text-2xl text-xl font-caption">
-            Développeur Junior
-          </p>
-        </div>
-        <p className="font-sans mt-3 text-l">
-          Je suis un développeur junior passionné par le développement web
-          moderne
-          <br />
-          Diplomé d&apos;un <span className="text-key font-bold">BUT</span>{" "}
-          Informatique (<span className="text-key font-bold">BAC +3</span>) à
-          l&apos;IUT de <span className="text-key font-bold">VANNES</span>
-          &nbsp;
+        <p className="md:text-3xl  text-2xl font-caption">
+          20ans et Développeur Junior
+        </p>
+        <p className="mt-3 text-l md:text-xl">
+          Je suis un développeur junior passionné par le développement
+          d&apos;application web moderne.
+        </p>
+        <p className="mt-3 text-l md:text-xl">
+          J&apos;ai des compétences avec les frameworks{" "}
+          <span className="text-key font-bold">Node.js</span> tel que{" "}
+          <span className="text-key font-bold">React</span>,{" "}
+          <span className="text-key font-bold">Adonis</span>.
+        </p>
+        <p className="mt-3 text-l md:text-xl">
+          Diplômé d&apos;un{" "}
+          <span className="text-key font-bold">BUT (BAC +3)</span> Informatique
+          à l&apos;IUT de <span className="text-key font-bold">Vannes</span>.
         </p>
         <div className="mt-10 gap-10 flex items-center justify-center">
           <TooltipProvider delayDuration={200}>
@@ -95,9 +98,10 @@ export const Hero = () => {
         </div>
         <div className="mt-10 flex items-center justify-center gap-3">
           <Hand size={35} />
-          <span className="font-bold text-key">
-            Actuellement en recherche d&apos;un poste
-          </span>
+          <p className="font-bold">
+            Actuellement en <span className="text-key">recherche</span> d&apos;{" "}
+            un <span className="text-key">poste full stacks ou back-end</span>
+          </p>
         </div>
       </div>
     </Section>

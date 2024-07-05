@@ -15,7 +15,7 @@ const schoolData = [
     logo: iutlogo,
     alt: "iut-logo",
     alignment: "md:justify-start",
-    margin: "md:pl-4 md:pr-28",
+    margin: "md:pr-28",
   },
   {
     title: "DUT Informatique",
@@ -25,7 +25,7 @@ const schoolData = [
     logo: iutlogo,
     alt: "iut-logo",
     alignment: "md:justify-end",
-    margin: "md:pl-28 md:pr-4",
+    margin: "md:pl-28",
   },
   {
     title: "BAC Général",
@@ -36,7 +36,7 @@ const schoolData = [
     logo: lyceelogo,
     alt: "lycee-logo",
     alignment: "md:justify-start",
-    margin: "md:pl-4 md:pr-28",
+    margin: "md:pr-28",
   },
 ];
 

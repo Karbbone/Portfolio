@@ -15,7 +15,7 @@ export const ExpSection = () => {
       logo: mediamaglogo,
       alt: "iut-logo",
       alignment: "md:justify-start",
-      margin: "md:pl-4 md:pr-28",
+      margin: "md:pr-28",
     },
     {
       title: "Médiamag Système",
@@ -26,7 +26,7 @@ export const ExpSection = () => {
       logo: mediamaglogo,
       alt: "iut-logo",
       alignment: "md:justify-end",
-      margin: "md:pl-28 md:pr-4",
+      margin: "md:pl-28",
     },
   ];
 
