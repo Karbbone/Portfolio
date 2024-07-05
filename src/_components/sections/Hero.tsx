@@ -12,6 +12,7 @@ import { GithubIcon } from "../svg_icons/GithubIcon";
 import { LinkedinIcon } from "../svg_icons/LinkedinIcon";
 import { NameIcon } from "../svg_icons/NameIcon";
 import { useTheme } from "next-themes";
+import { Hand } from "../svg_icons/Hand";
 
 export const Hero = () => {
   const toContact = useCallback(() => {
@@ -92,7 +93,8 @@ export const Hero = () => {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <div className="mt-4">
+        <div className="mt-10 flex items-center justify-center gap-3">
+          <Hand size={35} />
           <span className="font-bold text-key">
             Actuellement en recherche d&apos;un poste
           </span>
