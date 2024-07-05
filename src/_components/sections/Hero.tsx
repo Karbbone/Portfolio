@@ -100,7 +100,7 @@ export const Hero = () => {
           <Hand size={35} />
           <p className="font-bold">
             Actuellement en <span className="text-key">recherche</span> d&apos;{" "}
-            un <span className="text-key">poste full stacks ou back-end</span>
+            un <span className="text-key">poste full stack ou back-end</span>
           </p>
         </div>
       </div>
