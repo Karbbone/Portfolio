@@ -19,6 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="w_5GhTXmwriwGLGA8fKIoHd3iH4ZDtcdO2FJhgHNAPw"
+        />
+      </head>
       <body
         className={cn(
           GeistSans.variable,
