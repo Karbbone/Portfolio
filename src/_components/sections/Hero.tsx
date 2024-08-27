@@ -33,7 +33,7 @@ export const Hero = () => {
           </div>
         </div>
         <p className="md:text-3xl  text-2xl font-caption">
-          20ans et Développeur Junior
+          21ans et Développeur Junior
         </p>
         <p className="mt-3 text-l md:text-xl">
           Je suis un développeur junior passionné par le développement
