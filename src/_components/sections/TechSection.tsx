@@ -28,10 +28,10 @@ export const TechSection = () => {
       name: "MySQL",
       Logo: MysqlIcon,
     },
-    {
-      name: "Mongo",
-      Logo: MongoIcon,
-    },
+    // {
+    //   name: "Mongo",
+    //   Logo: MongoIcon,
+    // },
   ];
 
   return (
