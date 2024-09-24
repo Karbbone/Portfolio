@@ -33,10 +33,10 @@ export const Hero = () => {
           </div>
         </div>
         <p className="md:text-3xl  text-2xl font-caption">
-          21ans et Développeur Junior
+          21ans et Développeur
         </p>
         <p className="mt-3 text-l md:text-xl">
-          Je suis un développeur junior passionné par le développement
+          Je suis un développeur passionné par le développement
           d&apos;application web moderne.
         </p>
         <p className="mt-3 text-l md:text-xl">
