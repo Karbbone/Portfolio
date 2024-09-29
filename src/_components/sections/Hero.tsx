@@ -1,7 +1,6 @@
 "use client";
 import { useCallback } from "react";
 import { Section } from "./Section";
-import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -85,10 +84,16 @@ export const Hero = () => {
           <TooltipProvider delayDuration={200}>
             <Tooltip>
               <TooltipTrigger>
-                <LinkedinIcon
-                  size={40}
-                  color={theme == "dark" ? "white" : "black"}
-                />
+                <a
+                  href="https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkedinIcon
+                    size={40}
+                    color={theme == "dark" ? "white" : "black"}
+                  />
+                </a>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Visite mon Linkedin !</p>
