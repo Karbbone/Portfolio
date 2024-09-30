@@ -29,7 +29,7 @@
     --destructive-foreground: 6 83% 96%;
     --ring: 174 42% 65%;
     --radius: 0.5rem;
-    --key: 142, 67%, 40%;
+    --key: 142, 67%, 58%;
     --key-button: 142, 67%, 40%;
   }
 
@@ -79,4 +79,28 @@
   background-size: 200px 200px;
   background-position: 20% 10%; */
   /* background-color: #0c0c0c; */
+}
+
+#hero-section {
+  background-image: url("../app/fond.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 95vh;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.scroll-icon {
+  animation: float 2s ease-in-out infinite;
 }
