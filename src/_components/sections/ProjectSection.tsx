@@ -13,6 +13,8 @@ import { TsIcon } from "../svg_icons/TsIcon";
 import { SassIcon } from "../svg_icons/SassIcon";
 import { ElectronIcon } from "../svg_icons/ElectronIcon";
 import { useTheme } from "next-themes";
+import { JsIcon } from "../svg_icons/JsIcon";
+
 export const ProjectSection = () => {
   const { theme } = useTheme();
 
@@ -153,7 +155,7 @@ export const ProjectSection = () => {
                     size={35}
                     color={theme == "dark" ? "white" : "black"}
                   />
-                  <TsIcon
+                  <JsIcon
                     size={35}
                     color={theme == "dark" ? "white" : "black"}
                   />

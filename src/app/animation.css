@@ -42,6 +42,10 @@
   animation: redJavaAnimation 2s ease-in-out infinite alternate;
 }
 
+.scroll-icon {
+  animation: float 2s ease-in-out infinite;
+}
+
 @keyframes rotateIcon {
   from {
     transform: rotate(0deg);
@@ -76,5 +80,17 @@
   }
   to {
     transform: rotate(-30deg) translateX(-10px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

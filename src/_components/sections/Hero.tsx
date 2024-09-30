@@ -53,7 +53,7 @@ export const Hero = () => {
                 </button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Contact moi !</p>
+                <p>Contacte moi !</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -93,8 +93,8 @@ export const Hero = () => {
         <div className="mt-10 flex items-center justify-center gap-3">
           <Hand size={45} />
           <p className="font-bold text-white text-xl">
-            Actuellement en <span className="text-key">recherche</span> d&apos;{" "}
-            un <span className="text-key">poste full stack ou back-end</span>
+            Actuellement en <span>recherche</span> d&apos; un{" "}
+            <span>poste full stack ou back-end</span>
           </p>
         </div>
         <ScrollIcon size={180} />

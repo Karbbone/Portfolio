@@ -17,7 +17,6 @@ export const TsIcon = (
       preserveAspectRatio="xMidYMid"
       className={props.animation ? "ts-icon" : ""}
     >
-      <title>TypeScript</title>
       <g>
         <path
           className="fill-icon"
