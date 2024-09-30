@@ -57,6 +57,8 @@ export const Hero = () => {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
+        </div>
+        <div className="mt-10 gap-10 flex items-center justify-center">
           <TooltipProvider delayDuration={200}>
             <Tooltip>
               <TooltipTrigger>
@@ -93,8 +95,8 @@ export const Hero = () => {
         <div className="mt-10 flex items-center justify-center gap-3">
           <Hand size={45} />
           <p className="font-bold text-white text-xl">
-            Actuellement en <span>recherche</span> d&apos; un{" "}
-            <span>poste full stack ou back-end</span>
+            Actuellement en <span>recherche</span> d&apos;un poste full stack ou
+            back-end
           </p>
         </div>
         <ScrollIcon size={180} />
