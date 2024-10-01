@@ -96,7 +96,7 @@ export const Hero = () => {
           <Hand size={45} />
           <p className="font-bold text-white text-xl">
             Actuellement en <span>recherche</span> d&apos;un poste full stack ou
-            back-end
+            front-end
           </p>
         </div>
         <ScrollIcon size={180} />
