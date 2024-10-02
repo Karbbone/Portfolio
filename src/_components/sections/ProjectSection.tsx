@@ -62,11 +62,13 @@ export const ProjectSection = () => {
             </CardHeader>
             <CardContent className="flex flex-col md:flex-row gap-4 md:gap-8 min-w-0">
               <div className="flex-1 md:flex-[3] min-w-0">
-                <Image
-                  src={pokemonStudio}
-                  alt="pokemon-studio"
-                  className="max-w-full h-auto object-contain"
-                />
+                <a href="https://pokemonworkshop.com/fr/studio" target="_blank">
+                  <Image
+                    src={pokemonStudio}
+                    alt="pokemon-studio"
+                    className="max-w-full h-auto object-contain"
+                  />
+                </a>
               </div>
               <div className="flex-1 md:flex-[3] min-w-0">
                 <p>
@@ -133,11 +135,13 @@ export const ProjectSection = () => {
             </CardHeader>
             <CardContent className="flex flex-col md:flex-row gap-4 md:gap-8 min-w-0">
               <div className="flex-1 md:flex-[3] min-w-0">
-                <Image
-                  src={todaysFlag}
-                  alt="todays-flag"
-                  className="max-w-full h-auto object-contain"
-                />
+                <a href="https://todays-flag.vercel.app/" target="_blank">
+                  <Image
+                    src={todaysFlag}
+                    alt="todays-flag"
+                    className="max-w-full h-auto object-contain"
+                  />
+                </a>
               </div>
               <div className="flex-1 md:flex-[3] min-w-0">
                 <p>
