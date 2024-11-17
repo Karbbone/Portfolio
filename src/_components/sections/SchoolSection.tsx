@@ -4,8 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import iutlogo from "../iutvannes.png";
 import lyceelogo from "../lycee.png";
+import mds from "../mds.svg"
 
 const schoolData = [
+  {
+    title: "MBA Développeur Full-Stack",
+    year: "2024/2026",
+    degree: "BAC +5",
+    description:
+      "Master en développement full stack et gestion de projet en alternance chez Inovera",
+    logo: mds,
+    alt: "mds-logo",
+    alignment: "md:justify-end",
+    margin: "md:pl-28",
+  },
   {
     title: "BUT Informatique",
     year: "2023/2024",

@@ -3,9 +3,21 @@ import { Section } from "@/_components/sections/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import mediamaglogo from "../mediamag.png";
+import inovera from "../inovera.jpg"
 
 export const ExpSection = () => {
   const expData = [
+    {
+      title: "Inovera",
+      year: "2024/2026 Alternance",
+      tech: "React, PHP, Synphony, SQL",
+      description:
+        "Développement de nouvelles interfaces graphiques pour les applications web de l'entreprise et développement côté back-end",
+      logo: inovera,
+      alt: "inovera-logo",
+      alignment: "md:justify-end",
+      margin: "md:pl-28",
+    },
     {
       title: "Médiamag Système",
       year: "2023/2024 Alternance",

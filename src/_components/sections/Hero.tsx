@@ -95,7 +95,7 @@ export const Hero = () => {
         <div className="mt-10 flex items-center justify-center gap-3">
           <Hand size={45} />
           <p className="font-bold text-white text-xl">
-            Actuellement en <span>recherche</span> d&apos;une alternance en développement informatique !
+            Actuellement en alternance chez Inovera en tant que développeur full stack !
           </p>
         </div>
         <ScrollIcon size={180} />
