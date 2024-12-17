@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://clement-maillet.vercel.app",
+  siteUrl: "https://maillet.bzh",
   generateRobotsTxt: true,
 };

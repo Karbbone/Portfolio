@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://maillet.bzh
+
+# Sitemaps
+Sitemap: https://maillet.bzh/sitemap.xml
