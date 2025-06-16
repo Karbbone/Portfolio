@@ -5,16 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    networks:
-      - traefik
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portfolio.rule=Host(`clement.maillet.bzh`)"
-      - "traefik.http.routers.portfolio.tls=true"
-      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
-      - "traefik.http.services.portfolio.loadbalancer.server.port=4321"
-      - "traefik.docker.network=traefik"
-
-networks:
-  traefik:
-    external: true
+    ports:
+      - "80:80"
+      - "4321:4321"

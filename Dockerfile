@@ -21,4 +21,4 @@ COPY --from=build /app/dist ./dist
 
 EXPOSE 4321
 
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs", "--host", "0.0.0.0"]
