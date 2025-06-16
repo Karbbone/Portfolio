@@ -1,0 +1,20 @@
+/* Largeur des breakpoints */
+$mobile-breakpoint: 0;
+$tablet-breakpoint: 576px;
+$desktop-breakpoint: 993px;
+$wide-breakpoint: 1280px;
+$super-wide-breakpoint: 1440px;
+$hyper-wide-breakpoint: 1640px;
+$ultra-wide-breakpoint: 1920px;
+
+/* Taille des wrappers */
+$small-wrapper: $wide-breakpoint;
+$medium-wrapper: $super-wide-breakpoint;
+$large-wrapper: $hyper-wide-breakpoint;
+
+/* Taille du header */
+$header-height: 15.5rem;
+
+/* Taille maximale des écrans */
+$max-width: 1920px;
+$max-height: 1080px;

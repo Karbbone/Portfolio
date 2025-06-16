@@ -1,0 +1,22 @@
+@mixin edge-reset($prop, $target) {
+  $start: if($prop == "margin", "margin-top", "padding-top");
+  $end: if($prop == "margin", "margin-bottom", "padding-bottom");
+
+  @if $target == "self" {
+    &:first-of-type {
+      #{$start}: 0;
+    }
+
+    &:last-of-type {
+      #{$end}: 0;
+    }
+  } @else if $target == "children" {
+    :first-child {
+      #{$start}: 0;
+    }
+
+    :last-child {
+      #{$end}: 0;
+    }
+  }
+}

@@ -1,0 +1,177 @@
+@use "../base/colors" as color;
+@use "../base/variables" as var;
+@use "../base/fonts" as font;
+
+@use "breakpoints" as breakpoints;
+@use "spacing" as spacing;
+
+@mixin heading {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  .title {
+    @content;
+  }
+}
+
+@mixin heading-base {
+  font-family: font.$inter;
+  font-weight: 250;
+  color: inherit;
+  font-style: normal;
+  line-height: normal;
+
+  a {
+    text-decoration: none;
+  }
+
+  br {
+    display: none;
+
+    @include breakpoints.from("desktop") {
+      display: block;
+    }
+  }
+}
+
+@mixin link-default-style {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  transition-duration: 0s;
+
+  @include outline-default-style;
+
+  &:hover,
+  &:focus-visible {
+    font-style: italic;
+  }
+
+  &:active {
+    filter: brightness(0.7);
+  }
+}
+
+@mixin outline-default-style {
+  outline: solid 0.2rem transparent;
+  outline-offset: 0.5rem;
+
+  &:focus-visible {
+    outline-color: color.$default_outline;
+  }
+}
+
+@mixin link-with-background-image(
+  $image-url,
+  $image-min-width,
+  $image-min-height,
+  $image-max-width: $image-min-width,
+  $image-max-height: $image-min-height
+) {
+  @if $image-min-width != $image-max-width {
+    @include clamp(width, $image-min-width, $image-max-width);
+  } @else {
+    width: #{$image-min-width}rem;
+  }
+
+  @if $image-min-height != $image-max-height {
+    @include clamp(height, $image-min-height, $image-max-height);
+  } @else {
+    height: #{$image-min-height}rem;
+  }
+
+  display: inline-block;
+  text-decoration: none;
+  text-indent: -9999rem;
+
+  background-image: url($image-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include outline-default-style;
+}
+
+@mixin list-reset {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+@mixin items-spacing($vertical-margin: 1.6rem) {
+  margin: $vertical-margin 0;
+  @include spacing.edge-reset("margin", "self");
+}
+
+@mixin clamp(
+  $property,
+  $min,
+  $max,
+  $viewport-min: 320,
+  $viewport-max: 1980,
+  $base-font-size: 10
+) {
+  $min-px: calc($min * $base-font-size);
+  $max-px: calc($max * $base-font-size);
+
+  $slope: calc(($max-px - $min-px) / ($viewport-max - $viewport-min));
+  $intercept: $min-px - ($slope * $viewport-min);
+
+  $slope-vw: $slope * 100;
+  $intercept-rem: calc($intercept / $base-font-size);
+
+  $preferred: calc(#{$slope-vw}vw + #{$intercept-rem}rem);
+
+  #{$property}: clamp(#{$min}rem, #{$preferred}, #{$max}rem);
+}
+
+@mixin visually-hidden {
+  &:not(:focus),
+  &:not(:active) {
+    position: absolute;
+
+    width: 0.1rem;
+    height: 0.1rem;
+    margin: -0.1rem;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+@mixin domhidden {
+  color: transparent;
+  font: 0px/0 serif;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  text-shadow: none;
+  width: 0;
+}
+
+@mixin clear {
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  clear: both;
+
+  *height: auto;
+  *width: auto;
+  *overflow: visible;
+  *zoom: normal;
+}

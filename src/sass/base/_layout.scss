@@ -1,0 +1,47 @@
+@use "colors" as color;
+@use "fonts" as font;
+@use "../utils/mixins" as utils;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: calc(1em * 0.625);
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: color.$beige-light;
+  color: color.$gray-dark;
+  font-family: font.$roboto;
+  @include utils.clamp(font-size, 1.4, 1.7);
+  font-weight: 400;
+
+  &.active {
+    overflow-y: hidden;
+  }
+
+  #wrapper {
+    flex-grow: 1;
+  }
+
+  #header {
+    flex-shrink: 0;
+  }
+
+  #footer {
+    flex-shrink: 0;
+  }
+
+  noscript {
+    div {
+      margin: 0 2rem;
+    }
+  }
+}
