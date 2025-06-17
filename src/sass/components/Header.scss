@@ -25,7 +25,7 @@
       box-shadow: 10px 10px colors.$black;
     }
     .header__col {
-      &__left {
+      &--left {
         a {
           font-family: fonts.$inter;
           color: colors.$gray-dark;
@@ -35,15 +35,15 @@
         }
       }
 
-      &__right {
-        ul {
+      &--right {
+        .header__menu {
           display: flex;
           align-items: center;
           gap: 2rem;
           list-style: none;
           padding-left: 0;
           margin: 0;
-          li {
+          &-item {
             font-family: fonts.$inter;
             font-size: 1.6rem;
             font-weight: 400;
@@ -53,7 +53,7 @@
               color: colors.$orange;
             }
 
-            .header__col__right__nav__cta {
+            &--cta {
               @include btn.class("primary");
               display: flex;
               align-items: center;
