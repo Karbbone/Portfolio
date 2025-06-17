@@ -6,14 +6,14 @@
 #header {
   @include utils.clamp(top, 2, 5);
   position: fixed;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   z-index: 1000;
+  max-width: 1280px;
+  padding: 0 2rem;
 
   .header__wrapper {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
     .header__cols {
       display: flex;
       justify-content: space-between;
