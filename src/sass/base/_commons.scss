@@ -49,7 +49,7 @@ iframe {
 
 a:not([data-role]) {
   display: inline-block;
-  color: inherit;
+  color: color.$gray-dark;
 
   @include utils.outline-default-style;
 

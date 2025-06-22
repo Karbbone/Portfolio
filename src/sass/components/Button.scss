@@ -1,0 +1,44 @@
+@use "../base/colors" as color;
+@use "../base/fonts" as fonts;
+@use "../utils/mixins" as utils;
+
+.btn {
+  background-color: color.$orange;
+  font-weight: 900;
+  padding: 1.2rem;
+  border-radius: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  overflow: hidden;
+
+  @include utils.outline-default-style;
+
+  &:active {
+    filter: brightness(0.7);
+  }
+
+  &-primary {
+    color: color.$gray-dark;
+    background-color: color.$orange;
+    font-family: fonts.$roboto;
+    border-color: color.$black;
+    border: solid color.$black 0.2rem;
+    border-width: 0.2rem;
+    box-shadow: 0.6rem 0.6rem color.$black;
+    &:hover {
+      // TODO
+    }
+  }
+}
+
+@mixin class($btn) {
+  @extend .btn;
+
+  @if $btn == "primary" {
+    @extend .btn-primary;
+  } @else {
+    @error "Unknown button type: #{$btn}.";
+  }
+}

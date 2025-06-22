@@ -1,0 +1,59 @@
+---
+import "../sass/components/Header.scss";
+---
+
+<header id="header">
+  <div class="header__wrapper">
+    <div class="header__cols">
+      <div class="header__col--left">
+        <a> Clément Maillet </a>
+      </div>
+      <div class="header__col--right">
+        <a class="header__burger" aria-label="Menu" aria-expanded="false">
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </a>
+        <nav class="header__navigation">
+          <ul class="header__menu">
+            <li class="header__menu-item"><a href="#about">À propos</a></li>
+            <li class="header__menu-item"><a href="#skills">Compétences</a></li>
+            <li class="header__menu-item"><a href="#projects">Projets</a></li>
+            <li class="header__menu-item">
+              <a href="#contact" class="header__menu-item--cta"> Contact </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burgerBtn = document.querySelector(
+      ".header__burger"
+    ) as HTMLButtonElement;
+    const nav = document.querySelector(".header__navigation") as HTMLElement;
+
+    burgerBtn?.addEventListener("click", function (this: HTMLButtonElement) {
+      const expanded = this.getAttribute("aria-expanded") === "true";
+      this.setAttribute("aria-expanded", String(!expanded));
+      document.body.classList.toggle("nav-open");
+      nav?.classList.toggle("header__navigation--active");
+      this.classList.toggle("header__burger--active");
+    });
+
+    const menuLinks = document.querySelectorAll(".header__menu-item a");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (nav?.classList.contains("header__navigation--active")) {
+          nav.classList.remove("header__navigation--active");
+          burgerBtn?.setAttribute("aria-expanded", "false");
+          burgerBtn?.classList.remove("header__burger--active");
+          document.body.classList.remove("nav-open");
+        }
+      });
+    });
+  });
+</script>
