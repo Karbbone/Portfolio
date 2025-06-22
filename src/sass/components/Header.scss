@@ -2,6 +2,11 @@
 @use "../base/fonts";
 @use "../components/button" as btn;
 @use "../utils/mixins" as utils;
+@use "../utils/breakpoints" as bp;
+
+body.nav-open {
+  overflow: hidden;
+}
 
 #header {
   @include utils.clamp(top, 2, 5);
@@ -24,6 +29,7 @@
       padding: 2rem 4.8rem;
       box-shadow: 10px 10px colors.$black;
     }
+
     .header__col {
       &--left {
         a {
@@ -36,6 +42,70 @@
       }
 
       &--right {
+        display: flex;
+        align-items: center;
+
+        .header__burger {
+          display: none;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 3rem;
+          height: 2.2rem;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          z-index: 10;
+
+          @include bp.to("desktop") {
+            display: flex;
+          }
+
+          &-line {
+            width: 100%;
+            height: 0.3rem;
+            background-color: colors.$black;
+            border-radius: 0.15rem;
+            transition: all 0.3s ease-in-out;
+          }
+
+          &--active {
+            .header__burger-line {
+              &:nth-child(1) {
+                transform: translateY(0.95rem) rotate(45deg);
+              }
+
+              &:nth-child(2) {
+                opacity: 0;
+              }
+
+              &:nth-child(3) {
+                transform: translateY(-0.95rem) rotate(-45deg);
+              }
+            }
+          }
+        }
+
+        .header__navigation {
+          @include bp.to("desktop") {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: colors.$beige-light;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease-in-out;
+            z-index: 5;
+
+            &--active {
+              right: 0;
+            }
+          }
+        }
+
         .header__menu {
           display: flex;
           align-items: center;
@@ -43,21 +113,34 @@
           list-style: none;
           padding-left: 0;
           margin: 0;
+
+          @include bp.to("desktop") {
+            flex-direction: column;
+            gap: 3rem;
+          }
+
           &-item {
             font-family: fonts.$inter;
             font-size: 1.6rem;
             font-weight: 400;
             color: colors.$gray-dark;
 
+            @include bp.to("desktop") {
+              font-size: 2rem;
+            }
+
             &:hover {
               color: colors.$orange;
             }
-
+            a {
+              text-decoration: none;
+            }
             &--cta {
               @include btn.class("primary");
               display: flex;
               align-items: center;
               justify-content: center;
+              text-decoration: none;
             }
           }
         }
