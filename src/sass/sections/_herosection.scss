@@ -7,13 +7,13 @@
 @use "../utils/breakpoints" as bp;
 @use "../utils/mixins" as utils;
 @use "../utils/spacing" as spacing;
+@use "../components/button" as button;
 
 main {
   section {
     &#hero {
       text-align: center;
       color: colors.$gray-light;
-      border: red solid 1px;
       margin-top: calc(
         var(--header-height) + 3rem + 1rem
       ); // header-height + top + box-shadow
@@ -30,6 +30,7 @@ main {
           &-highlighted {
             display: inline-block;
             position: relative;
+            @include utils.clamp(margin-top, 1, 3);
 
             &::after {
               content: "";
@@ -50,6 +51,50 @@ main {
 
         &__description {
           @include spacing.edge-reset("margin", "children");
+        }
+        &__socials {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4rem;
+          @include utils.clamp(margin-top, 3, 6);
+
+          &-item {
+            border: colors.$black solid 4px;
+            border-radius: 10px;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0.6rem 0.6rem colors.$black;
+
+            &-github {
+              padding: 0.3rem;
+            }
+            &-linkedin {
+              padding: 0.6rem;
+            }
+            &-cv {
+              font-weight: 900;
+              font-size: 2.3rem;
+              font-family: fonts.$inter;
+              color: colors.$black;
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+        &__cta {
+          @include utils.clamp(margin-top, 3, 6);
+          text-align: center;
+          &-button {
+            @include button.class("secondary");
+            text-decoration: none;
+          }
         }
       }
     }

@@ -31,6 +31,19 @@
       // TODO
     }
   }
+
+  &-secondary {
+    color: color.$gray-dark;
+    background-color: color.$purple;
+    font-family: fonts.$roboto;
+    border-color: color.$black;
+    border: solid color.$black 0.2rem;
+    border-width: 0.2rem;
+    box-shadow: 0.6rem 0.6rem color.$black;
+    &:hover {
+      // TODO
+    }
+  }
 }
 
 @mixin class($btn) {
@@ -38,6 +51,8 @@
 
   @if $btn == "primary" {
     @extend .btn-primary;
+  } @else if $btn == "secondary" {
+    @extend .btn-secondary;
   } @else {
     @error "Unknown button type: #{$btn}.";
   }

@@ -23,12 +23,13 @@ BEM = 1 seul Bloc, ici Header
 
   height: var(--header-height);
   width: 100%;
-  background-color: white;
   z-index: 999;
 
   .header__wrapper {
     max-width: 1280px;
     margin: 0 auto;
+    background-color: white;
+
     .header__cols {
       display: flex;
       justify-content: space-between;
