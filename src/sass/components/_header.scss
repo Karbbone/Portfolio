@@ -9,16 +9,11 @@ body.nav-open {
 }
 
 #header {
-  @include utils.clamp(top, 2, 5);
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  z-index: 1000;
-  max-width: 1280px;
-  padding: 0 2rem;
-
+  @include utils.clamp(margin-top, 2, 5);
+  padding: 0 1.5rem;
   .header__wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
     .header__cols {
       display: flex;
       justify-content: space-between;

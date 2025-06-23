@@ -33,14 +33,6 @@
   a {
     text-decoration: none;
   }
-
-  br {
-    display: none;
-
-    @include breakpoints.from("desktop") {
-      display: block;
-    }
-  }
 }
 
 @mixin link-default-style {
