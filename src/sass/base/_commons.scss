@@ -70,12 +70,12 @@ a:not([data-role]) {
 /* Custom font-size */
 h1,
 .h1 {
-  @include utils.clamp(font-size, 3.5, 6.5);
+  @include utils.clamp(font-size, 3.4, 5.2);
 }
 
 h2,
 .h2 {
-  @include utils.clamp(font-size, 3, 5);
+  @include utils.clamp(font-size, 2.5, 3.6);
 }
 
 h3,

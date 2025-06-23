@@ -1,35 +1,57 @@
+@use "../base/layout";
 @use "../base/fonts" as fonts;
 @use "../base/colors" as colors;
+
+@use "../components/wrapper" as wrapper;
+
 @use "../utils/breakpoints" as bp;
-.hero {
-  &__wrapper {
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-    border: red solid 1px;
-    text-align: center;
-    padding: 0 3.2rem;
-    @include bp.to("tablet") {
-      padding: 0 1.2rem;
-    }
-  }
-  &--title {
-    font-weight: 900;
-    font-size: 5.2rem;
-    font-family: fonts.$inter;
+@use "../utils/mixins" as utils;
+@use "../utils/spacing" as spacing;
 
-    @include bp.to("tablet") {
-      font-size: 3.4rem;
-    }
-  }
-  &--description {
-    font-weight: 400;
-    font-size: 1.8rem;
-    font-family: fonts.$roboto;
-    color: colors.$gray-light;
+main {
+  section {
+    &#hero {
+      text-align: center;
+      color: colors.$gray-light;
+      border: red solid 1px;
+      margin-top: calc(
+        var(--header-height) + 3rem + 1rem
+      ); // header-height + top + box-shadow
 
-    @include bp.to("tablet") {
-      font-size: 1.4rem;
+      .hero {
+        &__wrapper {
+          @include wrapper.class("small");
+        }
+
+        &__title {
+          margin-top: 0;
+          @include utils.clamp(margin-bottom, 3, 6);
+
+          &-highlighted {
+            display: inline-block;
+            position: relative;
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%) rotate(1deg);
+              width: 100%;
+              height: 100%;
+              background-color: colors.$green;
+              opacity: 0.54;
+              will-change: transform;
+              z-index: -1;
+              padding: 0 2rem;
+            }
+          }
+        }
+
+        &__description {
+          @include spacing.edge-reset("margin", "children");
+        }
+      }
     }
   }
 }
