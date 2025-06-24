@@ -10,7 +10,7 @@ $slicer-breakpoints: (
   "wide": var.$wide-breakpoint,
   "super-wide": var.$super-wide-breakpoint,
   "hyper-wide": var.$hyper-wide-breakpoint,
-  "ultra-wide": var.$ultra-wide-breakpoint
+  "ultra-wide": var.$ultra-wide-breakpoint,
 );
 
 @mixin from($breakpoint) {
@@ -38,7 +38,9 @@ $slicer-breakpoints: (
 }
 
 @mixin between($start, $end) {
-  @if map.has-key($slicer-breakpoints, $start) and map.has-key($slicer-breakpoints, $end) {
+  @if map.has-key($slicer-breakpoints, $start) and
+    map.has-key($slicer-breakpoints, $end)
+  {
     $min-width: map.get($slicer-breakpoints, $start);
     $max-width: map.get($slicer-breakpoints, $end);
 

@@ -5,22 +5,24 @@ import "../sass/components/_header.scss";
 <header id="header">
   <div class="header__wrapper">
     <div class="header__cols">
-      <div class="header__col--left">
-        <a> Clément Maillet </a>
+      <div class="header__col header__col--left">
+        <a href="#" title="" aria-current="true">Clément Maillet</a>
       </div>
-      <div class="header__col--right">
-        <a class="header__burger" aria-label="Menu" aria-expanded="false">
+
+      <div class="header__col header__col--right">
+        <button class="header__burger" aria-label="Menu" aria-expanded="false">
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
-        </a>
+        </button>
+
         <nav class="header__navigation">
           <ul class="header__menu">
             <li class="header__menu-item"><a href="#about">À propos</a></li>
             <li class="header__menu-item"><a href="#skills">Compétences</a></li>
             <li class="header__menu-item"><a href="#projects">Projets</a></li>
-            <li class="header__menu-item">
-              <a href="#contact" class="header__menu-item--cta"> Contact </a>
+            <li class="header__menu-item header__menu-item--cta">
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </nav>

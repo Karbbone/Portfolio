@@ -1,6 +1,8 @@
-@use "../base/colors";
-@use "../base/fonts";
+@use "../base/colors" as colors;
+@use "../base/fonts" as fonts;
+
 @use "./button" as btn;
+
 @use "../utils/mixins" as utils;
 @use "../utils/breakpoints" as bp;
 
@@ -8,17 +10,26 @@ body.nav-open {
   overflow: hidden;
 }
 
+/*
+BEM = 1 seul Bloc, ici Header 
+=> Tes composants : wrapper, cols, col, burger etc...
+=> Tes modificateurs : col--left, col--right
+*/
+
 #header {
-  @include utils.clamp(top, 2, 5);
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 3rem;
+  left: 0;
+
+  height: var(--header-height);
   width: 100%;
-  z-index: 1000;
-  max-width: 1280px;
-  padding: 0 2rem;
+  z-index: 999;
 
   .header__wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: white;
+
     .header__cols {
       display: flex;
       justify-content: space-between;
@@ -38,6 +49,7 @@ body.nav-open {
           font-weight: 900;
           font-size: 2.4rem;
           letter-spacing: -0.06em;
+          text-decoration: none;
         }
       }
 

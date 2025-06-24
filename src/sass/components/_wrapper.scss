@@ -1,0 +1,43 @@
+@use "../base/variables" as var;
+
+@use "../utils/breakpoints" as breakpoints;
+@use "../utils/mixins" as utils;
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+  @include utils.clamp(padding-left, 2, 4, 320, 1640);
+  @include utils.clamp(padding-right, 2, 4, 320, 1640);
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoints.from("hyper-wide") {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &-small {
+    max-width: var.$small-wrapper;
+  }
+
+  &-medium {
+    max-width: var.$medium-wrapper;
+  }
+
+  &-large {
+    max-width: var.$large-wrapper;
+  }
+}
+
+@mixin class($wrapper) {
+  @extend .wrapper;
+
+  @if $wrapper == "small" {
+    @extend .wrapper-small;
+  } @else if $wrapper == "medium" {
+    @extend .wrapper-medium;
+  } @else if $wrapper == "large" {
+    @extend .wrapper-large;
+  }
+}
