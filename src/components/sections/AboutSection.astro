@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import me from "../../assets/me.svg";
+import "../../sass/sections/_aboutsection.scss";
+---
+
+<section id="about">
+  <div class="about__wrapper">
+    <h2 class="about__title"><span>A propos</span></h2>
+    <div class="about__cols">
+      <div class="about__col about__col--left">
+        <p>
+          Jeune développeur breton de 21 ans, passionné par le développement
+          d'applications web, desktop et mobile. Curieux et rigoureux, je veille
+          à ce que rien ne m'échappe.
+        </p>
+        <p>
+          Diplômé d'un BUT Informatique à l'IUT de Vannes, je poursuis désormais
+          mes études en alternance pour valider un Master, dans le but de
+          continuer ma quête de connaissances.
+        </p>
+        <p>
+          Polyvalent et investi, j'ai également une grande affection pour le
+          travail en équipe et le management.
+        </p>
+        <p>
+          Pour moi, le code est un formidable moyen de donner vie à n'importe
+          quelle idée.
+        </p>
+        <div class="about__cta">
+          <a class="about__cta-cv"><span>CV</span>Télécharger mon CV</a>
+          <a
+            class="about__cta-linkedin"
+            href="https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://www.svgrepo.com/show/512419/linkedin-161.svg"
+              alt="LinkedIn"
+            />
+            M’ajouter sur Linkedin
+          </a>
+        </div>
+      </div>
+      <div class="about__col about__col--right">
+        <Image src={me} alt="Portrait de Clément" />
+      </div>
+    </div>
+  </div>
+</section>
