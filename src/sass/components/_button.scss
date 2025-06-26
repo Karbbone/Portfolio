@@ -14,10 +14,6 @@
 
   @include utils.outline-default-style;
 
-  &:active {
-    filter: brightness(0.7);
-  }
-
   &--primary {
     color: color.$gray-dark;
     background-color: color.$orange;
