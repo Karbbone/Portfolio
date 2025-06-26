@@ -1,5 +1,5 @@
-@use "../base/colors" as color;
 @use "../base/variables" as var;
+@use "../base/colors" as color;
 @use "../base/fonts" as font;
 
 @use "breakpoints" as breakpoints;
@@ -27,8 +27,6 @@
   color: inherit;
   font-family: font.$inter;
   font-weight: 900; // black
-  font-style: normal;
-  line-height: normal;
 
   a {
     text-decoration: none;
@@ -67,7 +65,7 @@
   border: solid 0.3rem color.$black;
   border-radius: $border-radius;
 
-  &::after {
+  &::before {
     content: "";
     position: absolute;
     bottom: -1rem;
@@ -92,14 +90,7 @@
   @include spacing.edge-reset("margin", "self");
 }
 
-@mixin clamp(
-  $property,
-  $min,
-  $max,
-  $viewport-min: 320,
-  $viewport-max: 1980,
-  $base-font-size: 10
-) {
+@mixin clamp($property, $min, $max, $viewport-min: 320, $viewport-max: 1980, $base-font-size: 10) {
   $min-px: calc($min * $base-font-size);
   $max-px: calc($max * $base-font-size);
 

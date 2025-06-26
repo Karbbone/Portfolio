@@ -2,7 +2,9 @@
   <div class="header__wrapper">
     <div class="header__cols">
       <div class="header__col header__col--left">
-        <a href="#" title="" aria-current="true">Clément Maillet</a>
+        <a class="header__site-title" href="#" title="" aria-current="true"
+          >Clément Maillet</a
+        >
       </div>
 
       <div class="header__col header__col--right">
@@ -37,7 +39,7 @@
     burgerBtn?.addEventListener("click", function (this: HTMLButtonElement) {
       const expanded = this.getAttribute("aria-expanded") === "true";
       this.setAttribute("aria-expanded", String(!expanded));
-      document.body.classList.toggle("nav-open");
+      document.body.classList.toggle("active");
       nav?.classList.toggle("header__navigation--active");
       this.classList.toggle("header__burger--active");
     });
@@ -49,7 +51,7 @@
           nav.classList.remove("header__navigation--active");
           burgerBtn?.setAttribute("aria-expanded", "false");
           burgerBtn?.classList.remove("header__burger--active");
-          document.body.classList.remove("nav-open");
+          document.body.classList.remove("active");
         }
       });
     });

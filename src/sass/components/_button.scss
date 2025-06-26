@@ -4,11 +4,8 @@
 @use "../utils/mixins" as utils;
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
   text-decoration: none;
+  display: inline-block;
   background-color: color.$orange;
   font-weight: 900; // black
   padding: 1.2rem;
@@ -21,24 +18,26 @@
     filter: brightness(0.7);
   }
 
-  &-primary {
+  &--primary {
     color: color.$gray-dark;
     background-color: color.$orange;
   }
 
-  &-secondary {
+  &--secondary {
     color: color.$gray-dark;
     background-color: color.$purple;
   }
+
+  // TODO: Nouvelle classe pour les boutons avec une icône dedans, pensez à mettre le texte dans une span
 }
 
 @mixin class($btn) {
   @extend .btn;
 
   @if $btn == "primary" {
-    @extend .btn-primary;
+    @extend .btn--primary;
   } @else if $btn == "secondary" {
-    @extend .btn-secondary;
+    @extend .btn--secondary;
   } @else {
     @error "Unknown button type: #{$btn}.";
   }
