@@ -2,13 +2,13 @@
 @use "../base/fonts" as fonts;
 @use "../base/colors" as colors;
 
+@use "../components/highlight" as highlight;
 @use "../components/wrapper" as wrapper;
+@use "../components/button" as button;
 
 @use "../utils/breakpoints" as bp;
 @use "../utils/mixins" as utils;
 @use "../utils/spacing" as spacing;
-@use "../components/button" as button;
-@use "../components/highlight" as highlight;
 
 main {
   section {
@@ -73,12 +73,14 @@ main {
             }
           }
         }
+
         &__cta {
-          @include utils.clamp(margin-top, 3, 6);
           text-align: center;
+
+          @include utils.clamp(margin-top, 3, 6);
+
           &-button {
             @include button.class("secondary");
-            text-decoration: none;
           }
         }
       }

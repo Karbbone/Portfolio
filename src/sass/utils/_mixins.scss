@@ -62,35 +62,23 @@
   }
 }
 
-@mixin link-with-background-image(
-  $image-url,
-  $image-min-width,
-  $image-min-height,
-  $image-max-width: $image-min-width,
-  $image-max-height: $image-min-height
-) {
-  @if $image-min-width != $image-max-width {
-    @include clamp(width, $image-min-width, $image-max-width);
-  } @else {
-    width: #{$image-min-width}rem;
+@mixin shadow($border-radius: 1.5rem) {
+  position: relative;
+  border: solid 0.3rem color.$black;
+  border-radius: $border-radius;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    z-index: -1;
+    border-radius: calc(#{$border-radius} + 0.5rem);
+
+    width: 100%;
+    height: 100%;
+    background-color: color.$black;
   }
-
-  @if $image-min-height != $image-max-height {
-    @include clamp(height, $image-min-height, $image-max-height);
-  } @else {
-    height: #{$image-min-height}rem;
-  }
-
-  display: inline-block;
-  text-decoration: none;
-  text-indent: -9999rem;
-
-  background-image: url($image-url);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  @include outline-default-style;
 }
 
 @mixin list-reset {

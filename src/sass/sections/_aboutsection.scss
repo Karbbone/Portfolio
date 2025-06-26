@@ -67,6 +67,9 @@ main {
           }
         }
         &__cta {
+          @include utils.clamp(margin-top, 2, 4);
+          @include utils.clamp(gap, 3, 6);
+
           display: flex;
           justify-content: center;
           align-items: center;
@@ -77,8 +80,6 @@ main {
           @include bp.from("desktop") {
             justify-content: start;
           }
-          @include utils.clamp(gap, 3, 6);
-          @include utils.clamp(margin-top, 2, 4);
           &-cv {
             @include btn.class("primary");
             display: flex;

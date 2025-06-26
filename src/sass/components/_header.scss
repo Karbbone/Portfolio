@@ -31,27 +31,12 @@ BEM = 1 seul Bloc, ici Header
     padding: 0 2rem;
 
     .header__cols {
-      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: white;
-      border: solid 0.3rem colors.$black;
-      border-radius: 1.5rem;
       padding: 2rem 4.8rem;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -1rem;
-        right: -1rem;
-        z-index: -1;
-
-        width: 100%;
-        height: 100%;
-        background-color: colors.$black;
-        border-radius: 2rem;
-      }
+      @include utils.shadow(1.5rem);
     }
 
     .header__col {
@@ -145,27 +130,21 @@ BEM = 1 seul Bloc, ici Header
           }
 
           &-item {
-            font-family: fonts.$inter;
-            font-size: 1.6rem;
-            font-weight: 400;
             color: colors.$gray-dark;
 
-            @include bp.to("desktop") {
-              font-size: 2rem;
-            }
-
-            &:hover {
+            &:hover,
+            &:focus-visible {
               color: colors.$orange;
             }
-            a {
-              text-decoration: none;
-            }
+
             &--cta {
-              @include btn.class("primary");
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              text-decoration: none;
+              a {
+                @include btn.class("primary");
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
             }
           }
         }
