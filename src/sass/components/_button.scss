@@ -1,17 +1,16 @@
 @use "../base/colors" as color;
 @use "../base/fonts" as fonts;
+
 @use "../utils/mixins" as utils;
 
 .btn {
-  background-color: color.$orange;
-  font-weight: 900;
-  padding: 1.2rem;
-  border-radius: 1.5rem;
-  display: inline-block;
   text-decoration: none;
-  font-family: inherit;
-  font-size: inherit;
-  overflow: hidden;
+  display: inline-block;
+  background-color: color.$orange;
+  font-weight: 900; // black
+  border: solid 0.3rem color.$black;
+  box-shadow: 6px 6px 0 color.$black;
+  padding: 1.2rem;
 
   @include utils.outline-default-style;
 
@@ -19,40 +18,26 @@
     filter: brightness(0.7);
   }
 
-  &-primary {
+  &--primary {
     color: color.$gray-dark;
     background-color: color.$orange;
-    font-family: fonts.$roboto;
-    border-color: color.$black;
-    border: solid color.$black 0.2rem;
-    border-width: 0.2rem;
-    box-shadow: 0.6rem 0.6rem color.$black;
-    &:hover {
-      // TODO
-    }
   }
 
-  &-secondary {
+  &--secondary {
     color: color.$gray-dark;
     background-color: color.$purple;
-    font-family: fonts.$roboto;
-    border-color: color.$black;
-    border: solid color.$black 0.2rem;
-    border-width: 0.2rem;
-    box-shadow: 0.6rem 0.6rem color.$black;
-    &:hover {
-      // TODO
-    }
   }
+
+  // TODO: Nouvelle classe pour les boutons avec une icône dedans, pensez à mettre le texte dans une span
 }
 
 @mixin class($btn) {
   @extend .btn;
 
   @if $btn == "primary" {
-    @extend .btn-primary;
+    @extend .btn--primary;
   } @else if $btn == "secondary" {
-    @extend .btn-secondary;
+    @extend .btn--secondary;
   } @else {
     @error "Unknown button type: #{$btn}.";
   }

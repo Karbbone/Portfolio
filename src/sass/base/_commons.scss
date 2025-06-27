@@ -9,58 +9,16 @@
 @use "../utils/mixins" as utils;
 
 a,
-summary,
-label,
 input,
-input + label,
 button {
   cursor: pointer;
   transition-duration: 0.4s;
 }
 
 a:active,
-summary:active,
-label:active,
 input:active,
-input + label:active,
 button:active {
   transition-duration: 0s;
-}
-
-.txt-center {
-  text-align: center;
-}
-.txt-left {
-  text-align: left;
-}
-.txt-right {
-  text-align: right;
-}
-
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-iframe {
-  border: 0;
-  max-width: 100%;
-}
-
-a:not([data-role]) {
-  display: inline-block;
-  color: color.$gray-dark;
-
-  @include utils.outline-default-style;
-
-  &:hover,
-  &:focus-visible {
-    color: color.$black;
-  }
-
-  &:active {
-    filter: brightness(0.7);
-  }
 }
 
 @include utils.heading {
@@ -71,40 +29,36 @@ a:not([data-role]) {
 h1,
 .h1 {
   @include utils.clamp(font-size, 3.4, 5.2);
+  @include utils.clamp(line-height, 3.4, 5.2);
 }
 
 h2,
 .h2 {
   @include utils.clamp(font-size, 2.5, 3.6);
+  @include utils.clamp(line-height, 2.5, 3.6);
 }
 
 h3,
 .h3 {
   @include utils.clamp(font-size, 2.5, 3.5);
+  @include utils.clamp(line-height, 2.5, 3.5);
 }
 
 /* Default font-size */
 h4,
 .h4 {
   @include utils.clamp(font-size, 2, 2.4);
+  @include utils.clamp(line-height, 2, 2.4);
 }
 
 h5,
 .h5 {
   @include utils.clamp(font-size, 1.6, 2);
+  @include utils.clamp(line-height, 1.6, 2);
 }
 
 h6,
 .h6 {
   @include utils.clamp(font-size, 1.6, 1.6);
-}
-
-p,
-li,
-blockquote,
-td,
-th,
-button,
-address {
-  line-height: 1.6;
+  @include utils.clamp(line-height, 1.6, 1.6);
 }

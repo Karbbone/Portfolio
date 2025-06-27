@@ -1,0 +1,114 @@
+@use "../base/layout";
+@use "../base/colors" as colors;
+@use "../components/wrapper" as wrapper;
+@use "../utils/breakpoints" as bp;
+@use "../utils/mixins" as utils;
+@use "../base/fonts" as fonts;
+@use "../components/button" as btn;
+@use "../components/highlight" as highlight;
+
+main {
+  section {
+    &#about {
+      .about {
+        &__wrapper {
+          @include wrapper.class("small");
+        }
+
+        &__title {
+          margin-top: 0;
+          @include utils.clamp(margin-bottom, 2, 4);
+
+          @include bp.to("desktop") {
+            text-align: center;
+          }
+
+          span {
+            @include highlight.class("green");
+          }
+        }
+
+        &__cols {
+          display: flex;
+          flex-direction: column;
+          @include utils.clamp(gap, 3, 6);
+
+          @include bp.to("desktop") {
+            text-align: center;
+          }
+
+          @include bp.from("desktop") {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+
+        &__col {
+          &--left {
+            @include bp.from("desktop") {
+              max-width: 53%;
+              width: 100%;
+            }
+          }
+
+          &--right {
+            @include bp.from("desktop") {
+              flex-shrink: 0;
+            }
+
+            img {
+              max-width: 40rem;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 1rem;
+            }
+          }
+        }
+        &__cta {
+          @include utils.clamp(margin-top, 2, 4);
+          @include utils.clamp(gap, 3, 6);
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          @include bp.from("tablet") {
+            flex-direction: row;
+          }
+          @include bp.from("desktop") {
+            justify-content: start;
+          }
+          &-cv {
+            @include btn.class("primary");
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 18rem;
+            gap: 1.2rem;
+            span {
+              font-weight: 900;
+              font-size: 2rem;
+              font-family: fonts.$inter;
+              color: colors.$black;
+            }
+          }
+          &-linkedin {
+            @include btn.class("primary");
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 18rem;
+            gap: 1.2rem;
+            img {
+              width: 2.4rem;
+              height: 2.4rem;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,14 @@
 @charset "UTF-8";
+
 /* Base Styles */
-@use "base/layout";
 @use "base/commons";
+@use "base/layout";
 
 /* Components Styles */
+@use "components/header";
 
 /* Libraries Styles */
 
-/* Pages Styles */
-@import "normalize.css/normalize.css";
+/* Sections Styles */
+@use "sections/herosection";
+@use "sections/aboutsection";
