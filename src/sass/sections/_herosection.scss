@@ -1,6 +1,6 @@
 @use "../base/layout";
 @use "../base/fonts" as fonts;
-@use "../base/colors" as colors;
+@use "../base/colors" as color;
 
 @use "../components/highlight" as highlight;
 @use "../components/wrapper" as wrapper;
@@ -14,10 +14,8 @@ main {
   section {
     &#hero {
       text-align: center;
-      color: colors.$gray-light;
-      margin-top: calc(
-        var(--header-height) + 3rem + 1rem
-      ); // header-height + top + box-shadow
+      color: color.$gray-light;
+      margin-top: calc(var(--header-height) + 3rem + 1rem); // header-height + top + box-shadow
 
       .hero {
         &__wrapper {
@@ -45,14 +43,13 @@ main {
           @include utils.clamp(margin-top, 3, 6);
 
           &-item {
-            border: colors.$black solid 4px;
-            border-radius: 10px;
             height: 50px;
             width: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0.6rem 0.6rem colors.$black;
+            border: solid 0.3rem color.$black;
+            box-shadow: 10px 10px 0 color.$black;
 
             &-github {
               padding: 0.3rem;
@@ -64,7 +61,7 @@ main {
               font-weight: 900;
               font-size: 2.3rem;
               font-family: fonts.$inter;
-              color: colors.$black;
+              color: color.$black;
             }
             img {
               width: 100%;

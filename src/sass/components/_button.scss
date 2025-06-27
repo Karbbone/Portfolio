@@ -8,11 +8,15 @@
   display: inline-block;
   background-color: color.$orange;
   font-weight: 900; // black
+  border: solid 0.3rem color.$black;
+  box-shadow: 6px 6px 0 color.$black;
   padding: 1.2rem;
 
-  @include utils.shadow(1.5rem);
-
   @include utils.outline-default-style;
+
+  &:active {
+    filter: brightness(0.7);
+  }
 
   &--primary {
     color: color.$gray-dark;
