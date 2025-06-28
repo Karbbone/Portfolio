@@ -1,0 +1,63 @@
+@use "../base/layout";
+@use "../base/colors" as colors;
+@use "../components/wrapper" as wrapper;
+@use "../utils/breakpoints" as bp;
+@use "../utils/mixins" as utils;
+@use "../base/fonts" as fonts;
+@use "../components/button" as btn;
+@use "../components/highlight" as highlight;
+
+main {
+  section {
+    &#work {
+      .work {
+        &__wrapper {
+          @include wrapper.class("small");
+        }
+
+        &__title {
+          margin-top: 0;
+          @include utils.clamp(margin-bottom, 2, 4);
+
+          @include bp.to("desktop") {
+            text-align: center;
+          }
+
+          span {
+            @include highlight.class("green");
+          }
+        }
+        &__content {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          @include bp.from("desktop") {
+            flex-direction: row;
+            align-items: center;
+            justify-content: start;
+          }
+
+          &__item {
+            transition: box-shadow 0.3s ease;
+            border: solid 0.3rem colors.$black;
+            box-shadow: 6px 6px 0 colors.$black;
+            width: 100%;
+
+            @include bp.from("desktop") {
+              max-width: 500px;
+            }
+            &--header {
+              img {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
