@@ -16,11 +16,19 @@
     height: 100%;
     will-change: transform;
     z-index: -1;
+    padding: 0 2rem;
   }
 
   &-primary {
     &::after {
       background-color: colors.$green;
+      opacity: 0.54;
+    }
+  }
+
+  &-blue {
+    &::after {
+      background-color: colors.$blue;
       opacity: 0.54;
     }
   }
@@ -35,6 +43,8 @@
 
   @if $color == "green" {
     @extend .highlighted-primary;
+  } @else if $color == "blue" {
+    @extend .highlighted-blue;
   } @else {
     @error "Unknown highlight type: #{$color}.";
   }

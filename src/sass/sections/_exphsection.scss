@@ -1,0 +1,33 @@
+@use "../base/layout";
+@use "../base/colors" as colors;
+@use "../components/wrapper" as wrapper;
+@use "../utils/breakpoints" as bp;
+@use "../utils/mixins" as utils;
+@use "../base/fonts" as fonts;
+@use "../components/button" as btn;
+@use "../components/highlight" as highlight;
+
+main {
+  section {
+    &#exph {
+      .exph {
+        &__wrapper {
+          @include wrapper.class("small");
+        }
+
+        &__title {
+          margin-top: 0;
+          @include utils.clamp(margin-bottom, 4, 6);
+
+          @include bp.to("desktop") {
+            text-align: center;
+          }
+
+          span {
+            @include highlight.class("blue");
+          }
+        }
+      }
+    }
+  }
+}
