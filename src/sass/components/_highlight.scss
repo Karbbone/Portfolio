@@ -16,7 +16,6 @@
     height: 100%;
     will-change: transform;
     z-index: -1;
-    padding: 0 2rem;
   }
 
   &-primary {
@@ -27,8 +26,12 @@
   }
 }
 
-@mixin class($color) {
+@mixin class($color, $padding: 2rem) {
   @extend .highlighted;
+
+  &::after {
+    padding: 0 #{$padding};
+  }
 
   @if $color == "green" {
     @extend .highlighted-primary;

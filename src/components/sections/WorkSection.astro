@@ -1,0 +1,82 @@
+---
+import inovera from "../../assets/inovera.png";
+import mediamag from "../../assets/mediamag.png";
+
+import adonisLogo from "../../assets/technos/adonis.svg";
+import cplusplusLogo from "../../assets/technos/cplusplus.svg";
+import mysqlLogo from "../../assets/technos/mysql.svg";
+import phpLogo from "../../assets/technos/php.svg";
+import pythonLogo from "../../assets/technos/python.svg";
+import reactLogo from "../../assets/technos/react.svg";
+import symfonyLogo from "../../assets/technos/symfony.svg";
+import typescriptLogo from "../../assets/technos/typescript.svg";
+
+import WorkItem from "../WorkItem.astro";
+
+const workExperiences = [
+  {
+    company: {
+      name: "Médiamag",
+      logo: mediamag,
+      website: "https://www.mediamag-systeme.com/",
+    },
+    position: "Développeur Full Stack",
+    dateRange: "Avril 2023 - Août 2024",
+    tasks: [
+      "Développement de plusieurs applications internes afin d'améliorer l'autonomie des employés.",
+      "Développement d'une application permettant de s'ouvrir à de nouveaux clients sur le marché avec une nouvelle offre, permettant aux utilisateurs de s'enregistrer sans avoir à passer par les voix professionnelles de Médiamag.",
+      "Création de modules externes pour l'application principale de la société en C++, Python.",
+    ],
+    technologies: [
+      { name: "AdonisJS", logo: adonisLogo, url: "https://adonisjs.com/" },
+      { name: "C++", logo: cplusplusLogo, url: "https://cplusplus.com/" },
+      { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/" },
+      { name: "Python", logo: pythonLogo, url: "https://www.python.org/" },
+      { name: "React", logo: reactLogo, url: "https://react.dev/" },
+      {
+        name: "TypeScript",
+        logo: typescriptLogo,
+        url: "https://www.typescriptlang.org/",
+      },
+    ],
+  },
+  {
+    company: {
+      name: "Inovera",
+      logo: inovera,
+      website: "https://www.inovera.fr/",
+    },
+    position: "Développeur Full Stack",
+    dateRange: "Novembre 2024",
+    isCurrentJob: true,
+    tasks: [
+      "Migration d'une application Symfony vers une nouvelle solution front-end en React avec transformation du backend Symfony en API REST/JSON.",
+      "Application du nouveau design sur les applications de la société.",
+      "Gestion et coordination des projets via Jira avec planification des tickets et méthodologie Kanban.",
+      "Maintenance et développement de nouvelles fonctionnalités sur les applications existantes de la société.",
+    ],
+    technologies: [
+      { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/" },
+      { name: "PHP", logo: phpLogo, url: "https://www.php.net/" },
+      { name: "React", logo: reactLogo, url: "https://react.dev/" },
+      { name: "Symfony", logo: symfonyLogo, url: "https://symfony.com/" },
+      {
+        name: "TypeScript",
+        logo: typescriptLogo,
+        url: "https://www.typescriptlang.org/",
+      },
+    ],
+  },
+];
+---
+
+<section id="work">
+  <div class="work__wrapper">
+    <h2 class="work__title">
+      <span>C'est un réel plaisir <br /> de travailler ensemble</span>
+    </h2>
+    <div class="work__content">
+      {workExperiences.map((experience) => <WorkItem {...experience} />)}
+    </div>
+  </div>
+</section>
