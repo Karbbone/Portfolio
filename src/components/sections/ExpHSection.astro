@@ -1,7 +1,91 @@
+---
+import adonisLogo from "../../assets/technos/adonis.svg";
+import dockerLogo from "../../assets/technos/docker.svg";
+import gitLogo from "../../assets/technos/git.svg";
+import javaLogo from "../../assets/technos/java.svg";
+import mongodbLogo from "../../assets/technos/mongodb.svg";
+import mysqlLogo from "../../assets/technos/mysql.svg";
+import nodejsLogo from "../../assets/technos/nodejs.svg";
+import reactLogo from "../../assets/technos/react.svg";
+import typescriptLogo from "../../assets/technos/typescript.svg";
+
+const technologies = [
+  { name: "React", logo: reactLogo, url: "https://react.dev/" },
+  {
+    name: "TypeScript",
+    logo: typescriptLogo,
+    url: "https://www.typescriptlang.org/",
+  },
+  { name: "NodeJS", logo: nodejsLogo, url: "https://nodejs.org/fr" },
+  { name: "Java", logo: javaLogo, url: "https://www.java.com/fr/" },
+  { name: "Git", logo: gitLogo, url: "https://git-scm.com/" },
+  { name: "Docker", logo: dockerLogo, url: "https://www.docker.com/" },
+  { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/fr/" },
+  { name: "MongoDB", logo: mongodbLogo, url: "https://www.mongodb.com/" },
+  { name: "Adonis", logo: adonisLogo, url: "https://adonisjs.com/" },
+];
+---
+
 <section id="exph">
   <div class="exph__wrapper">
     <h2 class="exph__title">
       <span>Mes compétences</span>
     </h2>
+    <div class="exph__cols">
+      <div class="exph__col exph__cols-left">
+        <div>
+          <h3>Développement Front-End</h3>
+          <p>
+            J’aime concevoir des interfaces modernes, fluides et bien
+            structurées. Je travaille avec HTML, CSS, JavaScript et TypeScript,
+            en utilisant principalement React. J’organise mon code de façon
+            <span>modulaire</span> avec des composants réutilisables, ce qui me permet
+            de
+            <span>maintenir</span> mes interfaces plus facilement.
+          </p>
+        </div>
+        <div>
+          <h3>Développement Back-End</h3>
+          <p>
+            Côté Back-End, j’aime explorer différentes technologies, que ce soit
+            avec Java (Spring Boot) ou Node.js (Adonis, Nest) pour développer
+            des API <span>fiables et bien organisées</span>. Je gère aussi bien
+            les bases de données relationnelles comme MySQL que les bases
+            orientées documents comme MongoDB, ainsi que des buckets S3 pour la
+            gestion et la sauvegarde de fichiers côté serveur.
+          </p>
+        </div>
+        <div>
+          <h3>DevOps & Outils</h3>
+          <p>
+            J’utilise Git au quotidien, un outil essentiel. J’aime mettre en
+            place des pipelines CI/CD pour mes projets personnels, avec des
+            <span>déploiements automatiques</span> vers mon VPS. J’utilise également
+            Docker pour isoler mes environnements de développement et faciliter le
+            déploiement.
+          </p>
+        </div>
+      </div>
+      <div class="exph__col exph__cols-right">
+        <div class="exph__tech-wrapper">
+          <div class="exph__tech-grid">
+            {
+              technologies.map((tech) => (
+                <a
+                  href={tech.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="exph__tech-item"
+                  data-tooltip={tech.name}
+                  title={`Visiter le site de ${tech.name}`}
+                >
+                  <img src={tech.logo.src} alt={`Logo ${tech.name}`} />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

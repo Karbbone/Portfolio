@@ -40,8 +40,8 @@ h2,
 
 h3,
 .h3 {
-  @include utils.clamp(font-size, 2.5, 3.5);
-  @include utils.clamp(line-height, 2.5, 3.5);
+  @include utils.clamp(font-size, 2, 2.4);
+  @include utils.clamp(line-height, 2, 2.4);
 }
 
 /* Default font-size */
