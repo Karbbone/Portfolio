@@ -30,11 +30,10 @@ main {
         &__content {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 4rem;
 
           @include bp.from("desktop") {
             flex-direction: row;
-            align-items: center;
             justify-content: start;
           }
 
@@ -43,16 +42,94 @@ main {
             border: solid 0.3rem colors.$black;
             box-shadow: 6px 6px 0 colors.$black;
             width: 100%;
-
+            padding: 2.5rem 4rem;
+            display: flex;
+            flex-direction: column;
             @include bp.from("desktop") {
-              max-width: 500px;
+              max-width: 450px;
             }
-            &--header {
+            &__header {
+              height: 50px;
               img {
                 display: block;
                 margin: 0 auto;
                 max-width: 100%;
                 height: auto;
+              }
+            }
+            &__body {
+              display: flex;
+              flex-direction: column;
+              flex-grow: 1;
+              &__date {
+                font-style: italic;
+                font-size: 1.5rem;
+                &-highlight {
+                  @include highlight.class("green", 0.5rem);
+                }
+              }
+              h3 {
+                @include utils.clamp(font-size, 2, 2.4);
+                @include utils.clamp(line-height, 2, 2.4);
+              }
+              ul {
+                flex-direction: column;
+                display: flex;
+                gap: 2rem;
+                @include utils.clamp(margin-top, 1, 4);
+                @include utils.clamp(margin-bottom, 1, 4);
+                @include utils.clamp(padding-left, 1, 4);
+              }
+            }
+            &__footer {
+              flex-shrink: 0;
+              h3 {
+                @include utils.clamp(font-size, 1.8, 2.2);
+                @include utils.clamp(line-height, 1.8, 2.2);
+                margin-bottom: 1rem;
+              }
+
+              &__tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+                margin-bottom: 4rem;
+                align-items: center;
+
+                &-tag {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  padding: 0.5rem 1rem;
+                  background-color: rgba(128, 202, 110, 0.54);
+                  color: colors.$gray-dark;
+                  font-size: 1.3rem;
+                  font-weight: 600;
+                  border-radius: 0.5rem;
+                  border: 2px solid colors.$black;
+                  text-decoration: none;
+
+                  img {
+                    width: 1.8rem;
+                    height: 1.8rem;
+                    object-fit: contain;
+                    transition: all 0.3s ease;
+                  }
+
+                  &:hover {
+                    background-color: rgba(128, 202, 110, 0.8);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+                    img {
+                      transform: scale(1.1);
+                    }
+                  }
+                }
+              }
+
+              &-button {
+                @include btn.class("secondary");
               }
             }
           }

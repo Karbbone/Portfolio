@@ -1,6 +1,16 @@
 ---
 import inovera from "../../assets/inovera.png";
 import mediamag from "../../assets/mediamag.png";
+
+// Import des logos de technologies
+import adonisLogo from "../../assets/technos/adonis.svg";
+import cplusplusLogo from "../../assets/technos/cplusplus.svg";
+import mysqlLogo from "../../assets/technos/mysql.svg";
+import phpLogo from "../../assets/technos/php.svg";
+import pythonLogo from "../../assets/technos/python.svg";
+import reactLogo from "../../assets/technos/react.svg";
+import symfonyLogo from "../../assets/technos/symfony.svg";
+import typescriptLogo from "../../assets/technos/typescript.svg";
 ---
 
 <section id="work">
@@ -9,16 +19,185 @@ import mediamag from "../../assets/mediamag.png";
       <span>C'est un réel plaisir <br /> de travailler ensemble</span>
     </h2>
     <div class="work__content">
-      <div class="work__content__item">
-        <div class="work__content__item--header">
+      <article class="work__content__item">
+        <header class="work__content__item__header">
           <img src={mediamag.src} />
+        </header>
+        <div class="work__content__item__body">
+          <h3 class="work__content__item__body__title">
+            Développeur Full Stack
+          </h3>
+          <span class="work__content__item__body__date"
+            >Avril 2023 - Août 2024</span
+          >
+          <ul>
+            <li>
+              Développement de plusieurs applications internes afin d’améliorer
+              l’autonomie des employés.
+            </li>
+            <li>
+              Développement d’une application permettant de s’ouvrir à de
+              nouveaux clients sur le marché avec une nouvelle offre, permettant
+              aux utilisateurs de s’enregistrer sans avoir à passer par les voix
+              professionnelles de Médiamag.
+            </li>
+            <li>
+              Création de modules externes pour l'application principale de la
+              société en C++, Python.
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="work__content__item">
-        <div class="work__content__item--header">
+        <footer class="work__content__item__footer">
+          <h3>Technologies</h3>
+          <div class="work__content__item__footer__tags">
+            <a
+              href="https://adonisjs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={adonisLogo.src} alt="AdonisJS" />
+              AdonisJS
+            </a>
+            <a
+              href="https://cplusplus.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={cplusplusLogo.src} alt="C++" />
+              C++
+            </a>
+            <a
+              href="https://www.mysql.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={mysqlLogo.src} alt="SQL" />
+              MySQL
+            </a>
+            <a
+              href="https://www.python.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={pythonLogo.src} alt="Python" />
+              Python
+            </a>
+            <a
+              href="https://react.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={reactLogo.src} alt="React" />
+              React
+            </a>
+            <a
+              href="https://www.typescriptlang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={typescriptLogo.src} alt="TypeScript" />
+              TypeScript
+            </a>
+          </div>
+          <a
+            href="https://www.mediamag-systeme.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="work__content__item__footer-button">Site de l'entreprise</a
+          >
+        </footer>
+      </article>
+      <article class="work__content__item">
+        <header class="work__content__item__header">
           <img src={inovera.src} />
+        </header>
+        <div class="work__content__item__body">
+          <h3 class="work__content__item__body__title">
+            Développeur Full Stack
+          </h3>
+          <span class="work__content__item__body__date"
+            >Novembre 2024 - <span
+              class="work__content__item__body__date-highlight">Maintenant</span
+            ></span
+          >
+          <ul>
+            <li>
+              Migration d'une application Symfony vers une nouvelle solution
+              front-end en React avec transformation du backend Symfony en API
+              REST/JSON.
+            </li>
+            <li>
+              Application du nouveau design sur les applications de la société.
+            </li>
+            <li>
+              Maintenance et développement de nouvelles fonctionnalités sur les
+              applications existantes de la société.
+            </li>
+          </ul>
         </div>
-      </div>
+        <footer class="work__content__item__footer">
+          <h3>Technologies</h3>
+          <div class="work__content__item__footer__tags">
+            <a
+              href="https://www.mysql.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={mysqlLogo.src} alt="SQL" />
+              MySQL
+            </a>
+            <a
+              href="https://www.php.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={phpLogo.src} alt="PHP" />
+              PHP
+            </a>
+            <a
+              href="https://react.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={reactLogo.src} alt="React" />
+              React
+            </a>
+            <a
+              href="https://symfony.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={symfonyLogo.src} alt="Symfony" />
+              Symfony
+            </a>
+            <a
+              href="https://www.typescriptlang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work__content__item__footer__tags-tag"
+            >
+              <img src={typescriptLogo.src} alt="TypeScript" />
+              TypeScript
+            </a>
+          </div>
+          <a
+            href="https://www.inovera.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="work__content__item__footer-button">Site de l'entreprise</a
+          >
+        </footer>
+      </article>
     </div>
   </div>
 </section>
