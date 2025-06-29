@@ -17,7 +17,7 @@ main {
 
         &__title {
           margin-top: 0;
-          @include utils.clamp(margin-bottom, 2, 4);
+          @include utils.clamp(margin-bottom, 4, 6);
 
           @include bp.to("desktop") {
             text-align: center;
@@ -105,7 +105,6 @@ main {
                   color: colors.$gray-dark;
                   font-size: 1.3rem;
                   font-weight: 600;
-                  border-radius: 0.5rem;
                   border: 2px solid colors.$black;
                   text-decoration: none;
 

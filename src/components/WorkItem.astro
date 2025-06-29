@@ -1,0 +1,81 @@
+---
+export interface Props {
+  company: {
+    name: string;
+    logo: ImageMetadata;
+    website: string;
+  };
+  position: string;
+  dateRange: string;
+  isCurrentJob?: boolean;
+  tasks: string[];
+  technologies: {
+    name: string;
+    logo: ImageMetadata;
+    url: string;
+  }[];
+}
+
+const {
+  company,
+  position,
+  dateRange,
+  isCurrentJob = false,
+  tasks,
+  technologies,
+} = Astro.props;
+---
+
+<article class="work__content__item">
+  <header class="work__content__item__header">
+    <img src={company.logo.src} alt={company.name} />
+  </header>
+  <div class="work__content__item__body">
+    <h3 class="work__content__item__body__title">
+      {position}
+    </h3>
+    <span class="work__content__item__body__date">
+      {
+        isCurrentJob ? (
+          <>
+            {dateRange} -{" "}
+            <span class="work__content__item__body__date-highlight">
+              Maintenant
+            </span>
+          </>
+        ) : (
+          dateRange
+        )
+      }
+    </span>
+    <ul>
+      {tasks.map((task) => <li>{task}</li>)}
+    </ul>
+  </div>
+  <footer class="work__content__item__footer">
+    <h3>Technologies</h3>
+    <div class="work__content__item__footer__tags">
+      {
+        technologies.map((tech) => (
+          <a
+            href={tech.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="work__content__item__footer__tags-tag"
+          >
+            <img src={tech.logo.src} alt={tech.name} />
+            {tech.name}
+          </a>
+        ))
+      }
+    </div>
+    <a
+      href={company.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="work__content__item__footer-button"
+    >
+      Site de l'entreprise
+    </a>
+  </footer>
+</article>

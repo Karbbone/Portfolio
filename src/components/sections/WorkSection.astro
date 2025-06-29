@@ -2,7 +2,6 @@
 import inovera from "../../assets/inovera.png";
 import mediamag from "../../assets/mediamag.png";
 
-// Import des logos de technologies
 import adonisLogo from "../../assets/technos/adonis.svg";
 import cplusplusLogo from "../../assets/technos/cplusplus.svg";
 import mysqlLogo from "../../assets/technos/mysql.svg";
@@ -11,6 +10,64 @@ import pythonLogo from "../../assets/technos/python.svg";
 import reactLogo from "../../assets/technos/react.svg";
 import symfonyLogo from "../../assets/technos/symfony.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
+
+import WorkItem from "../WorkItem.astro";
+
+const workExperiences = [
+  {
+    company: {
+      name: "Médiamag",
+      logo: mediamag,
+      website: "https://www.mediamag-systeme.com/",
+    },
+    position: "Développeur Full Stack",
+    dateRange: "Avril 2023 - Août 2024",
+    tasks: [
+      "Développement de plusieurs applications internes afin d'améliorer l'autonomie des employés.",
+      "Développement d'une application permettant de s'ouvrir à de nouveaux clients sur le marché avec une nouvelle offre, permettant aux utilisateurs de s'enregistrer sans avoir à passer par les voix professionnelles de Médiamag.",
+      "Création de modules externes pour l'application principale de la société en C++, Python.",
+    ],
+    technologies: [
+      { name: "AdonisJS", logo: adonisLogo, url: "https://adonisjs.com/" },
+      { name: "C++", logo: cplusplusLogo, url: "https://cplusplus.com/" },
+      { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/" },
+      { name: "Python", logo: pythonLogo, url: "https://www.python.org/" },
+      { name: "React", logo: reactLogo, url: "https://react.dev/" },
+      {
+        name: "TypeScript",
+        logo: typescriptLogo,
+        url: "https://www.typescriptlang.org/",
+      },
+    ],
+  },
+  {
+    company: {
+      name: "Inovera",
+      logo: inovera,
+      website: "https://www.inovera.fr/",
+    },
+    position: "Développeur Full Stack",
+    dateRange: "Novembre 2024",
+    isCurrentJob: true,
+    tasks: [
+      "Migration d'une application Symfony vers une nouvelle solution front-end en React avec transformation du backend Symfony en API REST/JSON.",
+      "Application du nouveau design sur les applications de la société.",
+      "Gestion et coordination des projets via Jira avec planification des tickets et méthodologie Kanban.",
+      "Maintenance et développement de nouvelles fonctionnalités sur les applications existantes de la société.",
+    ],
+    technologies: [
+      { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/" },
+      { name: "PHP", logo: phpLogo, url: "https://www.php.net/" },
+      { name: "React", logo: reactLogo, url: "https://react.dev/" },
+      { name: "Symfony", logo: symfonyLogo, url: "https://symfony.com/" },
+      {
+        name: "TypeScript",
+        logo: typescriptLogo,
+        url: "https://www.typescriptlang.org/",
+      },
+    ],
+  },
+];
 ---
 
 <section id="work">
@@ -19,185 +76,7 @@ import typescriptLogo from "../../assets/technos/typescript.svg";
       <span>C'est un réel plaisir <br /> de travailler ensemble</span>
     </h2>
     <div class="work__content">
-      <article class="work__content__item">
-        <header class="work__content__item__header">
-          <img src={mediamag.src} />
-        </header>
-        <div class="work__content__item__body">
-          <h3 class="work__content__item__body__title">
-            Développeur Full Stack
-          </h3>
-          <span class="work__content__item__body__date"
-            >Avril 2023 - Août 2024</span
-          >
-          <ul>
-            <li>
-              Développement de plusieurs applications internes afin d’améliorer
-              l’autonomie des employés.
-            </li>
-            <li>
-              Développement d’une application permettant de s’ouvrir à de
-              nouveaux clients sur le marché avec une nouvelle offre, permettant
-              aux utilisateurs de s’enregistrer sans avoir à passer par les voix
-              professionnelles de Médiamag.
-            </li>
-            <li>
-              Création de modules externes pour l'application principale de la
-              société en C++, Python.
-            </li>
-          </ul>
-        </div>
-        <footer class="work__content__item__footer">
-          <h3>Technologies</h3>
-          <div class="work__content__item__footer__tags">
-            <a
-              href="https://adonisjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={adonisLogo.src} alt="AdonisJS" />
-              AdonisJS
-            </a>
-            <a
-              href="https://cplusplus.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={cplusplusLogo.src} alt="C++" />
-              C++
-            </a>
-            <a
-              href="https://www.mysql.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={mysqlLogo.src} alt="SQL" />
-              MySQL
-            </a>
-            <a
-              href="https://www.python.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={pythonLogo.src} alt="Python" />
-              Python
-            </a>
-            <a
-              href="https://react.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={reactLogo.src} alt="React" />
-              React
-            </a>
-            <a
-              href="https://www.typescriptlang.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={typescriptLogo.src} alt="TypeScript" />
-              TypeScript
-            </a>
-          </div>
-          <a
-            href="https://www.mediamag-systeme.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="work__content__item__footer-button">Site de l'entreprise</a
-          >
-        </footer>
-      </article>
-      <article class="work__content__item">
-        <header class="work__content__item__header">
-          <img src={inovera.src} />
-        </header>
-        <div class="work__content__item__body">
-          <h3 class="work__content__item__body__title">
-            Développeur Full Stack
-          </h3>
-          <span class="work__content__item__body__date"
-            >Novembre 2024 - <span
-              class="work__content__item__body__date-highlight">Maintenant</span
-            ></span
-          >
-          <ul>
-            <li>
-              Migration d'une application Symfony vers une nouvelle solution
-              front-end en React avec transformation du backend Symfony en API
-              REST/JSON.
-            </li>
-            <li>
-              Application du nouveau design sur les applications de la société.
-            </li>
-            <li>
-              Maintenance et développement de nouvelles fonctionnalités sur les
-              applications existantes de la société.
-            </li>
-          </ul>
-        </div>
-        <footer class="work__content__item__footer">
-          <h3>Technologies</h3>
-          <div class="work__content__item__footer__tags">
-            <a
-              href="https://www.mysql.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={mysqlLogo.src} alt="SQL" />
-              MySQL
-            </a>
-            <a
-              href="https://www.php.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={phpLogo.src} alt="PHP" />
-              PHP
-            </a>
-            <a
-              href="https://react.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={reactLogo.src} alt="React" />
-              React
-            </a>
-            <a
-              href="https://symfony.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={symfonyLogo.src} alt="Symfony" />
-              Symfony
-            </a>
-            <a
-              href="https://www.typescriptlang.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="work__content__item__footer__tags-tag"
-            >
-              <img src={typescriptLogo.src} alt="TypeScript" />
-              TypeScript
-            </a>
-          </div>
-          <a
-            href="https://www.inovera.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="work__content__item__footer-button">Site de l'entreprise</a
-          >
-        </footer>
-      </article>
+      {workExperiences.map((experience) => <WorkItem {...experience} />)}
     </div>
   </div>
 </section>
