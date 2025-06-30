@@ -96,10 +96,9 @@ main {
           width: 80px;
           height: 80px;
           border: 3px solid colors.$black;
-          box-shadow: 6px 6px 0 colors.$black;
           position: relative;
           text-decoration: none;
-
+          box-shadow: 3px 3px 0 colors.$black;
           // Tooltip
           &::after {
             content: attr(data-tooltip);
@@ -120,6 +119,8 @@ main {
           }
 
           &:hover {
+            box-shadow: 7px 7px 0 colors.$black;
+
             &::after {
               opacity: 1;
               visibility: visible;
