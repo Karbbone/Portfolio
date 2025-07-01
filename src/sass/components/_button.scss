@@ -27,6 +27,18 @@
     color: color.$gray-dark;
     background-color: color.$purple;
   }
+  &--red {
+    color: color.$gray-dark;
+    background-color: rgba(color.$red, 0.54);
+  }
+  &--blue {
+    color: color.$gray-dark;
+    background-color: rgba(color.$blue, 0.54);
+  }
+  &--green {
+    color: color.$gray-dark;
+    background-color: rgba(color.$green, 0.54);
+  }
 
   // TODO: Nouvelle classe pour les boutons avec une icône dedans, pensez à mettre le texte dans une span
 }
@@ -38,6 +50,12 @@
     @extend .btn--primary;
   } @else if $btn == "secondary" {
     @extend .btn--secondary;
+  } @else if $btn == "red" {
+    @extend .btn--red;
+  } @else if $btn == "blue" {
+    @extend .btn--blue;
+  } @else if $btn == "green" {
+    @extend .btn--green;
   } @else {
     @error "Unknown button type: #{$btn}.";
   }

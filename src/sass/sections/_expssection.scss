@@ -82,8 +82,7 @@ main {
           }
 
           &-cta {
-            @include btn.class("secondary");
-            background-color: rgba(colors.$blue, 0.54);
+            @include btn.class("blue");
             margin-top: auto;
             margin-left: auto;
           }

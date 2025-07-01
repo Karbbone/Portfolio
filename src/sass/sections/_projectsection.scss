@@ -1,0 +1,126 @@
+@use "../base/layout";
+@use "../base/colors" as colors;
+@use "../components/wrapper" as wrapper;
+@use "../utils/breakpoints" as bp;
+@use "../utils/mixins" as utils;
+@use "../base/fonts" as fonts;
+@use "../components/button" as btn;
+@use "../components/highlight" as highlight;
+
+main {
+  section {
+    &#project {
+      .project {
+        &__wrapper {
+          @include wrapper.class("small");
+        }
+
+        &__title {
+          margin-top: 0;
+          @include utils.clamp(margin-bottom, 4, 6);
+
+          @include bp.to("desktop") {
+            text-align: center;
+          }
+
+          span {
+            @include highlight.class("red");
+          }
+        }
+
+        &__content {
+          display: flex;
+          flex-direction: column;
+          @include utils.clamp(gap, 3, 6);
+        }
+        &__item {
+          display: flex;
+          flex-direction: column;
+          border: solid 0.3rem colors.$black;
+          box-shadow: 7px 7px 0 colors.$black;
+
+          @include bp.from("desktop") {
+            flex-direction: row;
+          }
+
+          &__col-left {
+            width: 100%;
+            @include bp.from("desktop") {
+              width: 50%;
+              flex-direction: row;
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+            }
+          }
+
+          &__col-right {
+            width: 100%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            @include bp.from("desktop") {
+              width: 50%;
+            }
+          }
+
+          &-description {
+            line-height: 1.3;
+          }
+
+          &-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+            gap: 1rem;
+            img {
+              width: 30px;
+              height: 30px;
+            }
+            @include btn.class("red");
+          }
+          &__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 4rem;
+            align-items: center;
+            &-tag {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.5rem 1rem;
+              background-color: rgba(colors.$red, 0.54);
+              color: colors.$gray-dark;
+              font-size: 1.3rem;
+              font-weight: 600;
+              border: 2px solid colors.$black;
+              text-decoration: none;
+
+              img {
+                width: 1.8rem;
+                height: 1.8rem;
+                object-fit: contain;
+                transition: all 0.3s ease;
+              }
+
+              &:hover {
+                background-color: rgba(colors.$red, 0.8);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+                img {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
