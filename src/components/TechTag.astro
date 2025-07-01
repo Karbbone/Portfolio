@@ -1,0 +1,15 @@
+---
+export interface Props {
+  name: string;
+  logo: ImageMetadata;
+  url: string;
+  className?: string;
+}
+
+const { name, logo, url, className = "tech-tag" } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer" class={className}>
+  <img src={logo.src} alt={name} />
+  {name}
+</a>
