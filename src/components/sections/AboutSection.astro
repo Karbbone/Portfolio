@@ -1,6 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import me from "../../assets/me.svg";
+import me from "../../assets/me.svg?url";
 ---
 
 <section id="about">
@@ -43,7 +42,7 @@ import me from "../../assets/me.svg";
         </div>
       </div>
       <div class="about__col about__col--right">
-        <Image src={me} alt="Portrait de Clément" />
+        <img src={me} alt="Portrait de Clément" />
       </div>
     </div>
   </div>
