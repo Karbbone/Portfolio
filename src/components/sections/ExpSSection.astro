@@ -1,3 +1,11 @@
+---
+// Import des icônes pour les soft skills
+import chatIcon from "../../assets/chat.svg";
+import collabIcon from "../../assets/collab.svg";
+import fdnIcon from "../../assets/fdn.jpg";
+import loopIcon from "../../assets/loop.svg";
+---
+
 <section id="exps">
   <div class="exps__wrapper">
     <h2 class="exps__title">
@@ -7,7 +15,9 @@
       <div class="exps__card">
         <div class="exps__card-header">
           <h3 class="exps__card-title">Capacité d'écoute</h3>
-          <div class="exps__card-icon">💬</div>
+          <div class="exps__card-icon">
+            <img src={chatIcon.src} alt="Icône chat" />
+          </div>
         </div>
         <p class="exps__card-text">
           Je prends le temps de bien comprendre les besoins des utilisateurs
@@ -20,7 +30,9 @@
       <div class="exps__card">
         <div class="exps__card-header">
           <h3 class="exps__card-title">Travail d'équipe</h3>
-          <div class="exps__card-icon">👥</div>
+          <div class="exps__card-icon">
+            <img src={collabIcon.src} alt="Icône collaboration" />
+          </div>
         </div>
         <p class="exps__card-text">
           J'apprécie grandement le travail d'équipe et le partage de mes
@@ -33,7 +45,9 @@
       <div class="exps__card">
         <div class="exps__card-header">
           <h3 class="exps__card-title">Curieux</h3>
-          <div class="exps__card-icon">🔍</div>
+          <div class="exps__card-icon">
+            <img src={loopIcon.src} alt="Icône recherche" />
+          </div>
         </div>
         <p class="exps__card-text">
           J’ai une vraie soif d’apprendre : j’aime découvrir de nouvelles
@@ -45,7 +59,9 @@
       <div class="exps__card">
         <div class="exps__card-header">
           <h3 class="exps__card-title">Bénévole Fresque du Numérique</h3>
-          <div class="exps__card-icon">⚡</div>
+          <div class="exps__card-icon">
+            <img src={fdnIcon.src} alt="Logo Fresque du Numérique" />
+          </div>
         </div>
         <p class="exps__card-text">
           Je suis bénévole pour la Fresque du Numérique, j'ai été formé en tant

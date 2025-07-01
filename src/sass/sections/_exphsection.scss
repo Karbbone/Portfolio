@@ -99,32 +99,10 @@ main {
           position: relative;
           text-decoration: none;
           box-shadow: 3px 3px 0 colors.$black;
-          // Tooltip
-          &::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: colors.$black;
-            color: colors.$white;
-            padding: 0.5rem 0.75rem;
-            font-size: 1.5rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            pointer-events: none;
-            z-index: 10;
-          }
-
+          transition: all 0.3s ease;
           &:hover {
+            background-color: rgba(colors.$blue, 0.54);
             box-shadow: 7px 7px 0 colors.$black;
-
-            &::after {
-              opacity: 1;
-              visibility: visible;
-            }
           }
 
           img {
