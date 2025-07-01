@@ -80,6 +80,13 @@ main {
           &-text {
             line-height: 1.6;
           }
+
+          &-cta {
+            @include btn.class("secondary");
+            background-color: rgba(colors.$blue, 0.54);
+            margin-top: auto;
+            margin-left: auto;
+          }
         }
       }
     }
