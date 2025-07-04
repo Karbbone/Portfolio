@@ -1,0 +1,63 @@
+---
+import pokemonStudio from "../../assets/project/pokemon-studio.png";
+import todaysflagLogo from "../../assets/project/todays-flag.png";
+import electronLogo from "../../assets/technos/electron.svg";
+import mysqlLogo from "../../assets/technos/mysql.svg";
+import nextjsLogo from "../../assets/technos/nextjs.svg";
+import prismaLogo from "../../assets/technos/prisma.svg";
+import reactLogo from "../../assets/technos/react.svg";
+import typescriptLogo from "../../assets/technos/typescript.svg";
+import ProjectItem from "../ProjectItem.astro";
+
+const projects = [
+  {
+    title: "Pokemon Studio",
+    description:
+      "Pokémon Studio est une application web open source qui permet de créer son propre jeu Pokémon. Cet outil est totalement modulable, ce qui permet à l'utilisateur de créer un jeu Pokémon unique. Je contribue sur mon temps libre au projet avec une équipe distribuée suivant une méthodologie agile (Scrumban) adaptée au contexte projet, réunion de sprint et répartition des tâches.",
+    image: pokemonStudio,
+    technologies: [
+      {
+        name: "Electron",
+        logo: electronLogo,
+        url: "https://www.electronjs.org/",
+      },
+      { name: "React", logo: reactLogo, url: "https://react.dev/" },
+      {
+        name: "TypeScript",
+        logo: typescriptLogo,
+        url: "https://www.typescriptlang.org/",
+      },
+    ],
+    githubUrl: "https://github.com/PokemonWorkshop/PokemonStudio",
+  },
+  {
+    title: "Today's Flag",
+    description:
+      "Today's Flag est une application web qui permet chaque jour de tenter de deviner le pays caché derrière un drapeau. Cela permet de retenir plus facilement les drapeaux de tous les pays du monde. J'ai réalisé cette application avec Next.js afin d'expérimenter le framework.",
+    image: todaysflagLogo,
+    technologies: [
+      { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/" },
+      { name: "Next.js", logo: nextjsLogo, url: "https://nextjs.org/" },
+      { name: "Prisma", logo: prismaLogo, url: "https://www.prisma.io/" },
+      { name: "React", logo: reactLogo, url: "https://react.dev/" },
+      {
+        name: "TypeScript",
+        logo: typescriptLogo,
+        url: "https://www.typescriptlang.org/",
+      },
+    ],
+    githubUrl: "https://github.com/Karbbone/TodaysFlag",
+  },
+];
+---
+
+<section id="project">
+  <div class="project__wrapper">
+    <h2 class="project__title">
+      <span>Mes projets</span>
+    </h2>
+    <div class="project__content">
+      {projects.map((project) => <ProjectItem {...project} />)}
+    </div>
+  </div>
+</section>

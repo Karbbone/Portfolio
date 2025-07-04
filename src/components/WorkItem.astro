@@ -1,4 +1,6 @@
 ---
+import TechTag from "./TechTag.astro";
+
 export interface Props {
   company: {
     name: string;
@@ -57,15 +59,12 @@ const {
     <div class="work__content__item__footer__tags">
       {
         technologies.map((tech) => (
-          <a
-            href={tech.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="work__content__item__footer__tags-tag"
-          >
-            <img src={tech.logo.src} alt={tech.name} />
-            {tech.name}
-          </a>
+          <TechTag
+            name={tech.name}
+            logo={tech.logo}
+            url={tech.url}
+            className="work__content__item__footer__tags-tag"
+          />
         ))
       }
     </div>

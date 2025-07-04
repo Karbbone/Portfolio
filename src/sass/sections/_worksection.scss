@@ -83,6 +83,8 @@ main {
             }
             &__footer {
               flex-shrink: 0;
+              display: flex;
+              flex-direction: column;
               h3 {
                 @include utils.clamp(font-size, 1.8, 2.2);
                 @include utils.clamp(line-height, 1.8, 2.2);
@@ -128,7 +130,8 @@ main {
               }
 
               &-button {
-                @include btn.class("secondary");
+                @include btn.class("green");
+                align-self: flex-end;
               }
             }
           }
