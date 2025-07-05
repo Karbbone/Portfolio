@@ -27,6 +27,11 @@ import Header from "../components/Header.astro";
         const submitBtn = form.querySelector(".contact__form-submit");
         form.addEventListener("submit", function (event) {
           event.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            submitBtn.disabled = false;
+            return;
+          }
           submitBtn.disabled = true;
           emailjs.sendForm("service_r5nqngg", "template_0d1e8qq", this).then(
             function () {
