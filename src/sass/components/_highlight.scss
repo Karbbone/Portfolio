@@ -39,6 +39,13 @@
       opacity: 0.54;
     }
   }
+
+  &-orange {
+    &::after {
+      background-color: colors.$orange;
+      opacity: 0.54;
+    }
+  }
 }
 
 @mixin class($color, $padding: 2rem) {
@@ -54,6 +61,8 @@
     @extend .highlighted-blue;
   } @else if $color == "red" {
     @extend .highlighted-red;
+  } @else if $color == "orange" {
+    @extend .highlighted-orange;
   } @else {
     @error "Unknown highlight type: #{$color}.";
   }
