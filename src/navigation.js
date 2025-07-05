@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const sectionTop =
         section.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
-        top: sectionTop - headerHeight - 16,
+        top: sectionTop - headerHeight,
         behavior: "smooth",
       });
     }
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!section) continue;
 
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom > 120) {
+        if (rect.top <= 350 && rect.bottom > 350) {
           link.classList.add(menuClass);
           return;
         }
