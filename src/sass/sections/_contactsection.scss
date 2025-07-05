@@ -31,8 +31,8 @@ main {
           gap: 2.5rem;
           margin: 0 auto;
           max-width: 800px;
-          border: 2px solid colors.$black;
-          box-shadow: 7px 7px 0 colors.$black;
+          border: solid 0.3rem colors.$black;
+          box-shadow: 6px 6px 0 colors.$black;
           padding: 2.5rem 2rem;
         }
 

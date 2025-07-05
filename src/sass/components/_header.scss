@@ -4,6 +4,7 @@
 @use "../base/commons";
 
 @use "./button" as btn;
+@use "./highlight" as highlight;
 @use "./wrapper" as wrapper;
 
 @use "../utils/mixins" as utils;
@@ -88,7 +89,8 @@
 
       &-item {
         &--cta {
-          a {
+          a,
+          button {
             @include btn.class("primary");
 
             display: flex;
@@ -96,15 +98,20 @@
             justify-content: center;
           }
         }
+      }
+      &-link {
+        text-decoration: none;
+        color: color.$gray-dark;
+        z-index: 1;
 
-        a {
-          text-decoration: none;
-          color: color.$gray-dark;
-
-          &:hover,
-          &:focus-visible {
-            color: color.$orange;
-          }
+        &--about {
+          @include highlight.class("green", 0.5rem);
+        }
+        &--skills {
+          @include highlight.class("blue", 0.5rem);
+        }
+        &--projects {
+          @include highlight.class("red", 0.5rem);
         }
       }
     }
@@ -144,7 +151,6 @@
           &:nth-child(2) {
             opacity: 0;
             transition-duration: 0s;
-            // transform: translateX(-2rem);
           }
 
           &:nth-child(3) {

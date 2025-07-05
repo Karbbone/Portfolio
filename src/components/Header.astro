@@ -16,11 +16,30 @@
 
         <nav class="header__navigation">
           <ul class="header__menu">
-            <li class="header__menu-item"><a href="#about">À propos</a></li>
-            <li class="header__menu-item"><a href="#skills">Compétences</a></li>
-            <li class="header__menu-item"><a href="#projects">Projets</a></li>
+            <li class="header__menu-item">
+              <a
+                href="#about"
+                class="header__menu-link header__menu-link--about">À propos</a
+              >
+            </li>
+            <li class="header__menu-item">
+              <a
+                href="#exph"
+                class="header__menu-link header__menu-link--skills"
+                >Compétences</a
+              >
+            </li>
+            <li class="header__menu-item">
+              <a
+                href="#project"
+                class="header__menu-link header__menu-link--projects">Projets</a
+              >
+            </li>
             <li class="header__menu-item header__menu-item--cta">
-              <a href="#contact">Contact</a>
+              <a
+                href="#contact"
+                class="header__menu-link header__menu-link--contact">Contact</a
+              >
             </li>
           </ul>
         </nav>
@@ -29,31 +48,4 @@
   </div>
 </header>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const burgerBtn = document.querySelector(
-      ".header__burger"
-    ) as HTMLButtonElement;
-    const nav = document.querySelector(".header__navigation") as HTMLElement;
-
-    burgerBtn?.addEventListener("click", function (this: HTMLButtonElement) {
-      const expanded = this.getAttribute("aria-expanded") === "true";
-      this.setAttribute("aria-expanded", String(!expanded));
-      document.body.classList.toggle("active");
-      nav?.classList.toggle("header__navigation--active");
-      this.classList.toggle("header__burger--active");
-    });
-
-    const menuLinks = document.querySelectorAll(".header__menu-item a");
-    menuLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (nav?.classList.contains("header__navigation--active")) {
-          nav.classList.remove("header__navigation--active");
-          burgerBtn?.setAttribute("aria-expanded", "false");
-          burgerBtn?.classList.remove("header__burger--active");
-          document.body.classList.remove("active");
-        }
-      });
-    });
-  });
-</script>
+<script type="module" src="/src/assets/navigation.js"></script>
