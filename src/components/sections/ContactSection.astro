@@ -6,12 +6,7 @@
   <div class="contact__wrapper">
     <h2 class="contact__title"><span>Contact</span></h2>
     <div class="contact__success"></div>
-    <form
-      class="contact__form"
-      id="contact-form"
-      action="https://formsubmit.co/ajax/6891b41968e55a0a0f1a79d76494d3e7"
-      method="POST"
-    >
+    <form class="contact__form" id="contact-form" autocomplete="off" novalidate>
       <input type="hidden" name="_captcha" value="false" />
       <div class="contact__form-group">
         <label for="contact-nom" class="contact__form-label">Nom</label>
@@ -61,56 +56,5 @@
       </div>
       <button type="submit" class="contact__form-submit">Envoyer</button>
     </form>
-    <script type="module" is:inline>
-      const form = document.getElementById("contact-form");
-      const successDiv = document.querySelector(".contact__success");
-      function showSuccess(msg, isError = false) {
-        successDiv.textContent = msg;
-        successDiv.classList.add("contact__success--visible");
-        if (isError) {
-          successDiv.classList.add("contact__success--error");
-        } else {
-          successDiv.classList.remove("contact__success--error");
-        }
-      }
-      function hideSuccess() {
-        successDiv.textContent = "";
-        successDiv.classList.remove(
-          "contact__success--visible",
-          "contact__success--error"
-        );
-      }
-      if (form) {
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          hideSuccess();
-          const recaptchaResponse =
-            window.grecaptcha && window.grecaptcha.getResponse
-              ? window.grecaptcha.getResponse()
-              : "";
-          if (!recaptchaResponse) {
-            showSuccess(
-              "Veuillez valider le reCAPTCHA pour envoyer le formulaire.",
-              true
-            );
-            return;
-          }
-          const data = new FormData(form);
-          const res = await fetch(form.action, {
-            method: "POST",
-            body: data,
-            headers: { Accept: "application/json" },
-          });
-          if (res.ok) {
-            form.reset();
-            if (window.grecaptcha) window.grecaptcha.reset();
-            showSuccess("Votre message a bien été envoyé, merci !");
-          } else {
-            showSuccess("Une erreur est survenue, veuillez réessayer.", true);
-            if (window.grecaptcha) window.grecaptcha.reset();
-          }
-        });
-      }
-    </script>
   </div>
 </section>

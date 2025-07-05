@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 ---
 
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -10,6 +10,48 @@ import Header from "../components/Header.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "hMHpVGsPfIgHbQrdu",
+        });
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        const form = document.getElementById("contact-form");
+        const submitBtn = form.querySelector(".contact__form-submit");
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          submitBtn.disabled = true;
+          emailjs.sendForm("service_r5nqngg", "template_0d1e8qq", this).then(
+            function () {
+              const successDiv = document.querySelector(".contact__success");
+              successDiv.textContent =
+                "Votre message a été envoyé avec succès !";
+              successDiv.classList.add("contact__success--visible");
+              if (window.grecaptcha) window.grecaptcha.reset();
+              form.reset();
+              submitBtn.disabled = false;
+            },
+            function (error) {
+              const successDiv = document.querySelector(".contact__success");
+              successDiv.textContent =
+                "Une erreur s'est produite lors de l'envoi du message.";
+              successDiv.classList.add(
+                "contact__success--visible",
+                "contact__success--error"
+              );
+              submitBtn.disabled = false;
+            }
+          );
+        });
+      };
+    </script>
   </head>
 
   <body>
