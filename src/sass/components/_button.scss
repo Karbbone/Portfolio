@@ -14,8 +14,11 @@
 
   @include utils.outline-default-style;
 
+  &:hover {
+    filter: brightness(0.8);
+  }
   &:active {
-    filter: brightness(0.7);
+    filter: brightness(0.6);
   }
 
   &--primary {
