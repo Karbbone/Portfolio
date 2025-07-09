@@ -9,13 +9,71 @@ import navigationScript from "../navigation.js?url";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="color-scheme" content="light only" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+
+    <meta name="geo.region" content="FR-56" />
+    <meta name="geo.placename" content="Bretagne, France" />
+
+    <meta
+      name="description"
+      content="Clément Maillet, développeur Full Stack en Bretagne. Découvrez mon portfolio, mes compétences, mes projets et contactez-moi pour vos besoins en développement web, desktop ou mobile."
+    />
+    <meta name="author" content="Clément Maillet" />
+    <meta name="robots" content="index, follow" />
+
+    <meta
+      property="og:title"
+      content="Clément Maillet - Développeur Full Stack"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio de Clément Maillet, développeur Full Stack en Bretagne. Découvrez mes compétences, projets et contactez-moi."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clement.maillet.bzh/" />
+    <meta
+      property="og:image"
+      content="https://clement.maillet.bzh/Banner.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Clément Maillet - Développeur Full Stack"
+    />
+    <meta
+      name="twitter:description"
+      content="Portfolio de Clément Maillet, développeur Full Stack en Bretagne."
+    />
+    <meta
+      name="twitter:image"
+      content="https://clement.maillet.bzh/Banner.png"
+    />
+    <title>Clément Maillet</title>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
+    <meta
+      name="keywords"
+      content="développeur, full stack, bretagne, web, react, node.js, portfolio, clément maillet, développement web, développement desktop, développement mobile"
+    />
+    <meta name="language" content="fr" />
+    <script type="application/ld+json">
+      {
+        "@type": "Person",
+        "name": "Clément Maillet",
+        "jobTitle": "Développeur Full Stack",
+        "description": "Développeur Full Stack en Bretagne",
+        "url": "https://clement.maillet.bzh",
+        "image": "https://clement.maillet.bzh/Banner.png",
+        "sameAs": [
+          "https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/",
+          "https://github.com/Karbbone"
+        ]
+      }
+    </script>
     <script type="text/javascript">
       (function () {
         emailjs.init({

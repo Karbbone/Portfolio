@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clement.maillet.bzh/sitemap.xml
+
+Disallow: /favicon.ico
+Disallow: /favicon.svg
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /src/
+Disallow: /node_modules/
