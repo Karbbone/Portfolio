@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clement.maillet.bzh/sitemap.xml
+Sitemap: https://maillet.bzh/sitemap.xml
 
 Disallow: /favicon.ico
 Disallow: /favicon.svg

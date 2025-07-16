@@ -12,5 +12,5 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 4321,
   },
-  site: "https://clement.maillet.bzh",
+  site: "https://maillet.bzh",
 });
