@@ -9,7 +9,7 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio.rule=Host(`clement.maillet.bzh`)"
+      - "traefik.http.routers.portfolio.rule=Host(`maillet.bzh`)"
       - "traefik.http.routers.portfolio.tls=true"
       - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
       - "traefik.http.services.portfolio.loadbalancer.server.port=4321"
