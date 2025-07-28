@@ -28,17 +28,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   menuLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
-      e.preventDefault();
-      if (nav?.classList.contains("header__navigation--active")) {
-        nav.classList.remove("header__navigation--active");
-        burgerBtn?.setAttribute("aria-expanded", "false");
-        burgerBtn?.classList.remove("header__burger--active");
-        document.body.classList.remove("active");
-      }
       const href = this.getAttribute("href");
+
       if (href && href.startsWith("#")) {
+        e.preventDefault();
+        if (nav?.classList.contains("header__navigation--active")) {
+          nav.classList.remove("header__navigation--active");
+          burgerBtn?.setAttribute("aria-expanded", "false");
+          burgerBtn?.classList.remove("header__burger--active");
+          document.body.classList.remove("active");
+        }
         const sectionId = href.substring(1);
         scrollTo(sectionId);
+      } else {
+        if (nav?.classList.contains("header__navigation--active")) {
+          nav.classList.remove("header__navigation--active");
+          burgerBtn?.setAttribute("aria-expanded", "false");
+          burgerBtn?.classList.remove("header__burger--active");
+          document.body.classList.remove("active");
+        }
       }
     });
   });

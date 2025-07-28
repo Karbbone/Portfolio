@@ -1,8 +1,13 @@
+---
+const { pathname } = Astro.url;
+const isHomePage = pathname === "/";
+---
+
 <header id="header">
   <div class="header__wrapper">
     <div class="header__cols">
       <div class="header__col header__col--left">
-        <a class="header__site-title" href="#" title="" aria-current="true"
+        <a class="header__site-title" href="/" aria-current="true"
           >Clément Maillet</a
         >
       </div>
@@ -16,32 +21,58 @@
 
         <nav class="header__navigation">
           <ul class="header__menu">
-            <li class="header__menu-item">
-              <a
-                href="#about"
-                class="header__menu-link header__menu-link--about">À propos</a
-              >
-            </li>
-            <li class="header__menu-item">
-              <a
-                href="#exph"
-                class="header__menu-link header__menu-link--skills"
-                >Compétences</a
-              >
-            </li>
-            <li class="header__menu-item">
-              <a
-                href="#project"
-                class="header__menu-link header__menu-link--projects">Projets</a
-              >
-            </li>
-            <li class="header__menu-item header__menu-item--cta">
-              <a
-                draggable="false"
-                href="#contact"
-                class="header__menu-link header__menu-link--contact">Contact</a
-              >
-            </li>
+            {
+              isHomePage && (
+                <>
+                  <li class="header__menu-item">
+                    <a
+                      href="#about"
+                      class="header__menu-link header__menu-link--about"
+                    >
+                      À propos
+                    </a>
+                  </li>
+                  <li class="header__menu-item">
+                    <a
+                      href="#exph"
+                      class="header__menu-link header__menu-link--skills"
+                    >
+                      Compétences
+                    </a>
+                  </li>
+                  <li class="header__menu-item">
+                    <a
+                      href="#project"
+                      class="header__menu-link header__menu-link--projects"
+                    >
+                      Projets
+                    </a>
+                  </li>
+                  <li class="header__menu-item header__menu-item--cta">
+                    <a
+                      draggable="false"
+                      href="#contact"
+                      class="header__menu-link header__menu-link--contact"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </>
+              )
+            }
+            {
+              !isHomePage && (
+                <li class="header__menu-item header__menu-item--cta">
+                  <a
+                    draggable="false"
+                    href="/"
+                    class="header__menu-link header__menu-link--contact"
+                  >
+                    Revenir au portfolio
+                  </a>
+                </li>
+              )
+            }
           </ul>
         </nav>
       </div>

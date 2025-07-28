@@ -49,8 +49,15 @@
     &__site-title {
       text-decoration: none;
       letter-spacing: -0.06em;
+      transition: all 0.3s ease;
+      cursor: pointer;
 
       @extend .h4;
+
+      &:hover {
+        color: color.$orange;
+        transform: translateY(-2px);
+      }
     }
 
     &__navigation {

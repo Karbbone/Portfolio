@@ -79,6 +79,12 @@ main {
 
           &-text {
             line-height: 1.6;
+            
+            .highlighted {
+              &::after {
+                padding: 0;
+              }
+            }
           }
 
           &-cta {

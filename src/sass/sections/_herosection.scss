@@ -36,6 +36,12 @@ main {
 
         &__description {
           @include spacing.edge-reset("margin", "children");
+          
+          .highlighted {
+            &::after {
+              padding: 0;
+            }
+          }
         }
         &__socials {
           display: flex;

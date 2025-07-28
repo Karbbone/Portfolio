@@ -1,0 +1,15 @@
+@use "../components/wrapper" as wrapper;
+@use "../components/highlight" as highlight;
+
+.legal-page {
+  margin-top: calc(var(--header-height) + 3rem + 1rem);
+  section {
+    padding: 1rem 0;
+  }
+  &__title {
+    @include highlight.class("green");
+  }
+  &__wrapper {
+    @include wrapper.class("small");
+  }
+}

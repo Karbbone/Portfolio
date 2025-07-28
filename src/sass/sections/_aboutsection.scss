@@ -49,6 +49,12 @@ main {
               max-width: 53%;
               width: 100%;
             }
+            
+            .highlighted {
+              &::after {
+                padding: 0;
+              }
+            }
           }
 
           &--right {
