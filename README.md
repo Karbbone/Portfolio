@@ -1,48 +1,73 @@
-# Astro Starter Kit: Basics
+# Portfolio - Clément Maillet
 
-```sh
-npm create astro@latest -- --template basics
+Portfolio personnel.
+
+🌐 **Site web** : [maillet.bzh](https://maillet.bzh)
+
+## 📋 À propos
+
+Ce portfolio présente mes compétences, mon expérience professionnelle et mes projets en développement web, desktop et mobile. Il est conçu pour offrir une expérience utilisateur moderne et responsive.
+
+## 🛠️ Technologies utilisées
+
+- **Framework** : Astro 5.9.3
+- **Styles** : Sass (SCSS)
+- **Runtime** : Node.js
+- **Email** : EmailJS pour le formulaire de contact
+
+## 🚀 Fonctionnalités
+
+- ✨ Design responsive et moderne
+- 📧 Formulaire de contact fonctionnel avec EmailJS
+- 🎨 Interface utilisateur optimisée
+- 📱 Compatible mobile et desktop
+- 🔍 SEO optimisé avec métadonnées complètes
+- 🌐 Multilingue (français)
+
+## 📁 Structure du projet
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
+Portfolio/
+├── public/                 # Assets statiques
+│   ├── favicon.*          # Icônes du site
+│   ├── Banner.png         # Image de bannière
+│   └── clement_maillet_cv.pdf
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── assets/            # Images et icônes
+│   ├── components/        # Composants Astro
+│   │   └── sections/      # Sections de la page
+│   ├── layouts/           # Layouts Astro
+│   ├── pages/             # Pages du site
+│   └── sass/              # Styles SCSS
+│       ├── base/          # Styles de base
+│       ├── components/    # Styles des composants
+│       └── sections/      # Styles des sections
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+| Commande          | Action                                                 |
+| ----------------- | ------------------------------------------------------ |
+| `npm install`     | Installe les dépendances                               |
+| `npm run dev`     | Lance le serveur de développement sur `localhost:4321` |
+| `npm run build`   | Build le site pour la production dans `./dist/`        |
+| `npm run preview` | Prévisualise le build en local                         |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🌟 Sections du portfolio
 
-## 👀 Want to learn more?
+- **Hero** : Présentation et accroche
+- **À propos** : Informations personnelles et professionnelles
+- **Expériences** : Parcours professionnel et scolaire
+- **Projets** : Réalisations et projets personnels
+- **Contact** : Formulaire de contact et informations
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📞 Contact
+
+- **Email** : Via le formulaire de contact sur le site
+- **LinkedIn** : [Clément Maillet](https://www.linkedin.com/in/clément-maillet-632895255/)
+- **GitHub** : [Karbbone](https://github.com/Karbbone)
+
+## 📄 Licence
+
+Ce portfolio est un projet personnel. Tous droits réservés.
