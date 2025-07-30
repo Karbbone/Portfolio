@@ -26,6 +26,7 @@ const technologies = [
 ];
 ---
 
+<!-- Pourquoi parfois ton surlignagne a une classe et parfois non ? -->
 <section id="exph">
   <div class="exph__wrapper">
     <h2 class="exph__title">
@@ -33,6 +34,20 @@ const technologies = [
     </h2>
     <div class="exph__cols">
       <div class="exph__col exph__cols-left">
+        <!-- Si tu ne mets pas tout d'un block, alors fait un ul > li -->
+        <!--
+          ul
+            li
+              h3 Développement Front-End
+              div
+                p
+                p
+                a
+              /div
+            /li
+          /ul
+        -->
+
         <div>
           <h3>Développement Front-End</h3>
           <p>
@@ -70,6 +85,7 @@ const technologies = [
         <div class="exph__tech-wrapper">
           <div class="exph__tech-grid">
             {
+              // Penses aussi à l'aria-label
               technologies.map((tech) => (
                 <a
                   href={tech.url}
@@ -79,6 +95,7 @@ const technologies = [
                   data-tooltip={tech.name}
                   title={`Visiter le site de ${tech.name}`}
                 >
+                  {/* LE LOADING */}
                   <img src={tech.logo.src} alt={`Logo ${tech.name}`} />
                 </a>
               ))
@@ -89,3 +106,5 @@ const technologies = [
     </div>
   </div>
 </section>
+-->
+

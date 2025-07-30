@@ -30,12 +30,17 @@ const {
 
 <article class="work__content__item">
   <header class="work__content__item__header">
+    <!-- lazy loading -->
     <img src={company.logo.src} alt={company.name} />
   </header>
+
   <div class="work__content__item__body">
+    <!-- Le titre fait parti du header en vrai, mais à voir -->
     <h3 class="work__content__item__body__title">
       {position}
     </h3>
+
+    <!-- T'es en train de chier sur BEM à mettre des __ partout, c'est un seul Block, et après tu peux faire plusieurs éléments si tu veux -->
     <span class="work__content__item__body__date">
       {
         isCurrentJob ? (
@@ -54,6 +59,7 @@ const {
       {tasks.map((task) => <li>{task}</li>)}
     </ul>
   </div>
+
   <footer class="work__content__item__footer">
     <h3>Technologies</h3>
     <div class="work__content__item__footer__tags">

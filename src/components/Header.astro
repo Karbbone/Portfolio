@@ -7,12 +7,14 @@ const isHomePage = pathname === "/";
   <div class="header__wrapper">
     <div class="header__cols">
       <div class="header__col header__col--left">
+        <!-- FIXME: Tu dois renvoyer "page" dans ton cas de figure, tu peux mettre un rel et un title -->
         <a class="header__site-title" href="/" aria-current="true"
           >Clément Maillet</a
         >
       </div>
 
       <div class="header__col header__col--right">
+        <!-- FIXME: Préciser le "type" / Mettre un aria-label (à tester avec un screen reader) -->
         <button class="header__burger" aria-label="Menu" aria-expanded="false">
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
@@ -21,6 +23,7 @@ const isHomePage = pathname === "/";
 
         <nav class="header__navigation">
           <ul class="header__menu">
+            <!-- FIXME: Je pense que tu peux gérer ça plus facilement avec du CSS et un brin de JS -->
             {
               isHomePage && (
                 <>

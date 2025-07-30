@@ -13,6 +13,7 @@ import typescriptLogo from "../../assets/technos/typescript.svg";
 
 import WorkItem from "../WorkItem.astro";
 
+// En théorie tu devrais te faire un JSON sur un serveur pour modifier plus facilement sans devoir remettre en production le site
 const workExperiences = [
   {
     company: {
@@ -75,6 +76,7 @@ const workExperiences = [
     <h2 class="work__title">
       <span>C'est un réel plaisir <br /> de travailler ensemble</span>
     </h2>
+
     <div class="work__content">
       {workExperiences.map((experience) => <WorkItem {...experience} />)}
     </div>

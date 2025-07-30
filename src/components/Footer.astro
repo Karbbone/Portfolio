@@ -4,12 +4,15 @@
 
 <footer class="footer">
   <div class="footer__wrapper">
+    <!-- FIXME: ul > li > a -->
     <div class="footer__links">
+      <!-- Il ne peut pas le visualiser plutôt ? Niveau sécurité je ne pense pas que tout le monde voudra le DL -->
       <a
         class="footer__link footer__link--cv"
         href="/clement_maillet_cv.pdf"
         download
       >
+        <!-- Ce que j'aurai fait, c'est que j'aurait mit le SVG avec un aria-hidden pour pouvoir gérer tout le monde en même temps sans modifier, et j'aurai foutu le <span> avec une classe pour le cacher genre visually-hidden (c'est connu) -->
         <span>CV</span>
       </a>
       <a
@@ -31,6 +34,7 @@
           ></path></svg
         >
       </a>
+      <!-- FIXME: Penses à mettre des aria-label, et même des titres si nécessaire -->
       <a
         class="footer__link footer__link--github"
         href="https://github.com/Karbbone"
@@ -51,11 +55,14 @@
         >
       </a>
     </div>
+
+    <!-- FIXME: En CSS, pour séparer les éléments, tu pourrais mettre un ·, à faire avec un after -->
     <div class="footer__legal">
       <span class="footer__legal-copyright"
         >Clément Maillet © {new Date().getFullYear()}</span
       >
-      <a class="footer__legal-link" href="/mentions-legales">Mentions légales</a>
+      <a class="footer__legal-link" href="/mentions-legales">Mentions légales</a
+      >
     </div>
   </div>
 </footer>

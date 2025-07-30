@@ -7,6 +7,7 @@ import me from "../../assets/me.svg?url";
     <h2 class="about__title"><span>A propos</span></h2>
     <div class="about__cols">
       <div class="about__col about__col--left">
+        <!-- FIXME: Comme sur WP, tu devrais mettre tout ce qui ressemble à une description dans une div, donc ici mettre tous les p dans une div, ça te permet aussi de mieux gérer les espacements -->
         <p>
           Jeune développeur breton de 21 ans, passionné par le développement
           d'applications web, desktop et mobile.
@@ -14,22 +15,28 @@ import me from "../../assets/me.svg?url";
             >Curieux et rigoureux</span
           >, je veille à ce que rien ne m'échappe.
         </p>
+
         <p>
           Diplômé d'un BUT Informatique à l'IUT de Vannes, je poursuis désormais
           mes études en alternance pour valider un Master, dans le but de
           continuer ma quête de connaissances.
         </p>
+
         <p>
           <span class="highlighted highlighted-primary"
             >Polyvalent et investi</span
           > , j'ai également une grande affection pour le travail en équipe et le
           management.
         </p>
+
         <p>
           Pour moi, le code est un formidable moyen de donner vie à n'importe
           quelle idée.
         </p>
+
         <div class="about__cta">
+          <!-- FIXME: Au lieu de répéter draggable sur tous les boutons, tu peux donner la propriété CSS -webkit-user-drag: none; ça va simplifier le travail et éviter les oublis -->
+          <!-- Fais des listes sinon tu vas manger le Nunu 0/42 -->
           <a
             class="about__cta-cv"
             href="/clement_maillet_cv.pdf"
@@ -43,6 +50,7 @@ import me from "../../assets/me.svg?url";
             rel="noopener noreferrer"
             draggable="false"
           >
+            <!-- lazy loading -->
             <img
               src="https://www.svgrepo.com/show/512419/linkedin-161.svg"
               alt="LinkedIn"
