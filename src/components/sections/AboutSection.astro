@@ -1,5 +1,18 @@
 ---
 import me from "../../assets/me.svg?url";
+const birthDate = new Date(2003, 7, 9);
+
+function calculateAge(birth: Date): number {
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+  return age;
+}
+
+const age = calculateAge(birthDate);
 ---
 
 <section id="about">
@@ -8,8 +21,8 @@ import me from "../../assets/me.svg?url";
     <div class="about__cols">
       <div class="about__col about__col--left">
         <p>
-          Jeune développeur breton de 21 ans, passionné par le développement
-          d'applications web, desktop et mobile.
+          Jeune développeur breton de {age} ans, passionné par le développement d'applications
+          web, desktop et mobile.
           <span class="highlighted highlighted-primary"
             >Curieux et rigoureux</span
           >, je veille à ce que rien ne m'échappe.
