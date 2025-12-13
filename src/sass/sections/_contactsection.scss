@@ -25,6 +25,26 @@ main {
           }
         }
 
+        &__email-info {
+          text-align: center;
+          font-size: 1.6rem;
+          margin-bottom: 3rem;
+          color: colors.$gray-dark;
+        }
+
+        &__email-link {
+          color: colors.$black;
+          font-weight: 700;
+          text-decoration: none;
+          border-bottom: 2px solid colors.$orange;
+          transition: all 0.3s ease;
+          padding-bottom: 0.2rem;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
         &__form {
           display: flex;
           flex-direction: column;

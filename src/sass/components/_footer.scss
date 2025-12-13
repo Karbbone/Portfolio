@@ -40,6 +40,20 @@
       color: colors.$orange;
     }
 
+    &--email {
+      font-size: 1.4rem;
+      font-weight: 600;
+
+      &:hover {
+        color: colors.$orange;
+      }
+
+      .footer__icon {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+
     &--cv {
       font-weight: 900;
       font-size: 2rem;
