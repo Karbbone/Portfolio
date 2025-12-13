@@ -10,8 +10,7 @@ import pythonLogo from "../../assets/technos/python.svg";
 import reactLogo from "../../assets/technos/react.svg";
 import symfonyLogo from "../../assets/technos/symfony.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
-
-import WorkItem from "../WorkItem.astro";
+import TechTag from "../TechTag.astro";
 
 const workExperiences = [
   {
@@ -76,7 +75,145 @@ const workExperiences = [
       <span>C'est un réel plaisir <br /> de travailler ensemble</span>
     </h2>
     <div class="work__content">
-      {workExperiences.map((experience) => <WorkItem {...experience} />)}
+      {
+        workExperiences.map((experience, index) => (
+          <article
+            class="work__content__item"
+            style={index !== 0 ? "display: none;" : ""}
+            data-work-item={index}
+          >
+            <header class="work__content__item__header">
+              <img
+                src={experience.company.logo.src}
+                alt={experience.company.name}
+              />
+            </header>
+            <div class="work__content__item__body">
+              <h3 class="work__content__item__body__title">
+                {experience.position}
+              </h3>
+              <span class="work__content__item__body__date">
+                {experience.isCurrentJob ? (
+                  <>
+                    {experience.dateRange} -{" "}
+                    <span class="work__content__item__body__date-highlight">
+                      Maintenant
+                    </span>
+                  </>
+                ) : (
+                  experience.dateRange
+                )}
+              </span>
+              <ul>
+                {experience.tasks.map((task) => (
+                  <li>{task}</li>
+                ))}
+              </ul>
+            </div>
+            <footer class="work__content__item__footer">
+              <h3>Technologies</h3>
+              <div class="work__content__item__footer__tags">
+                {experience.technologies.map((tech) => (
+                  <TechTag
+                    name={tech.name}
+                    logo={tech.logo}
+                    url={tech.url}
+                    className="work__content__item__footer__tags-tag"
+                  />
+                ))}
+              </div>
+              <a
+                href={experience.company.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="work__content__item__footer-button"
+                draggable="false"
+              >
+                Site de l'entreprise
+              </a>
+            </footer>
+          </article>
+        ))
+      }
+      <ul id="company-list" class="work__company-list">
+        {
+          workExperiences.map((experience, index) => (
+            <li
+              class={`work__company-list__item ${index === 0 ? "active" : ""}`}
+              data-index={index}
+            >
+              <img
+                src={experience.company.logo.src}
+                alt={experience.company.name}
+              />
+              <div class="company-details">
+                <span class="company-name">{experience.company.name}</span>
+                <span class="company-date">
+                  {experience.dateRange}
+                  {experience.isCurrentJob && (
+                    <>
+                      {" "}
+                      - <span class="current-job-tag">Maintenant</span>
+                    </>
+                  )}
+                </span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </section>
+
+<style is:global>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .work__content__item.is-animating-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+</style>
+
+<script>
+  const companyListItems = document.querySelectorAll(
+    ".work__company-list__item"
+  );
+  const workItems = document.querySelectorAll("[data-work-item]");
+
+  companyListItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      companyListItems.forEach((i) => i.classList.remove("active"));
+      item.classList.add("active");
+
+      const selectedIndex = parseInt(
+        (item as HTMLElement).dataset.index || "0",
+        10
+      );
+
+      workItems.forEach((workItem) => {
+        const workItemIndex = parseInt(
+          (workItem as HTMLElement).dataset.workItem || "0",
+          10
+        );
+
+        workItem.classList.remove("is-animating-in");
+
+        if (workItemIndex === selectedIndex) {
+          (workItem as HTMLElement).style.display = "";
+          workItem.classList.add("is-animating-in");
+        } else {
+          (workItem as HTMLElement).style.display = "none";
+        }
+      });
+    });
+  });
+</script>
