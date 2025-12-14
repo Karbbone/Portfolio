@@ -1,0 +1,155 @@
+---
+import "normalize.css/normalize.css";
+import pokemonStudio from "../../assets/project/pokemon-studio.png";
+import electronLogo from "../../assets/technos/electron.svg";
+import reactLogo from "../../assets/technos/react.svg";
+import typescriptLogo from "../../assets/technos/typescript.svg";
+import TechTag from "../../components/TechTag.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../sass/main.scss";
+---
+
+<Layout>
+  <div class="project-detail" id="project-detail">
+    <section class="project-detail__wrapper">
+      <a href="/#project" class="project-detail__back">
+        <svg
+          class="project-detail__back-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7"></path>
+        </svg>
+      </a>
+
+      <h1 class="project-detail__title">Pokemon Studio</h1>
+
+      <div class="project-detail__hero">
+        <div class="project-detail__hero-main">
+          <img id="main-image" src={pokemonStudio.src} alt="Pokemon Studio" />
+        </div>
+        <div class="project-detail__hero-thumbnails">
+          <button
+            class="project-detail__hero-thumbnail project-detail__hero-thumbnail--active"
+            data-image={pokemonStudio.src}
+          >
+            <img src={pokemonStudio.src} alt="Pokemon Studio 1" />
+          </button>
+          <button
+            class="project-detail__hero-thumbnail"
+            data-image={pokemonStudio.src}
+          >
+            <img src={pokemonStudio.src} alt="Pokemon Studio 2" />
+          </button>
+          <button
+            class="project-detail__hero-thumbnail"
+            data-image={pokemonStudio.src}
+          >
+            <img src={pokemonStudio.src} alt="Pokemon Studio 3" />
+          </button>
+          <button
+            class="project-detail__hero-thumbnail"
+            data-image={pokemonStudio.src}
+          >
+            <img src={pokemonStudio.src} alt="Pokemon Studio 4" />
+          </button>
+        </div>
+      </div>
+
+      <div class="project-detail__content">
+        <section class="project-detail__section">
+          <h2>Vue d'ensemble</h2>
+          <p>X</p>
+        </section>
+
+        <section class="project-detail__section">
+          <h2>Contexte du projet</h2>
+          <p>X</p>
+        </section>
+
+        <section class="project-detail__section">
+          <h2>Fonctionnalités principales</h2>
+          <p>X</p>
+        </section>
+
+        <section class="project-detail__section">
+          <h2>Technologies utilisées</h2>
+          <div class="project-detail__tags">
+            <TechTag
+              name="Electron"
+              logo={electronLogo}
+              url="https://www.electronjs.org/"
+              className="project__item__tags-tag"
+            />
+            <TechTag
+              name="React"
+              logo={reactLogo}
+              url="https://react.dev/"
+              className="project__item__tags-tag"
+            />
+            <TechTag
+              name="TypeScript"
+              logo={typescriptLogo}
+              url="https://www.typescriptlang.org/"
+              className="project__item__tags-tag"
+            />
+          </div>
+          <p>X</p>
+        </section>
+
+        <section class="project-detail__section">
+          <h2>Mes contributions</h2>
+          <p>X</p>
+        </section>
+
+        <section class="project-detail__section">
+          <h2>Compétences développées</h2>
+          <p>X</p>
+        </section>
+
+        <div class="project-detail__links">
+          <a
+            href="https://github.com/PokemonWorkshop/PokemonStudio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-detail__link project-detail__link--github"
+            draggable="false"
+          >
+            <img
+              src="https://www.svgrepo.com/show/512317/github-142.svg"
+              alt="GitHub Logo"
+            />
+            <span>Voir le code source</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  const thumbnails = document.querySelectorAll(
+    ".project-detail__hero-thumbnail"
+  );
+  const mainImage = document.getElementById("main-image") as HTMLImageElement;
+
+  thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener("click", () => {
+      const imageUrl = thumbnail.getAttribute("data-image");
+
+      if (imageUrl && mainImage) {
+        mainImage.src = imageUrl;
+
+        thumbnails.forEach((t) =>
+          t.classList.remove("project-detail__hero-thumbnail--active")
+        );
+        thumbnail.classList.add("project-detail__hero-thumbnail--active");
+      }
+    });
+  });
+</script>

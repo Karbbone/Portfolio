@@ -1,6 +1,7 @@
 ---
 const { pathname } = Astro.url;
 const isHomePage = pathname === "/";
+const isProjectPage = pathname.startsWith("/projets/");
 ---
 
 <header id="header">
@@ -65,7 +66,7 @@ const isHomePage = pathname === "/";
                 <li class="header__menu-item header__menu-item--cta">
                   <a
                     draggable="false"
-                    href="/"
+                    href={isProjectPage ? "/#project" : "/"}
                     class="header__menu-link header__menu-link--contact"
                   >
                     Revenir au portfolio
