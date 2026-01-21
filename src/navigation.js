@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ============================================
+  // BURGER MENU
+  // ============================================
   const burgerBtn = document.querySelector(".header__burger");
   const nav = document.querySelector(".header__navigation");
 
@@ -10,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
     this.classList.toggle("header__burger--active");
   });
 
+  // ============================================
+  // SMOOTH SCROLL
+  // ============================================
   const menuLinks = document.querySelectorAll(".header__menu-link");
 
   function scrollTo(sectionId) {
@@ -51,6 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // ============================================
+  // ACTIVE NAV HIGHLIGHTING
+  // ============================================
   const sectionGroups = [
     {
       menuClass: "header__menu-link--about",
@@ -69,7 +78,41 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
+  // ============================================
+  // SCROLL REVEAL ANIMATIONS
+  // ============================================
+  const revealElements = document.querySelectorAll("[data-reveal]");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    }
+  );
+
+  revealElements.forEach((el) => {
+    revealObserver.observe(el);
+  });
+
+  // Reveal hero elements immediately with stagger
+  document.querySelectorAll("#hero [data-reveal]").forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add("revealed");
+    }, 100 + index * 100);
+  });
+
+  // ============================================
+  // SCROLL EVENT HANDLER
+  // ============================================
   function onScroll() {
+    // Update nav highlighting
     sectionGroups.forEach(({ link, menuClass }) => {
       if (link) {
         link.classList.remove(menuClass);
@@ -77,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     for (const { menuClass, link, sections } of sectionGroups) {
-      // Vérifie si l'une des sections du groupe est visible
       for (const sectionId of sections) {
         const section = document.getElementById(sectionId);
         if (!section) continue;
@@ -89,7 +131,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     }
+
   }
+
+  // ============================================
+  // HERO CTA
+  // ============================================
   const heroCta = document.querySelector(".hero__cta-button");
   if (heroCta) {
     heroCta.addEventListener("click", function (e) {
@@ -98,6 +145,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ============================================
+  // INIT
+  // ============================================
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 });

@@ -30,10 +30,13 @@
       align-items: center;
       gap: 3rem;
 
-      background-color: color.$white;
+      background-color: rgba(color.$white, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: solid 0.3rem color.$black;
       box-shadow: 10px 10px 0 color.$black;
       padding: 2rem 4.8rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
 
     &__col {

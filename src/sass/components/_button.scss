@@ -11,14 +11,44 @@
   border: solid 0.3rem color.$black;
   box-shadow: 6px 6px 0 color.$black;
   padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.2s ease;
 
   @include utils.outline-default-style;
 
-  &:hover {
-    filter: brightness(0.8);
+  // Shine effect on hover
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
   }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 8px 9px 0 color.$black;
+
+    &::before {
+      left: 100%;
+    }
+  }
+
   &:active {
-    filter: brightness(0.6);
+    transform: translateY(2px);
+    box-shadow: 3px 3px 0 color.$black;
   }
 
   &--primary {
