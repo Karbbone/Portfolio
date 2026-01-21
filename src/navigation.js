@@ -111,7 +111,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // ============================================
   // SCROLL EVENT HANDLER
   // ============================================
+  const header = document.getElementById("header");
+  const heroSection = document.getElementById("hero");
+
   function onScroll() {
+    // Compact header after hero section
+    if (header && heroSection) {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      if (heroBottom < 100) {
+        header.classList.add("header--compact");
+      } else {
+        header.classList.remove("header--compact");
+      }
+    }
+
     // Update nav highlighting
     sectionGroups.forEach(({ link, menuClass }) => {
       if (link) {

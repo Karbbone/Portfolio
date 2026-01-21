@@ -18,6 +18,16 @@
   height: var(--header-height);
   width: 100%;
   z-index: 900;
+  transition: top 0.3s ease;
+
+  &.header--compact {
+    top: 1rem;
+
+    .header__cols {
+      padding: 1.2rem 4.8rem;
+      box-shadow: 6px 6px 0 color.$black;
+    }
+  }
 
   .header {
     &__wrapper {
@@ -36,7 +46,7 @@
       border: solid 0.3rem color.$black;
       box-shadow: 10px 10px 0 color.$black;
       padding: 2rem 4.8rem;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      transition: box-shadow 0.3s ease, transform 0.3s ease, padding 0.3s ease;
     }
 
     &__col {
