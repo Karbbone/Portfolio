@@ -24,14 +24,25 @@
     top: 1rem;
 
     .header__cols {
-      padding: 1.2rem 4.8rem;
-      box-shadow: 6px 6px 0 color.$black;
+      padding: 1rem 2rem;
+      box-shadow: 4px 4px 0 color.$black;
+
+      @include bp.from("tablet") {
+        padding: 1.2rem 4.8rem;
+        box-shadow: 6px 6px 0 color.$black;
+      }
     }
   }
 
   .header {
     &__wrapper {
       @include wrapper.class("small");
+      // Compenser le box-shadow pour éviter le débordement
+      padding-right: calc(2rem + 10px);
+
+      @include bp.from("tablet") {
+        padding-right: calc(4rem + 10px);
+      }
     }
 
     &__cols {
@@ -44,9 +55,14 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: solid 0.3rem color.$black;
-      box-shadow: 10px 10px 0 color.$black;
-      padding: 2rem 4.8rem;
+      box-shadow: 6px 6px 0 color.$black;
+      padding: 1.5rem 2rem;
       transition: box-shadow 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+
+      @include bp.from("tablet") {
+        padding: 2rem 4.8rem;
+        box-shadow: 10px 10px 0 color.$black;
+      }
     }
 
     &__col {
@@ -77,18 +93,24 @@
       @include bp.to("desktop") {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
         height: 100vh;
+        height: 100dvh;
         background: color.$beige-light;
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: right 0.3s ease-in-out;
-        z-index: 1;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
 
         &--active {
-          right: 0;
+          opacity: 1;
+          visibility: visible;
         }
       }
     }
@@ -168,7 +190,8 @@
       border: none;
       padding: 0;
       margin-left: auto;
-      z-index: 10;
+      z-index: 10000;
+      cursor: pointer;
 
       @include bp.from("desktop") {
         display: none;
