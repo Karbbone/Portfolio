@@ -116,3 +116,39 @@ const isHomePage = pathname === "/";
     </ul>
   </nav>
 </div>
+
+<script>
+  // Compact header on scroll out of hero section
+  const setupHeaderScroll = () => {
+    const header = document.getElementById("header");
+    const heroSection = document.getElementById("hero");
+
+    if (!header || !heroSection) return;
+
+    // Use Intersection Observer for better performance
+    const observerOptions = {
+      root: null,
+      threshold: 0.1,
+      rootMargin: "-80px 0px 0px 0px", // Trigger slightly before leaving hero
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // When hero section is NOT visible, add compact class
+        if (!entry.isIntersecting) {
+          header.classList.add("header--compact");
+        } else {
+          header.classList.remove("header--compact");
+        }
+      });
+    }, observerOptions);
+
+    observer.observe(heroSection);
+  };
+
+  // Initialize on load
+  setupHeaderScroll();
+
+  // Re-initialize on view transitions (if using Astro view transitions)
+  document.addEventListener("astro:page-load", setupHeaderScroll);
+</script>
