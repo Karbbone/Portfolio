@@ -37,7 +37,6 @@
   .header {
     &__wrapper {
       @include wrapper.class("small");
-      // Compenser le box-shadow pour éviter le débordement
       padding-right: calc(2rem + 10px);
 
       @include bp.from("tablet") {
@@ -89,45 +88,23 @@
       }
     }
 
-    &__navigation {
-      @include bp.to("desktop") {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh;
-        background: color.$beige-light;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        opacity: 0;
-        visibility: hidden;
-        z-index: 9999;
+    // Desktop navigation only
+    &__navigation--desktop {
+      display: none;
 
-        &--active {
-          opacity: 1;
-          visibility: visible;
-        }
+      @include bp.from("desktop") {
+        display: block;
       }
     }
 
     &__menu {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: right;
-      gap: 3rem;
+      justify-content: flex-end;
+      gap: 2rem;
 
       @include utils.list-reset;
-
-      @include bp.from("desktop") {
-        flex-direction: initial;
-        gap: 2rem;
-      }
 
       &-item {
         &--cta {
@@ -149,10 +126,7 @@
         color: color.$gray-dark;
         z-index: 1;
         transition: color 0.3s ease;
-        font-size: 2rem;
-        @include bp.from("desktop") {
-          font-size: inherit;
-        }
+
         &:hover {
           color: color.$orange;
         }
@@ -190,7 +164,7 @@
       border: none;
       padding: 0;
       margin-left: auto;
-      z-index: 10000;
+      z-index: 10001;
       cursor: pointer;
 
       @include bp.from("desktop") {
@@ -202,7 +176,7 @@
         height: $line-height;
         background-color: color.$black;
         border-radius: 0.15rem;
-        transition-duration: 0.4s;
+        transition: transform 0.4s ease, opacity 0.4s ease;
       }
 
       &--active {
@@ -213,7 +187,6 @@
 
           &:nth-child(2) {
             opacity: 0;
-            transition-duration: 0s;
           }
 
           &:nth-child(3) {
@@ -221,6 +194,120 @@
           }
         }
       }
+    }
+  }
+}
+
+// Mobile navigation overlay - completely separate from header
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: color.$beige-light;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include bp.from("desktop") {
+    display: none !important;
+  }
+}
+
+// Close button for mobile nav
+.mobile-nav-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__line {
+    position: absolute;
+    width: 3rem;
+    height: 0.3rem;
+    background-color: color.$black;
+    border-radius: 0.15rem;
+    transition: transform 0.3s ease;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &:hover .mobile-nav-close__line {
+    background-color: color.$orange;
+  }
+}
+
+.mobile-nav {
+  text-align: center;
+
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    .mobile-nav-overlay.active & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{$i * 0.1}s;
+      }
+    }
+
+    &--cta {
+      margin-top: 1rem;
+
+      .mobile-nav__link {
+        @include btn.class("primary");
+        display: inline-block;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: color.$gray-dark;
+    font-size: 2.4rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: color.$orange;
     }
   }
 }

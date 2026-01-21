@@ -21,8 +21,9 @@ main {
       position: relative;
       overflow: hidden;
 
-      // Floating decorative shapes
+      // Floating decorative shapes - hidden on mobile
       .hero__floating {
+        display: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -31,6 +32,10 @@ main {
         pointer-events: none;
         z-index: 0;
         overflow: hidden;
+
+        @include bp.from("tablet") {
+          display: block;
+        }
 
         &-shape {
           position: absolute;

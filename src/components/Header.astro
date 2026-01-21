@@ -19,7 +19,7 @@ const isHomePage = pathname === "/";
           <span class="header__burger-line"></span>
         </button>
 
-        <nav class="header__navigation">
+        <nav class="header__navigation header__navigation--desktop">
           <ul class="header__menu">
             {
               isHomePage && (
@@ -79,3 +79,40 @@ const isHomePage = pathname === "/";
     </div>
   </div>
 </header>
+
+<!-- Mobile navigation overlay - outside header for proper z-index -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Fermer le menu">
+    <span class="mobile-nav-close__line"></span>
+    <span class="mobile-nav-close__line"></span>
+  </button>
+  <nav class="mobile-nav">
+    <ul class="mobile-nav__menu">
+      {
+        isHomePage && (
+          <>
+            <li class="mobile-nav__item">
+              <a href="#about" class="mobile-nav__link">À propos</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#exph" class="mobile-nav__link">Compétences</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="#project" class="mobile-nav__link">Projets</a>
+            </li>
+            <li class="mobile-nav__item mobile-nav__item--cta">
+              <a href="#contact" class="mobile-nav__link">Contact</a>
+            </li>
+          </>
+        )
+      }
+      {
+        !isHomePage && (
+          <li class="mobile-nav__item mobile-nav__item--cta">
+            <a href="/" class="mobile-nav__link">Revenir au portfolio</a>
+          </li>
+        )
+      }
+    </ul>
+  </nav>
+</div>
