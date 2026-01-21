@@ -27,7 +27,7 @@ main {
 
         &__email-info {
           text-align: center;
-          font-size: 1.6rem;
+          @include utils.clamp(font-size, 1.5, 1.8);
           margin-bottom: 3rem;
           color: colors.$gray-dark;
         }

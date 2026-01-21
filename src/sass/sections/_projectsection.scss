@@ -102,7 +102,7 @@ main {
               padding: 0.5rem 1rem;
               background-color: rgba(colors.$red, 0.54);
               color: colors.$gray-dark;
-              font-size: 1.3rem;
+              @include utils.clamp(font-size, 1.2, 1.4);
               font-weight: 600;
               border: 2px solid colors.$black;
               text-decoration: none;

@@ -10,7 +10,6 @@ import pythonLogo from "../../assets/technos/python.svg";
 import reactLogo from "../../assets/technos/react.svg";
 import symfonyLogo from "../../assets/technos/symfony.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
-import TechTag from "../TechTag.astro";
 
 const workExperiences = [
   {
@@ -74,103 +73,163 @@ const workExperiences = [
     <h2 class="work__title" data-reveal="up">
       <span>C'est un réel plaisir <br /> de travailler ensemble</span>
     </h2>
+    
     <div class="work__content" data-reveal="up" data-reveal-delay="1">
-      {
-        workExperiences.map((experience, index) => (
-          <article
-            class="work__content__item"
-            style={index !== 0 ? "display: none;" : ""}
-            data-work-item={index}
-          >
-            <header class="work__content__item__header">
-              <img
-                src={experience.company.logo.src}
-                alt={experience.company.name}
-              />
-            </header>
-            <div class="work__content__item__body">
-              <h3 class="work__content__item__body__title">
-                {experience.position}
-              </h3>
-              <span class="work__content__item__body__date">
-                {experience.isCurrentJob ? (
-                  <>
-                    {experience.dateRange} -{" "}
-                    <span class="work__content__item__body__date-highlight">
-                      Maintenant
-                    </span>
-                  </>
-                ) : (
-                  experience.dateRange
-                )}
-              </span>
-              <ul>
-                {experience.tasks.map((task) => (
-                  <li>{task}</li>
-                ))}
-              </ul>
-            </div>
-            <footer class="work__content__item__footer">
-              <h3>Technologies</h3>
-              <div class="work__content__item__footer__tags">
-                {experience.technologies.map((tech) => (
-                  <TechTag
-                    name={tech.name}
-                    logo={tech.logo}
-                    url={tech.url}
-                    className="work__content__item__footer__tags-tag"
-                  />
-                ))}
-              </div>
-              <a
-                href={experience.company.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="work__content__item__footer-button"
-                draggable="false"
-              >
-                Site de l'entreprise
-              </a>
-            </footer>
-          </article>
-        ))
-      }
-      <ul id="company-list" class="work__company-list">
+      <!-- Timeline sidebar -->
+      <nav class="work__timeline" aria-label="Sélection d'entreprise">
+        <div class="work__timeline__line"></div>
         {
           workExperiences.map((experience, index) => (
-            <li
-              class={`work__company-list__item ${index === 0 ? "active" : ""}`}
+            <button
+              class={`work__timeline__item ${
+                index === 0 ? "work__timeline__item--active" : ""
+              }`}
               data-index={index}
+              type="button"
+              aria-label={`Afficher l'expérience chez ${experience.company.name}`}
             >
-              <img
-                src={experience.company.logo.src}
-                alt={experience.company.name}
-              />
-              <div class="company-details">
-                <span class="company-name">{experience.company.name}</span>
-                <span class="company-date">
-                  {experience.dateRange}
-                  {experience.isCurrentJob && (
-                    <>
-                      {" "}
-                      - <span class="current-job-tag">Maintenant</span>
-                    </>
-                  )}
-                </span>
+              <div class="work__timeline__marker">
+                <span class="work__timeline__dot"></span>
               </div>
-            </li>
+              <div class="work__timeline__card">
+                <div class="work__timeline__logo">
+                  <img
+                    src={experience.company.logo.src}
+                    alt={experience.company.name}
+                  />
+                </div>
+                <div class="work__timeline__info">
+                  <span class="work__timeline__company">
+                    {experience.company.name}
+                  </span>
+                  <span class="work__timeline__period">
+                    {experience.dateRange}
+                    {experience.isCurrentJob && (
+                      <span class="work__timeline__current-dot" title="Poste actuel"></span>
+                    )}
+                  </span>
+                </div>
+              </div>
+            </button>
           ))
         }
-      </ul>
+      </nav>
+
+      <!-- Experience cards -->
+      <div class="work__experiences">
+        {
+          workExperiences.map((experience, index) => (
+            <article
+              class="work__card"
+              style={index !== 0 ? "display: none;" : ""}
+              data-work-item={index}
+            >
+              <header class="work__card__header">
+                <div class="work__card__top">
+                  <div class="work__card__company-info">
+                    <img
+                      src={experience.company.logo.src}
+                      alt={experience.company.name}
+                      class="work__card__logo"
+                    />
+                    <div class="work__card__company-text">
+                      <span class="work__card__company">{experience.company.name}</span>
+                      <span class="work__card__period">
+                        {experience.dateRange}
+                        {experience.isCurrentJob && " - Présent"}
+                      </span>
+                    </div>
+                  </div>
+                  <a
+                    href={experience.company.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn--green work__card__link"
+                    draggable="false"
+                  >
+                    <span>Voir le site</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+                </div>
+                <div class="work__card__position-wrapper">
+                  <h3 class="work__card__position">{experience.position}</h3>
+                  {experience.isCurrentJob && (
+                    <span class="work__card__status">
+                      <span class="work__card__status-dot"></span>
+                      Poste actuel
+                    </span>
+                  )}
+                </div>
+              </header>
+
+              <div class="work__card__body">
+                <div class="work__card__section">
+                  <div class="work__card__section-header">
+                    <svg class="work__card__section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                    <h4 class="work__card__subtitle">Missions & Réalisations</h4>
+                  </div>
+                  <ul class="work__card__tasks">
+                    {experience.tasks.map((task, taskIndex) => (
+                      <li class="work__card__task" style={`--task-index: ${taskIndex}`}>
+                        <span class="work__card__task-number">{String(taskIndex + 1).padStart(2, '0')}</span>
+                        <span class="work__card__task-text">{task}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <footer class="work__card__footer">
+                <div class="work__card__section-header">
+                  <svg class="work__card__section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                  <h4 class="work__card__subtitle">Stack Technique</h4>
+                </div>
+                <div class="work__card__technologies">
+                  {experience.technologies.map((tech) => (
+                    <a
+                      href={tech.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="work__card__tech"
+                      title={tech.name}
+                    >
+                      <img src={tech.logo.src} alt={tech.name} />
+                      <span>{tech.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
 
 <style is:global>
-  @keyframes fadeIn {
+  @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -178,42 +237,44 @@ const workExperiences = [
     }
   }
 
-  .work__content__item.is-animating-in {
-    animation: fadeIn 0.4s ease-out;
+  .work__card.is-animating-in {
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 </style>
 
 <script>
-  const companyListItems = document.querySelectorAll(
-    ".work__company-list__item"
-  );
-  const workItems = document.querySelectorAll("[data-work-item]");
+  const timelineItems = document.querySelectorAll(".work__timeline__item");
+  const workCards = document.querySelectorAll("[data-work-item]");
 
-  companyListItems.forEach((item) => {
+  function switchExperience(selectedIndex: number) {
+    // Update timeline active state
+    timelineItems.forEach((item) => {
+      item.classList.remove("work__timeline__item--active");
+    });
+    timelineItems[selectedIndex]?.classList.add("work__timeline__item--active");
+
+    // Switch work card with animation
+    workCards.forEach((card) => {
+      const cardElement = card as HTMLElement;
+      const cardIndex = parseInt(cardElement.dataset.workItem || "0", 10);
+
+      cardElement.classList.remove("is-animating-in");
+
+      if (cardIndex === selectedIndex) {
+        cardElement.style.display = "";
+        // Trigger animation after a small delay
+        setTimeout(() => {
+          cardElement.classList.add("is-animating-in");
+        }, 10);
+      } else {
+        cardElement.style.display = "none";
+      }
+    });
+  }
+
+  timelineItems.forEach((item, index) => {
     item.addEventListener("click", () => {
-      companyListItems.forEach((i) => i.classList.remove("active"));
-      item.classList.add("active");
-
-      const selectedIndex = parseInt(
-        (item as HTMLElement).dataset.index || "0",
-        10
-      );
-
-      workItems.forEach((workItem) => {
-        const workItemIndex = parseInt(
-          (workItem as HTMLElement).dataset.workItem || "0",
-          10
-        );
-
-        workItem.classList.remove("is-animating-in");
-
-        if (workItemIndex === selectedIndex) {
-          (workItem as HTMLElement).style.display = "";
-          workItem.classList.add("is-animating-in");
-        } else {
-          (workItem as HTMLElement).style.display = "none";
-        }
-      });
+      switchExperience(index);
     });
   });
 </script>

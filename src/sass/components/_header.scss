@@ -64,9 +64,9 @@
       border: solid 0.3rem color.$black;
       box-shadow: 6px 6px 0 color.$black;
       padding: 1.5rem 2rem;
-      transition: 
-        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+      transition:
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
         padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
       @include bp.from("tablet") {
@@ -88,7 +88,7 @@
     &__site-title {
       text-decoration: none;
       letter-spacing: -0.06em;
-      transition: 
+      transition:
         all 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
@@ -189,7 +189,9 @@
         height: $line-height;
         background-color: color.$black;
         border-radius: 0.15rem;
-        transition: transform 0.4s ease, opacity 0.4s ease;
+        transition:
+          transform 0.4s ease,
+          opacity 0.4s ease;
       }
 
       &--active {
@@ -225,7 +227,9 @@
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 
   &.active {
     opacity: 1;
@@ -289,7 +293,9 @@
   &__item {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
 
     .mobile-nav-overlay.active & {
       opacity: 1;

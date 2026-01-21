@@ -82,7 +82,11 @@ const isHomePage = pathname === "/";
 
 <!-- Mobile navigation overlay - outside header for proper z-index -->
 <div class="mobile-nav-overlay" id="mobile-nav-overlay">
-  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Fermer le menu">
+  <button
+    class="mobile-nav-close"
+    id="mobile-nav-close"
+    aria-label="Fermer le menu"
+  >
     <span class="mobile-nav-close__line"></span>
     <span class="mobile-nav-close__line"></span>
   </button>
@@ -92,16 +96,24 @@ const isHomePage = pathname === "/";
         isHomePage && (
           <>
             <li class="mobile-nav__item">
-              <a href="#about" class="mobile-nav__link">À propos</a>
+              <a href="#about" class="mobile-nav__link">
+                À propos
+              </a>
             </li>
             <li class="mobile-nav__item">
-              <a href="#exph" class="mobile-nav__link">Compétences</a>
+              <a href="#exph" class="mobile-nav__link">
+                Compétences
+              </a>
             </li>
             <li class="mobile-nav__item">
-              <a href="#project" class="mobile-nav__link">Projets</a>
+              <a href="#project" class="mobile-nav__link">
+                Projets
+              </a>
             </li>
             <li class="mobile-nav__item mobile-nav__item--cta">
-              <a href="#contact" class="mobile-nav__link">Contact</a>
+              <a href="#contact" class="mobile-nav__link">
+                Contact
+              </a>
             </li>
           </>
         )
@@ -109,7 +121,9 @@ const isHomePage = pathname === "/";
       {
         !isHomePage && (
           <li class="mobile-nav__item mobile-nav__item--cta">
-            <a href="/" class="mobile-nav__link">Revenir au portfolio</a>
+            <a href="/" class="mobile-nav__link">
+              Revenir au portfolio
+            </a>
           </li>
         )
       }
