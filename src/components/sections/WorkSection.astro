@@ -73,7 +73,7 @@ const workExperiences = [
     <h2 class="work__title" data-reveal="up">
       <span>C'est un réel plaisir <br /> de travailler ensemble</span>
     </h2>
-    
+
     <div class="work__content" data-reveal="up" data-reveal-delay="1">
       <!-- Timeline sidebar -->
       <nav class="work__timeline" aria-label="Sélection d'entreprise">
@@ -89,7 +89,7 @@ const workExperiences = [
               aria-label={`Afficher l'expérience chez ${experience.company.name}`}
             >
               <div class="work__timeline__marker">
-                <span class="work__timeline__dot"></span>
+                <span class="work__timeline__dot" />
               </div>
               <div class="work__timeline__card">
                 <div class="work__timeline__logo">
@@ -105,7 +105,10 @@ const workExperiences = [
                   <span class="work__timeline__period">
                     {experience.dateRange}
                     {experience.isCurrentJob && (
-                      <span class="work__timeline__current-dot" title="Poste actuel"></span>
+                      <span
+                        class="work__timeline__current-dot"
+                        title="Poste actuel"
+                      />
                     )}
                   </span>
                 </div>
@@ -133,7 +136,9 @@ const workExperiences = [
                       class="work__card__logo"
                     />
                     <div class="work__card__company-text">
-                      <span class="work__card__company">{experience.company.name}</span>
+                      <span class="work__card__company">
+                        {experience.company.name}
+                      </span>
                       <span class="work__card__period">
                         {experience.dateRange}
                         {experience.isCurrentJob && " - Présent"}
@@ -169,7 +174,7 @@ const workExperiences = [
                   <h3 class="work__card__position">{experience.position}</h3>
                   {experience.isCurrentJob && (
                     <span class="work__card__status">
-                      <span class="work__card__status-dot"></span>
+                      <span class="work__card__status-dot" />
                       Poste actuel
                     </span>
                   )}
@@ -179,15 +184,28 @@ const workExperiences = [
               <div class="work__card__body">
                 <div class="work__card__section">
                   <div class="work__card__section-header">
-                    <svg class="work__card__section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    <svg
+                      class="work__card__section-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                     </svg>
-                    <h4 class="work__card__subtitle">Missions & Réalisations</h4>
+                    <h4 class="work__card__subtitle">
+                      Missions & Réalisations
+                    </h4>
                   </div>
                   <ul class="work__card__tasks">
                     {experience.tasks.map((task, taskIndex) => (
-                      <li class="work__card__task" style={`--task-index: ${taskIndex}`}>
-                        <span class="work__card__task-number">{String(taskIndex + 1).padStart(2, '0')}</span>
+                      <li
+                        class="work__card__task"
+                        style={`--task-index: ${taskIndex}`}
+                      >
+                        <span class="work__card__task-number">
+                          {String(taskIndex + 1).padStart(2, "0")}
+                        </span>
                         <span class="work__card__task-text">{task}</span>
                       </li>
                     ))}
@@ -197,8 +215,14 @@ const workExperiences = [
 
               <footer class="work__card__footer">
                 <div class="work__card__section-header">
-                  <svg class="work__card__section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  <svg
+                    class="work__card__section-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
                   <h4 class="work__card__subtitle">Stack Technique</h4>
                 </div>

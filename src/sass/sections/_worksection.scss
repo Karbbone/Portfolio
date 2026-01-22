@@ -51,7 +51,7 @@ main {
           overflow-x: auto;
           padding-bottom: 1rem;
           position: relative;
-          
+
           // Hide scrollbar but keep functionality
           scrollbar-width: none;
           -ms-overflow-style: none;
@@ -80,8 +80,8 @@ main {
               bottom: 2.5rem;
               width: 3px;
               background: linear-gradient(
-                180deg, 
-                colors.$green 0%, 
+                180deg,
+                colors.$green 0%,
                 rgba(colors.$green, 0.3) 100%
               );
               border-radius: 2px;
@@ -492,7 +492,8 @@ main {
 
 // Animations
 @keyframes pulse-dot {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
