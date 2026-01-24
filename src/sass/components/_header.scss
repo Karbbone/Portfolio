@@ -78,10 +78,102 @@
     &__col {
       &--left {
         flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        @include bp.from("tablet") {
+          gap: 2rem;
+        }
       }
 
       &--right {
         flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 2rem;
+      }
+    }
+
+    // Language Switcher
+    &__lang-switcher {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    &__lang-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      background: transparent;
+      border: 0.2rem solid transparent;
+      border-radius: 0.6rem;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: color.$gray-dark;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+      @include bp.from("tablet") {
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+        font-size: 1.4rem;
+      }
+
+      &:hover:not(&--active) {
+        background-color: rgba(color.$orange, 0.15);
+        border-color: color.$orange;
+        transform: scale(1.05);
+      }
+
+      &:active:not(&--active) {
+        transform: scale(0.98);
+      }
+
+      &:focus-visible {
+        outline: 0.2rem solid color.$orange;
+        outline-offset: 0.2rem;
+      }
+
+      &--active {
+        background: color.$beige-light;
+        border-color: color.$black;
+        color: color.$black;
+        cursor: default;
+        pointer-events: none;
+        box-shadow: inset 0 2px 4px rgba(color.$black, 0.1);
+      }
+
+      &--loading {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+    }
+
+    &__lang-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+      @include bp.from("tablet") {
+        font-size: 1.8rem;
+      }
+    }
+
+    &__lang-text {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      display: none;
+
+      @include bp.from("tablet") {
+        display: inline;
       }
     }
 
@@ -329,4 +421,36 @@
       color: color.$orange;
     }
   }
-}
+
+  &__lang-switcher {
+    background: transparent;
+    border: 0.3rem solid color.$black;
+    border-radius: 0.8rem;
+    color: color.$gray-dark;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1.2rem 2rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 0 color.$black;
+
+    &:hover {
+      background: color.$orange;
+      border-color: color.$black;
+      color: color.$white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 color.$black;
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 0 color.$black;
+    }
+  }
+
+  &__item--lang {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 0.2rem solid rgba(color.$gray-dark, 0.2);
+  }}

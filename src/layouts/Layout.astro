@@ -2,10 +2,17 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import navigationScript from "../navigation.js?url";
+import { getTranslations, type Locale } from "../i18n";
 
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale || Astro.locals.locale || "fr";
+const t = getTranslations(locale);
 ---
 
-<html lang="fr">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -24,60 +31,59 @@ import navigationScript from "../navigation.js?url";
     <meta name="geo.region" content="FR-56" />
     <meta name="geo.placename" content="Bretagne, France" />
 
-    <meta
-      name="description"
-      content="Clément Maillet, développeur Full Stack en Bretagne. Découvrez mon portfolio, mes compétences, mes projets et contactez-moi pour vos besoins en développement web, desktop ou mobile."
-    />
+    <meta name="description" content={t.meta.description} />
     <meta name="author" content="Clément Maillet" />
     <meta name="robots" content="index, follow" />
 
-    <meta
-      property="og:title"
-      content="Clément Maillet - Développeur Full Stack"
-    />
-    <meta
-      property="og:description"
-      content="Portfolio de Clément Maillet, développeur Full Stack en Bretagne. Découvrez mes compétences, projets et contactez-moi."
-    />
+    <meta property="og:title" content={t.meta.ogTitle} />
+    <meta property="og:description" content={t.meta.ogDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://maillet.bzh/" />
     <meta property="og:image" content="https://maillet.bzh/Banner.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Clément Maillet - Développeur Full Stack"
-    />
-    <meta
-      name="twitter:description"
-      content="Portfolio de Clément Maillet, développeur Full Stack en Bretagne."
-    />
+    <meta name="twitter:title" content={t.meta.ogTitle} />
+    <meta name="twitter:description" content={t.meta.ogDescription} />
     <meta name="twitter:image" content="https://maillet.bzh/Banner.png" />
-    <title>Clément Maillet</title>
+    <title>{t.meta.title}</title>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
       defer
       referrerpolicy="strict-origin-when-cross-origin"
     ></script>
-    <meta
-      name="keywords"
-      content="développeur, full stack, bretagne, web, react, node.js, portfolio, clément maillet, développement web, développement desktop, développement mobile"
-    />
-    <meta name="language" content="fr" />
-    <script type="application/ld+json">
-      {
+    <meta name="keywords" content={t.meta.keywords} />
+    <meta name="language" content={locale} />
+
+    <!-- hreflang tags for SEO -->
+    <link rel="alternate" hreflang="fr" href="https://maillet.bzh/" />
+    <link rel="alternate" hreflang="en" href="https://maillet.bzh/" />
+    <link rel="alternate" hreflang="x-default" href="https://maillet.bzh/" />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
         "@type": "Person",
-        "name": "Clément Maillet",
-        "jobTitle": "Développeur Full Stack",
-        "description": "Développeur Full Stack en Bretagne",
-        "url": "https://maillet.bzh",
-        "image": "https://maillet.bzh/Banner.png",
-        "sameAs": [
+        name: "Clément Maillet",
+        jobTitle: t.meta.jobTitle,
+        description: t.meta.jobDescription,
+        url: "https://maillet.bzh",
+        image: "https://maillet.bzh/Banner.png",
+        sameAs: [
           "https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/",
-          "https://github.com/Karbbone"
-        ]
-      }
+          "https://github.com/Karbbone",
+        ],
+      })}
+    />
+    <script
+      define:vars={{
+        contactMessages: {
+          success: t.contact.successMessage,
+          error: t.contact.errorMessage,
+        },
+      }}
+    >
+      window.__CONTACT_MESSAGES__ = contactMessages;
     </script>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function () {
@@ -107,7 +113,7 @@ import navigationScript from "../navigation.js?url";
             emailjs.sendForm("service_r5nqngg", "template_0d1e8qq", this).then(
               function () {
                 const successDiv = document.querySelector(".contact__success");
-                successDiv.textContent = "Votre message a été envoyé avec succès !";
+                successDiv.textContent = window.__CONTACT_MESSAGES__.success;
                 successDiv.classList.add("contact__success--visible");
                 if (window.grecaptcha) window.grecaptcha.reset();
                 form.reset();
@@ -115,8 +121,11 @@ import navigationScript from "../navigation.js?url";
               },
               function () {
                 const successDiv = document.querySelector(".contact__success");
-                successDiv.textContent = "Une erreur s'est produite lors de l'envoi du message.";
-                successDiv.classList.add("contact__success--visible", "contact__success--error");
+                successDiv.textContent = window.__CONTACT_MESSAGES__.error;
+                successDiv.classList.add(
+                  "contact__success--visible",
+                  "contact__success--error"
+                );
                 submitBtn.disabled = false;
               }
             );
@@ -131,13 +140,13 @@ import navigationScript from "../navigation.js?url";
 
   <body>
     <div id="wrapper">
-      <Header />
+      <Header locale={locale} />
       <main>
         <slot />
       </main>
     </div>
 
-    <Footer />
+    <Footer locale={locale} />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </body>
 </html>

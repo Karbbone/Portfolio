@@ -1,5 +1,12 @@
 ---
+import { getTranslations, type Locale } from "../i18n";
 
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale || Astro.locals.locale || "fr";
+const t = getTranslations(locale);
 ---
 
 <footer class="footer">
@@ -72,9 +79,10 @@
     </div>
     <div class="footer__legal">
       <span class="footer__legal-copyright"
-        >Clément Maillet © {new Date().getFullYear()}</span
+        >{t.footer.copyright} © {new Date().getFullYear()}</span
       >
-      <a class="footer__legal-link" href="/mentions-legales">Mentions légales</a
+      <a class="footer__legal-link" href="/mentions-legales"
+        >{t.footer.legalLink}</a
       >
     </div>
   </div>

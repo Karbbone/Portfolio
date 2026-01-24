@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Clément Maillet",
+    "description": "Clément Maillet, Full Stack Developer in Brittany, France. Discover my portfolio, skills, projects and contact me for your web, desktop or mobile development needs.",
+    "ogTitle": "Clément Maillet - Full Stack Developer",
+    "ogDescription": "Portfolio of Clément Maillet, Full Stack Developer in Brittany, France. Discover my skills, projects and contact me.",
+    "keywords": "developer, full stack, brittany, web, react, node.js, portfolio, clement maillet, web development, desktop development, mobile development",
+    "jobTitle": "Full Stack Developer",
+    "jobDescription": "Full Stack Developer in Brittany, France"
+  },
+  "header": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "backToPortfolio": "Back to portfolio",
+    "menuLabel": "Menu",
+    "closeMenuLabel": "Close menu",
+    "languageSelector": "Language selector"
+  },
+  "hero": {
+    "name": "Clément Maillet",
+    "title": "Full Stack Developer",
+    "description": "A <highlight>highly motivated</highlight> Full Stack Developer with an overflowing passion for technological innovation.<br/>Driven by the ambition to create <highlight>exceptional</highlight> digital solutions that make a difference.",
+    "cta": "Discover me"
+  },
+  "about": {
+    "title": "About",
+    "paragraph1": "Full Stack Developer based in Brittany, I design high-performance web, desktop and mobile applications. <highlight>Demanding and methodical</highlight>, I place great importance on code quality and user experience.",
+    "paragraph2": "Graduated with a Computer Science Bachelor's degree from IUT de Vannes, I am now continuing my studies through a work-study program to obtain a Master's degree, in pursuit of my quest for knowledge.",
+    "paragraph3": "<highlight>Versatile and committed</highlight>, I also have a great fondness for teamwork and management.",
+    "paragraph4": "For me, code is a wonderful way to bring any idea to life.",
+    "downloadCv": "Download my CV",
+    "addLinkedin": "Connect on LinkedIn",
+    "portraitAlt": "Portrait of Clément"
+  },
+  "work": {
+    "title": "It's a real pleasure <br /> to work together",
+    "timelineLabel": "Company selection",
+    "showExperience": "Show experience at {company}",
+    "currentPosition": "Current position",
+    "present": "Present",
+    "viewSite": "View website",
+    "missionsTitle": "Missions & Achievements",
+    "techStackTitle": "Tech Stack",
+    "experiences": {
+      "mediamag": {
+        "position": "Full Stack Developer",
+        "dateRange": "April 2023 - August 2024",
+        "tasks": [
+          "Development of several internal applications to improve employee autonomy.",
+          "Development of an application to reach new customers on the market with a new offer, allowing users to register without going through Médiamag's professional channels.",
+          "Creation of external modules for the company's main application in C++, Python."
+        ]
+      },
+      "inovera": {
+        "position": "Full Stack Developer",
+        "dateRange": "November 2024",
+        "tasks": [
+          "Migration of a Symfony application to a new React front-end solution with transformation of the Symfony backend into a REST/JSON API.",
+          "Application of the new design on the company's applications.",
+          "Project management and coordination via Jira with ticket planning and Kanban methodology.",
+          "Maintenance and development of new features on the company's existing applications."
+        ]
+      }
+    }
+  },
+  "expH": {
+    "title": "My skills <br /> Hard Skills",
+    "frontend": {
+      "title": "Front-End Development",
+      "description": "I enjoy designing modern, fluid and well-structured interfaces. I work with HTML, CSS, JavaScript and TypeScript, mainly using React. I organize my code in a <highlight>modular</highlight> way with reusable components, which allows me to <highlight>maintain</highlight> my interfaces more easily."
+    },
+    "backend": {
+      "title": "Back-End Development",
+      "description": "On the Back-End side, I enjoy exploring different technologies, whether with Java (Spring Boot) or Node.js (Adonis, Nest) to develop <highlight>reliable and well-organized</highlight> APIs. I manage both relational databases like MySQL and document-oriented databases like MongoDB, as well as S3 buckets for server-side file management and backup."
+    },
+    "devops": {
+      "title": "DevOps & Tools",
+      "description": "I use Git daily, an essential tool. I enjoy setting up CI/CD pipelines for my personal projects, with <highlight>automatic deployments</highlight> to my VPS. I also use Docker to isolate my development environments and facilitate deployment."
+    },
+    "visitSite": "Visit {tech}'s website"
+  },
+  "expS": {
+    "title": "My skills <br /> Soft Skills",
+    "listening": {
+      "title": "Listening Skills",
+      "description": "I take the time to fully understand user needs in order to propose <highlight>adapted technical solutions</highlight>. This attentive listening allows me to better meet expectations and collaborate effectively."
+    },
+    "teamwork": {
+      "title": "Teamwork",
+      "description": "I greatly appreciate teamwork and sharing my knowledge to foster <highlight>collective growth</highlight>. I like to take the lead and organize development as I have done on personal team projects and professionally."
+    },
+    "curious": {
+      "title": "Curious",
+      "description1": "I have a real <highlight>thirst for learning</highlight>, I enjoy discovering new technologies, exploring environments I don't know yet, and stepping out of my comfort zone.",
+      "description2": "For me, every novelty is an opportunity to learn, progress and adapt!"
+    },
+    "volunteer": {
+      "title": "Digital Footprint Workshop Volunteer",
+      "description": "I volunteer for 'La Fresque du Numérique', I was trained as a workshop facilitator. I enjoy raising awareness about the <highlight>environmental challenges</highlight> of digital technology and sharing my knowledge to encourage more responsible practices in our sector.",
+      "cta": "Association website"
+    }
+  },
+  "projects": {
+    "title": "My projects",
+    "sourceCode": "Source Code",
+    "pokemonStudio": {
+      "description": "Pokémon Studio is an <highlight>open source web application</highlight> that allows you to create your own Pokémon game. This tool is fully customizable, allowing the user to create a unique Pokémon game. I contribute to the project in my free time with a <highlight>distributed team</highlight> following an agile methodology (Scrumban) adapted to the project context, sprint meetings and task distribution."
+    },
+    "todaysFlag": {
+      "description": "Today's Flag is a <highlight>fun web application</highlight> that allows you to try to guess the country hidden behind a flag every day. This makes it easier to remember the flags of all the countries in the world. I created this application with Next.js to experiment with the <highlight>framework</highlight>."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "emailInfo": "Or contact me directly by email:",
+    "labelName": "Last Name",
+    "labelFirstName": "First Name",
+    "labelEmail": "Email",
+    "labelMessage": "Message",
+    "submit": "Send",
+    "successMessage": "Your message has been sent successfully!",
+    "errorMessage": "An error occurred while sending the message."
+  },
+  "footer": {
+    "copyright": "Clément Maillet",
+    "legalLink": "Legal Notice"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "editorTitle": "Publisher Identification",
+    "editorName": "Name:",
+    "editorStatus": "Status:",
+    "editorStatusValue": "Full Stack Developer",
+    "editorLocation": "Location:",
+    "editorLocationValue": "Brittany, France",
+    "editorEmail": "Email:",
+    "publicationDirectorTitle": "Publication Director",
+    "publicationDirector": "Publication Director:",
+    "publicationContact": "Contact:",
+    "hostingTitle": "Hosting",
+    "hostingProvider": "Host:",
+    "hostingAddress": "Address:",
+    "hostingPhone": "Phone:",
+    "hostingWebsite": "Website:",
+    "hostingNote": "Website hosted on virtual private server (VPS)",
+    "intellectualPropertyTitle": "Intellectual Property",
+    "intellectualProperty1": "This entire website is subject to French and international legislation on copyright and intellectual property. All reproduction rights are reserved, including for downloadable documents and iconographic and photographic representations.",
+    "intellectualProperty2": "Reproduction of all or part of this website on any electronic medium is strictly prohibited without express authorization from the publication director.",
+    "personalDataTitle": "Personal Data",
+    "personalData1": "Information collected via the contact form is used solely to respond to your requests. It is neither sold nor transferred to third parties.",
+    "personalData2": "In accordance with the French Data Protection Act of January 6, 1978 and the General Data Protection Regulation (GDPR), you have the right to access, rectify and delete your personal data.",
+    "cookiesTitle": "Analytics and Cookies",
+    "cookiesIntro": "This website uses the following services:",
+    "cookiesUmami": "Privacy-friendly web analytics tool that collects anonymous visitor statistics (pages visited, traffic source, browser type). Umami uses no cookies, collects no personal data and does not enable cross-site tracking.",
+    "cookiesRecaptcha": "Anti-spam protection for the contact form. These cookies verify that you are not a robot.",
+    "cookiesEmailjs": "Email sending service for the contact form.",
+    "cookiesNote1": "reCAPTCHA and EmailJS cookies are necessary for the proper functioning of the contact form and website security. They are not used for analytics or advertising tracking purposes.",
+    "cookiesNote2": "You can configure your browser to refuse these cookies, but this may affect the functionality of the contact form.",
+    "liabilityTitle": "Limitation of Liability",
+    "liability1": "The information contained on this website is as accurate as possible and the website is updated at various times throughout the year, but may nevertheless contain inaccuracies or omissions.",
+    "liability2": "If you notice any gap, error or what appears to be a malfunction, please report it by email to clement.maillet56@gmail.com, describing the problem as precisely as possible.",
+    "accessibilityTitle": "Accessibility",
+    "accessibility": "This website strives to comply with web accessibility standards. For any difficulty accessing content or suggestions for improvement, you can contact us at: clement.maillet56@gmail.com",
+    "lawTitle": "Applicable Law",
+    "law": "These legal notices are subject to French law. Any dispute relating to the use of this website shall be subject to the exclusive jurisdiction of the French courts."
+  }
+}

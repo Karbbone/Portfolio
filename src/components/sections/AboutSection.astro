@@ -1,54 +1,49 @@
 ---
 import me from "../../assets/me.svg?url";
-const birthDate = new Date(2003, 7, 9);
+import { getTranslations, type Locale } from "../../i18n";
 
-function calculateAge(birth: Date): number {
-  const today = new Date();
-  let age = today.getFullYear() - birth.getFullYear();
-  const m = today.getMonth() - birth.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
-    age--;
-  }
-  return age;
+interface Props {
+  locale?: Locale;
 }
 
-const age = calculateAge(birthDate);
+const locale = Astro.props.locale || Astro.locals.locale || "fr";
+const t = getTranslations(locale);
+
+// Helper to render HTML with highlight tags
+function renderWithHighlight(text: string): string {
+  return text
+    .replace(/<highlight>/g, '<span class="highlighted highlighted-primary">')
+    .replace(/<\/highlight>/g, "</span>");
+}
 ---
 
 <section id="about">
   <div class="about__wrapper">
-    <h2 class="about__title" data-reveal="up"><span>A propos</span></h2>
+    <h2 class="about__title" data-reveal="up"><span>{t.about.title}</span></h2>
     <div class="about__cols">
       <div class="about__col about__col--left">
-        <p data-reveal="up" data-reveal-delay="1">
-          Développeur Full Stack basé en Bretagne, je conçois des applications
-          web, desktop et mobile performantes.
-          <span class="highlighted highlighted-primary"
-            >Exigeant et méthodique</span
-          > j'accorde une importance capitale à la qualité du code et à l'expérience
-          utilisateur.
-        </p>
+        <p
+          data-reveal="up"
+          data-reveal-delay="1"
+          set:html={renderWithHighlight(t.about.paragraph1)}
+        />
         <p data-reveal="up" data-reveal-delay="2">
-          Diplômé d'un BUT Informatique à l'IUT de Vannes, je poursuis désormais
-          mes études en alternance pour valider un Master, dans le but de
-          continuer ma quête de connaissances.
+          {t.about.paragraph2}
         </p>
-        <p data-reveal="up" data-reveal-delay="3">
-          <span class="highlighted highlighted-primary"
-            >Polyvalent et investi</span
-          > , j'ai également une grande affection pour le travail en équipe et le
-          management.
-        </p>
+        <p
+          data-reveal="up"
+          data-reveal-delay="3"
+          set:html={renderWithHighlight(t.about.paragraph3)}
+        />
         <p data-reveal="up" data-reveal-delay="4">
-          Pour moi, le code est un formidable moyen de donner vie à n'importe
-          quelle idée.
+          {t.about.paragraph4}
         </p>
         <div class="about__cta" data-reveal="up" data-reveal-delay="5">
           <a
             class="about__cta-cv"
             href="/clement_maillet_cv.pdf"
             download
-            draggable="false"><span>CV</span>Télécharger mon CV</a
+            draggable="false"><span>CV</span>{t.about.downloadCv}</a
           >
           <a
             class="about__cta-linkedin"
@@ -61,12 +56,16 @@ const age = calculateAge(birthDate);
               src="https://www.svgrepo.com/show/512419/linkedin-161.svg"
               alt="LinkedIn"
             />
-            M'ajouter sur Linkedin
+            {t.about.addLinkedin}
           </a>
         </div>
       </div>
-      <div class="about__col about__col--right" data-reveal="right" data-reveal-delay="2">
-        <img src={me} alt="Portrait de Clément" />
+      <div
+        class="about__col about__col--right"
+        data-reveal="right"
+        data-reveal-delay="2"
+      >
+        <img src={me} alt={t.about.portraitAlt} />
       </div>
     </div>
   </div>

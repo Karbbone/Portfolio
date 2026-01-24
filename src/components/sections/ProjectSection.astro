@@ -8,12 +8,27 @@ import prismaLogo from "../../assets/technos/prisma.svg";
 import reactLogo from "../../assets/technos/react.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
 import TechTag from "../TechTag.astro";
+import { getTranslations, type Locale } from "../../i18n";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale || Astro.locals.locale || "fr";
+const t = getTranslations(locale);
+
+// Helper to render HTML with highlight tags
+function renderWithHighlight(text: string): string {
+  return text
+    .replace(/<highlight>/g, '<span class="highlighted highlighted-red">')
+    .replace(/<\/highlight>/g, "</span>");
+}
 ---
 
 <section id="project">
   <div class="project__wrapper">
     <h2 class="project__title" data-reveal="up">
-      <span>Mes projets</span>
+      <span>{t.projects.title}</span>
     </h2>
     <div class="project__content">
       <!-- Pokemon Studio Project -->
@@ -23,16 +38,10 @@ import TechTag from "../TechTag.astro";
         </div>
         <div class="project__item__col-right">
           <h3 class="project__item-title">Pokemon Studio</h3>
-          <p class="project__item-description">
-            Pokémon Studio est une <span class="highlighted highlighted-red"
-              >application web open source</span
-            > qui permet de créer son propre jeu Pokémon. Cet outil est totalement
-            modulable, ce qui permet à l'utilisateur de créer un jeu Pokémon unique.
-            Je contribue sur mon temps libre au projet avec une <span
-              class="highlighted highlighted-red">équipe distribuée</span
-            > suivant une méthodologie agile (Scrumban) adaptée au contexte projet,
-            réunion de sprint et répartition des tâches.
-          </p>
+          <p
+            class="project__item-description"
+            set:html={renderWithHighlight(t.projects.pokemonStudio.description)}
+          />
           <div class="project__item__tags">
             <TechTag
               name="Electron"
@@ -64,7 +73,7 @@ import TechTag from "../TechTag.astro";
               src="https://www.svgrepo.com/show/512317/github-142.svg"
               alt="GitHub Logo"
             />
-            <span>Code Source</span>
+            <span>{t.projects.sourceCode}</span>
           </a>
         </div>
       </div>
@@ -76,14 +85,10 @@ import TechTag from "../TechTag.astro";
         </div>
         <div class="project__item__col-right">
           <h3 class="project__item-title">Today's Flag</h3>
-          <p class="project__item-description">
-            Today's Flag est une <span class="highlighted highlighted-red"
-              >application web ludique</span
-            > qui permet chaque jour de tenter de deviner le pays caché derrière
-            un drapeau. Cela permet de retenir plus facilement les drapeaux de tous
-            les pays du monde. J'ai réalisé cette application avec Next.js afin d'expérimenter
-            le <span class="highlighted highlighted-red">framework</span>.
-          </p>
+          <p
+            class="project__item-description"
+            set:html={renderWithHighlight(t.projects.todaysFlag.description)}
+          />
           <div class="project__item__tags">
             <TechTag
               name="MySQL"
@@ -127,7 +132,7 @@ import TechTag from "../TechTag.astro";
               src="https://www.svgrepo.com/show/512317/github-142.svg"
               alt="GitHub Logo"
             />
-            <span>Code Source</span>
+            <span>{t.projects.sourceCode}</span>
           </a>
         </div>
       </div>

@@ -1,6 +1,15 @@
 ---
+import { getTranslations, type Locale } from "../i18n";
+
+interface Props {
+  locale?: Locale;
+}
+
 const { pathname } = Astro.url;
 const isHomePage = pathname === "/";
+const locale = Astro.props.locale || Astro.locals.locale || "fr";
+const t = getTranslations(locale);
+const otherLocale = locale === "fr" ? "en" : "fr";
 ---
 
 <header id="header">
@@ -10,10 +19,36 @@ const isHomePage = pathname === "/";
         <a class="header__site-title" href="/" aria-current="true"
           >Clément Maillet</a
         >
+        <div class="header__lang-switcher" role="group" aria-label={t.header.languageSelector || "Sélecteur de langue"}>
+          <button
+            class={`header__lang-btn ${locale === "fr" ? "header__lang-btn--active" : ""}`}
+            data-locale="fr"
+            aria-pressed={locale === "fr" ? "true" : "false"}
+            aria-label="Français"
+            title="Français"
+          >
+            <span class="header__lang-icon" aria-hidden="true">🇫🇷</span>
+            <span class="header__lang-text">FR</span>
+          </button>
+          <button
+            class={`header__lang-btn ${locale === "en" ? "header__lang-btn--active" : ""}`}
+            data-locale="en"
+            aria-pressed={locale === "en" ? "true" : "false"}
+            aria-label="English"
+            title="English"
+          >
+            <span class="header__lang-icon" aria-hidden="true">🇬🇧</span>
+            <span class="header__lang-text">EN</span>
+          </button>
+        </div>
       </div>
 
       <div class="header__col header__col--right">
-        <button class="header__burger" aria-label="Menu" aria-expanded="false">
+        <button
+          class="header__burger"
+          aria-label={t.header.menuLabel}
+          aria-expanded="false"
+        >
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
@@ -29,7 +64,7 @@ const isHomePage = pathname === "/";
                       href="#about"
                       class="header__menu-link header__menu-link--about"
                     >
-                      À propos
+                      {t.header.about}
                     </a>
                   </li>
                   <li class="header__menu-item">
@@ -37,7 +72,7 @@ const isHomePage = pathname === "/";
                       href="#exph"
                       class="header__menu-link header__menu-link--skills"
                     >
-                      Compétences
+                      {t.header.skills}
                     </a>
                   </li>
                   <li class="header__menu-item">
@@ -45,7 +80,7 @@ const isHomePage = pathname === "/";
                       href="#project"
                       class="header__menu-link header__menu-link--projects"
                     >
-                      Projets
+                      {t.header.projects}
                     </a>
                   </li>
                   <li class="header__menu-item header__menu-item--cta">
@@ -54,7 +89,7 @@ const isHomePage = pathname === "/";
                       href="#contact"
                       class="header__menu-link header__menu-link--contact"
                     >
-                      Contact
+                      {t.header.contact}
                     </a>
                   </li>
                 </>
@@ -68,7 +103,7 @@ const isHomePage = pathname === "/";
                     href="/"
                     class="header__menu-link header__menu-link--contact"
                   >
-                    Revenir au portfolio
+                    {t.header.backToPortfolio}
                   </a>
                 </li>
               )
@@ -85,7 +120,7 @@ const isHomePage = pathname === "/";
   <button
     class="mobile-nav-close"
     id="mobile-nav-close"
-    aria-label="Fermer le menu"
+    aria-label={t.header.closeMenuLabel}
   >
     <span class="mobile-nav-close__line"></span>
     <span class="mobile-nav-close__line"></span>
@@ -97,22 +132,22 @@ const isHomePage = pathname === "/";
           <>
             <li class="mobile-nav__item">
               <a href="#about" class="mobile-nav__link">
-                À propos
+                {t.header.about}
               </a>
             </li>
             <li class="mobile-nav__item">
               <a href="#exph" class="mobile-nav__link">
-                Compétences
+                {t.header.skills}
               </a>
             </li>
             <li class="mobile-nav__item">
               <a href="#project" class="mobile-nav__link">
-                Projets
+                {t.header.projects}
               </a>
             </li>
             <li class="mobile-nav__item mobile-nav__item--cta">
               <a href="#contact" class="mobile-nav__link">
-                Contact
+                {t.header.contact}
               </a>
             </li>
           </>
@@ -122,11 +157,20 @@ const isHomePage = pathname === "/";
         !isHomePage && (
           <li class="mobile-nav__item mobile-nav__item--cta">
             <a href="/" class="mobile-nav__link">
-              Revenir au portfolio
+              {t.header.backToPortfolio}
             </a>
           </li>
         )
       }
+      <li class="mobile-nav__item mobile-nav__item--lang">
+        <button
+          class="mobile-nav__lang-switcher"
+          data-locale={otherLocale}
+          aria-label={locale === "fr" ? "Switch to English" : "Passer en français"}
+        >
+          {otherLocale === "en" ? "English" : "Français"}
+        </button>
+      </li>
     </ul>
   </nav>
 </div>
@@ -160,9 +204,43 @@ const isHomePage = pathname === "/";
     observer.observe(heroSection);
   };
 
+  // Language switcher with improved UX feedback
+  const setupLangSwitcher = () => {
+    const langButtons = document.querySelectorAll(
+      ".header__lang-btn, .mobile-nav__lang-switcher"
+    );
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const newLocale = (btn as HTMLElement).dataset.locale;
+        const isActive = btn.classList.contains("header__lang-btn--active");
+        
+        // Don't switch if already active
+        if (isActive) return;
+        
+        if (newLocale) {
+          // Add loading state feedback
+          btn.classList.add("header__lang-btn--loading");
+          
+          // Set cookie for 1 year
+          document.cookie = `locale=${newLocale};path=/;max-age=31536000;SameSite=Lax`;
+          
+          // Reload the page with smooth transition
+          setTimeout(() => {
+            window.location.reload();
+          }, 150);
+        }
+      });
+    });
+  };
+
   // Initialize on load
   setupHeaderScroll();
+  setupLangSwitcher();
 
   // Re-initialize on view transitions (if using Astro view transitions)
-  document.addEventListener("astro:page-load", setupHeaderScroll);
+  document.addEventListener("astro:page-load", () => {
+    setupHeaderScroll();
+    setupLangSwitcher();
+  });
 </script>

@@ -2,142 +2,102 @@
 import "normalize.css/normalize.css";
 import Layout from "../layouts/Layout.astro";
 import "../sass/main.scss";
+import { getTranslations } from "../i18n";
+
+const locale = Astro.locals.locale;
+const t = getTranslations(locale);
 ---
 
-<Layout>
+<Layout locale={locale}>
   <div class="legal-page" id="legal-page">
     <section class="legal-page__wrapper">
-      <h1 class="legal-page__title">Mentions légales</h1>
+      <h1 class="legal-page__title">{t.legal.title}</h1>
 
       <section class="legal-page__section">
-        <h2>Identification de l'éditeur</h2>
+        <h2>{t.legal.editorTitle}</h2>
         <p>
-          <strong>Nom et prénom :</strong> Clément Maillet<br />
-          <strong>Statut :</strong> Développeur Full Stack<br />
-          <strong>Localisation :</strong> Bretagne, France<br />
-          <strong>Email :</strong> clement.maillet56@gmail.com<br />
-        </p>
-      </section>
-
-      <section class="legal-page__section">
-        <h2>Directeur de la publication</h2>
-        <p>
-          <strong>Directeur de la publication :</strong> Clément Maillet<br />
-          <strong>Contact :</strong> clement.maillet56@gmail.com
-        </p>
-      </section>
-
-      <section class="legal-page__section">
-        <h2>Hébergement</h2>
-        <p>
-          <strong>Hébergeur :</strong> Hetzner Online GmbH<br />
-          <strong>Adresse :</strong> Industriestr. 25, 91710 Gunzenhausen, Allemagne<br
+          <strong>{t.legal.editorName}</strong> Clément Maillet<br />
+          <strong>{t.legal.editorStatus}</strong>
+          {t.legal.editorStatusValue}<br />
+          <strong>{t.legal.editorLocation}</strong>
+          {t.legal.editorLocationValue}<br />
+          <strong>{t.legal.editorEmail}</strong> clement.maillet56@gmail.com<br
           />
-          <strong>Téléphone :</strong> +49 (0)9831 505-0<br />
-          <strong>Site web :</strong>
+        </p>
+      </section>
+
+      <section class="legal-page__section">
+        <h2>{t.legal.publicationDirectorTitle}</h2>
+        <p>
+          <strong>{t.legal.publicationDirector}</strong> Clément Maillet<br />
+          <strong>{t.legal.publicationContact}</strong> clement.maillet56@gmail.com
+        </p>
+      </section>
+
+      <section class="legal-page__section">
+        <h2>{t.legal.hostingTitle}</h2>
+        <p>
+          <strong>{t.legal.hostingProvider}</strong> Hetzner Online GmbH<br />
+          <strong>{t.legal.hostingAddress}</strong> Industriestr. 25, 91710 Gunzenhausen,
+          Allemagne<br />
+          <strong>{t.legal.hostingPhone}</strong> +49 (0)9831 505-0<br />
+          <strong>{t.legal.hostingWebsite}</strong>
           <a
             href="https://www.hetzner.com"
             target="_blank"
             rel="noopener noreferrer">www.hetzner.com</a
           ><br />
-          <em>Site hébergé sur serveur privé virtuel (VPS)</em>
+          <em>{t.legal.hostingNote}</em>
         </p>
       </section>
 
       <section class="legal-page__section">
-        <h2>Propriété intellectuelle</h2>
-        <p>
-          L'ensemble de ce site relève de la législation française et
-          internationale sur le droit d'auteur et la propriété intellectuelle.
-          Tous les droits de reproduction sont réservés, y compris pour les
-          documents téléchargeables et les représentations iconographiques et
-          photographiques.
-        </p>
-        <p>
-          La reproduction de tout ou partie de ce site sur un support
-          électronique quel qu'il soit est formellement interdite sauf
-          autorisation expresse du directeur de la publication.
-        </p>
+        <h2>{t.legal.intellectualPropertyTitle}</h2>
+        <p>{t.legal.intellectualProperty1}</p>
+        <p>{t.legal.intellectualProperty2}</p>
       </section>
 
       <section class="legal-page__section">
-        <h2>Données personnelles</h2>
-        <p>
-          Les informations recueillies via le formulaire de contact sont
-          utilisées uniquement pour répondre à vos demandes. Elles ne sont ni
-          vendues, ni cédées à des tiers.
-        </p>
-        <p>
-          Conformément à la loi "Informatique et Libertés" du 6 janvier 1978
-          modifiée et au Règlement Général sur la Protection des Données (RGPD),
-          vous disposez d'un droit d'accès, de rectification et de suppression
-          des données vous concernant.
-        </p>
+        <h2>{t.legal.personalDataTitle}</h2>
+        <p>{t.legal.personalData1}</p>
+        <p>{t.legal.personalData2}</p>
       </section>
 
       <section class="legal-page__section">
-        <h2>Analyse d'audience et cookies</h2>
-        <p>Ce site utilise les services suivants :</p>
+        <h2>{t.legal.cookiesTitle}</h2>
+        <p>{t.legal.cookiesIntro}</p>
         <ul>
           <li>
-            <strong>Umami Analytics :</strong> Outil d'analyse web respectueux de
-            la vie privée qui collecte des statistiques anonymes de fréquentation
-            (pages visitées, origine du trafic, type de navigateur). Umami n'utilise
-            aucun cookie, ne collecte aucune donnée personnelle et ne permet aucun
-            suivi entre sites.
+            <strong>Umami Analytics :</strong>
+            {t.legal.cookiesUmami}
           </li>
           <li>
-            <strong>Google reCAPTCHA :</strong> Protection anti-spam du formulaire
-            de contact. Ces cookies permettent de vérifier que vous n'êtes pas un
-            robot.
+            <strong>Google reCAPTCHA :</strong>
+            {t.legal.cookiesRecaptcha}
           </li>
           <li>
-            <strong>EmailJS :</strong> Service d'envoi d'emails pour le formulaire
-            de contact.
+            <strong>EmailJS :</strong>
+            {t.legal.cookiesEmailjs}
           </li>
         </ul>
-        <p>
-          Les cookies de reCAPTCHA et EmailJS sont nécessaires au bon
-          fonctionnement du formulaire de contact et à la sécurité du site. Ils
-          ne sont pas utilisés à des fins d'analyse ou de suivi publicitaire.
-        </p>
-        <p>
-          Vous pouvez configurer votre navigateur pour refuser ces cookies, mais
-          cela pourrait affecter le fonctionnement du formulaire de contact.
-        </p>
+        <p>{t.legal.cookiesNote1}</p>
+        <p>{t.legal.cookiesNote2}</p>
       </section>
 
       <section class="legal-page__section">
-        <h2>Limitation de responsabilité</h2>
-        <p>
-          Les informations contenues sur ce site sont aussi précises que
-          possible et le site remis à jour à différentes périodes de l'année,
-          mais peut toutefois contenir des inexactitudes ou des omissions.
-        </p>
-        <p>
-          Si vous constatez une lacune, erreur ou ce qui parait être un
-          dysfonctionnement, merci de bien vouloir le signaler par email, à
-          l'adresse clement.maillet56@gmail.com, en décrivant le problème de la
-          manière la plus précise possible.
-        </p>
+        <h2>{t.legal.liabilityTitle}</h2>
+        <p>{t.legal.liability1}</p>
+        <p>{t.legal.liability2}</p>
       </section>
 
       <section class="legal-page__section">
-        <h2>Accessibilité</h2>
-        <p>
-          Ce site s'efforce de respecter les standards d'accessibilité web. Pour
-          toute difficulté d'accès au contenu ou suggestion d'amélioration, vous
-          pouvez nous contacter à l'adresse : clement.maillet56@gmail.com
-        </p>
+        <h2>{t.legal.accessibilityTitle}</h2>
+        <p>{t.legal.accessibility}</p>
       </section>
 
       <section class="legal-page__section">
-        <h2>Droit applicable</h2>
-        <p>
-          Les présentes mentions légales sont soumises au droit français. Tout
-          litige relatif à l'utilisation de ce site sera de la compétence
-          exclusive des tribunaux français.
-        </p>
+        <h2>{t.legal.lawTitle}</h2>
+        <p>{t.legal.law}</p>
       </section>
     </section>
   </div>

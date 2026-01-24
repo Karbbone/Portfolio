@@ -10,6 +10,14 @@ import pythonLogo from "../../assets/technos/python.svg";
 import reactLogo from "../../assets/technos/react.svg";
 import symfonyLogo from "../../assets/technos/symfony.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
+import { getTranslations, type Locale } from "../../i18n";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale || Astro.locals.locale || "fr";
+const t = getTranslations(locale);
 
 const workExperiences = [
   {
@@ -18,13 +26,9 @@ const workExperiences = [
       logo: mediamag,
       website: "https://www.mediamag-systeme.com/",
     },
-    position: "Développeur Full Stack",
-    dateRange: "Avril 2023 - Août 2024",
-    tasks: [
-      "Développement de plusieurs applications internes afin d'améliorer l'autonomie des employés.",
-      "Développement d'une application permettant de s'ouvrir à de nouveaux clients sur le marché avec une nouvelle offre, permettant aux utilisateurs de s'enregistrer sans avoir à passer par les voix professionnelles de Médiamag.",
-      "Création de modules externes pour l'application principale de la société en C++, Python.",
-    ],
+    position: t.work.experiences.mediamag.position,
+    dateRange: t.work.experiences.mediamag.dateRange,
+    tasks: t.work.experiences.mediamag.tasks,
     technologies: [
       { name: "AdonisJS", logo: adonisLogo, url: "https://adonisjs.com/" },
       { name: "C++", logo: cplusplusLogo, url: "https://cplusplus.com/" },
@@ -44,15 +48,10 @@ const workExperiences = [
       logo: inovera,
       website: "https://www.inovera.fr/",
     },
-    position: "Développeur Full Stack",
-    dateRange: "Novembre 2024",
+    position: t.work.experiences.inovera.position,
+    dateRange: t.work.experiences.inovera.dateRange,
     isCurrentJob: true,
-    tasks: [
-      "Migration d'une application Symfony vers une nouvelle solution front-end en React avec transformation du backend Symfony en API REST/JSON.",
-      "Application du nouveau design sur les applications de la société.",
-      "Gestion et coordination des projets via Jira avec planification des tickets et méthodologie Kanban.",
-      "Maintenance et développement de nouvelles fonctionnalités sur les applications existantes de la société.",
-    ],
+    tasks: t.work.experiences.inovera.tasks,
     technologies: [
       { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/" },
       { name: "PHP", logo: phpLogo, url: "https://www.php.net/" },
@@ -71,12 +70,12 @@ const workExperiences = [
 <section id="work">
   <div class="work__wrapper">
     <h2 class="work__title" data-reveal="up">
-      <span>C'est un réel plaisir <br /> de travailler ensemble</span>
+      <span set:html={t.work.title} />
     </h2>
 
     <div class="work__content" data-reveal="up" data-reveal-delay="1">
       <!-- Timeline sidebar -->
-      <nav class="work__timeline" aria-label="Sélection d'entreprise">
+      <nav class="work__timeline" aria-label={t.work.timelineLabel}>
         <div class="work__timeline__line"></div>
         {
           workExperiences.map((experience, index) => (
@@ -86,7 +85,10 @@ const workExperiences = [
               }`}
               data-index={index}
               type="button"
-              aria-label={`Afficher l'expérience chez ${experience.company.name}`}
+              aria-label={t.work.showExperience.replace(
+                "{company}",
+                experience.company.name
+              )}
             >
               <div class="work__timeline__marker">
                 <span class="work__timeline__dot" />
@@ -107,7 +109,7 @@ const workExperiences = [
                     {experience.isCurrentJob && (
                       <span
                         class="work__timeline__current-dot"
-                        title="Poste actuel"
+                        title={t.work.currentPosition}
                       />
                     )}
                   </span>
@@ -141,7 +143,7 @@ const workExperiences = [
                       </span>
                       <span class="work__card__period">
                         {experience.dateRange}
-                        {experience.isCurrentJob && " - Présent"}
+                        {experience.isCurrentJob && ` - ${t.work.present}`}
                       </span>
                     </div>
                   </div>
@@ -152,7 +154,7 @@ const workExperiences = [
                     class="btn btn--green work__card__link"
                     draggable="false"
                   >
-                    <span>Voir le site</span>
+                    <span>{t.work.viewSite}</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -175,7 +177,7 @@ const workExperiences = [
                   {experience.isCurrentJob && (
                     <span class="work__card__status">
                       <span class="work__card__status-dot" />
-                      Poste actuel
+                      {t.work.currentPosition}
                     </span>
                   )}
                 </div>
@@ -193,9 +195,7 @@ const workExperiences = [
                     >
                       <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                     </svg>
-                    <h4 class="work__card__subtitle">
-                      Missions & Réalisations
-                    </h4>
+                    <h4 class="work__card__subtitle">{t.work.missionsTitle}</h4>
                   </div>
                   <ul class="work__card__tasks">
                     {experience.tasks.map((task, taskIndex) => (
@@ -224,7 +224,7 @@ const workExperiences = [
                   >
                     <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
-                  <h4 class="work__card__subtitle">Stack Technique</h4>
+                  <h4 class="work__card__subtitle">{t.work.techStackTitle}</h4>
                 </div>
                 <div class="work__card__technologies">
                   {experience.technologies.map((tech) => (

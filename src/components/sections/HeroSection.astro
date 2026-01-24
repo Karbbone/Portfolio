@@ -1,3 +1,22 @@
+---
+import { getTranslations, type Locale } from "../../i18n";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale || Astro.locals.locale || "fr";
+const t = getTranslations(locale);
+
+// Helper to render HTML with highlight tags
+function renderWithHighlight(text: string): string {
+  return text
+    .replace(/<highlight>/g, '<span class="highlighted highlighted-primary">')
+    .replace(/<\/highlight>/g, "</span>")
+    .replace(/<br\/>/g, "<br />");
+}
+---
+
 <section id="hero">
   <!-- Floating decorative elements -->
   <div class="hero__floating">
@@ -9,21 +28,13 @@
 
   <div class="hero__wrapper">
     <h1 class="hero__title" data-reveal="up">
-      <span class="hero__title-name">Clément Maillet</span>
+      <span class="hero__title-name">{t.hero.name}</span>
       <br />
-      <span class="hero__title-highlighted">Développeur Full Stack</span>
+      <span class="hero__title-highlighted">{t.hero.title}</span>
     </h1>
 
     <div class="hero__description" data-reveal="up" data-reveal-delay="1">
-      <p>
-        Développeur Full Stack <span class="highlighted highlighted-primary"
-          >surmotivé</span
-        > avec une passion débordante pour l'innovation technologique.
-        <br />
-        Animé par l'ambition de créer des solutions numériques <span
-          class="highlighted highlighted-primary">exceptionnelles</span
-        > qui marquent la différence.
-      </p>
+      <p set:html={renderWithHighlight(t.hero.description)} />
     </div>
     <div class="hero__socials" data-reveal="up" data-reveal-delay="2">
       <a
@@ -55,7 +66,7 @@
       >
     </div>
     <div class="hero__cta" data-reveal="up" data-reveal-delay="3">
-      <a href="#me" class="hero__cta-button" draggable="false">Me découvrir</a>
+      <a href="#me" class="hero__cta-button" draggable="false">{t.hero.cta}</a>
     </div>
   </div>
 </section>

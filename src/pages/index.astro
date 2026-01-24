@@ -11,16 +11,15 @@ import ProjectSection from "../components/sections/ProjectSection.astro";
 import WorkSection from "../components/sections/WorkSection.astro";
 import "../sass/main.scss";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const locale = Astro.locals.locale;
 ---
 
-<Layout>
-  <HeroSection />
-  <AboutSection />
-  <WorkSection />
-  <ExpHSection />
-  <ExpSSection />
-  <ProjectSection />
-  <ContactSection />
+<Layout locale={locale}>
+  <HeroSection locale={locale} />
+  <AboutSection locale={locale} />
+  <WorkSection locale={locale} />
+  <ExpHSection locale={locale} />
+  <ExpSSection locale={locale} />
+  <ProjectSection locale={locale} />
+  <ContactSection locale={locale} />
 </Layout>
