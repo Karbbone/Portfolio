@@ -19,7 +19,11 @@ const otherLocale = locale === "fr" ? "en" : "fr";
         <a class="header__site-title" href="/" aria-current="true"
           >Clément Maillet</a
         >
-        <div class="header__lang-switcher" role="group" aria-label={t.header.languageSelector || "Sélecteur de langue"}>
+        <div
+          class="header__lang-switcher"
+          role="group"
+          aria-label={t.header.languageSelector || "Sélecteur de langue"}
+        >
           <button
             class={`header__lang-btn ${locale === "fr" ? "header__lang-btn--active" : ""}`}
             data-locale="fr"
@@ -166,7 +170,9 @@ const otherLocale = locale === "fr" ? "en" : "fr";
         <button
           class="mobile-nav__lang-switcher"
           data-locale={otherLocale}
-          aria-label={locale === "fr" ? "Switch to English" : "Passer en français"}
+          aria-label={locale === "fr"
+            ? "Switch to English"
+            : "Passer en français"}
         >
           {otherLocale === "en" ? "English" : "Français"}
         </button>
@@ -207,24 +213,24 @@ const otherLocale = locale === "fr" ? "en" : "fr";
   // Language switcher with improved UX feedback
   const setupLangSwitcher = () => {
     const langButtons = document.querySelectorAll(
-      ".header__lang-btn, .mobile-nav__lang-switcher"
+      ".header__lang-btn, .mobile-nav__lang-switcher",
     );
 
     langButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const newLocale = (btn as HTMLElement).dataset.locale;
         const isActive = btn.classList.contains("header__lang-btn--active");
-        
+
         // Don't switch if already active
         if (isActive) return;
-        
+
         if (newLocale) {
           // Add loading state feedback
           btn.classList.add("header__lang-btn--loading");
-          
+
           // Set cookie for 1 year
           document.cookie = `locale=${newLocale};path=/;max-age=31536000;SameSite=Lax`;
-          
+
           // Reload the page with smooth transition
           setTimeout(() => {
             window.location.reload();
