@@ -154,26 +154,20 @@
       }
     }
 
-    &__lang-icon {
-      font-size: 1.6rem;
+    &__lang-badge {
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
       line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      color: color.$gray-dark;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
       @include bp.from("tablet") {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
-    }
 
-    &__lang-text {
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      display: none;
-
-      @include bp.from("tablet") {
-        display: inline;
+      .header__lang-btn--active & {
+        color: color.$orange;
       }
     }
 
