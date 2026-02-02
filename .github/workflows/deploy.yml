@@ -24,26 +24,35 @@ jobs:
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
-      - name: Deploy to VPS
+            - name: Deploy to VPS
         env:
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_HOST: ${{ secrets.VPS_HOST }}
           PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
-        run: |
+      - run: |
           ssh $VPS_USER@$VPS_HOST << 'EOF'
+            set -e
+
             cd ${{ secrets.PROJECT_PATH }}
-            
-            git pull origin main
-            
+
+            echo "🔄 Reset du repo sur origin/main"
+            git fetch origin
+            git reset --hard origin/main
+            git clean -fd
+
+            echo "🐳 Stop des containers"
             docker-compose down
-            
+
+            echo "🔨 Build des images"
             docker-compose build --no-cache
-            
+
+            echo "🚀 Lancement des containers"
             docker-compose up -d
-            
+
+            echo "🧹 Nettoyage des images inutiles"
             docker image prune -af
-            
+
             docker-compose ps
-            
-            echo "Déploiement terminé avec succès!"
+
+            echo "✅ Déploiement terminé avec succès!"
           EOF
