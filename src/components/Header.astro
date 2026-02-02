@@ -125,8 +125,31 @@ const isHomePage = pathname === "/";
     const mobileMenu = document.getElementById("mobile-menu");
     const mobileLinks = document.querySelectorAll(".mobile-menu__link");
     const closeBtn = document.getElementById("mobile-menu-close");
+    const header = document.getElementById("header");
+    const heroSection = document.getElementById("hero");
 
     if (!burgerBtn || !mobileMenu) return;
+
+    // Animation de réduction du header au scroll
+    if (header && heroSection) {
+      const observerOptions = {
+        root: null,
+        threshold: 0,
+        rootMargin: "-100px 0px 0px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            header.classList.add("header--compact");
+          } else {
+            header.classList.remove("header--compact");
+          }
+        });
+      }, observerOptions);
+
+      observer.observe(heroSection);
+    }
 
     // Toggle menu
     const toggleMenu = () => {
