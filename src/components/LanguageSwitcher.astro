@@ -1,0 +1,55 @@
+---
+import type { Language } from "../i18n/config";
+
+interface Props {
+  currentLang: Language;
+}
+
+const { currentLang } = Astro.props;
+---
+
+<div class="language-switcher">
+  <div class="language-switcher__container">
+    <button
+      class={`language-switcher__btn ${currentLang === "fr" ? "language-switcher__btn--active" : ""}`}
+      data-lang="fr"
+      aria-label="Changer vers le français"
+      type="button"
+    >
+      FR
+    </button>
+    <button
+      class={`language-switcher__btn ${currentLang === "en" ? "language-switcher__btn--active" : ""}`}
+      data-lang="en"
+      aria-label="Switch to English"
+      type="button"
+    >
+      EN
+    </button>
+  </div>
+</div>
+
+<script>
+  function initLanguageSwitcher() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".language-switcher__btn");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const lang = button.getAttribute("data-lang");
+        if (!lang) return;
+
+        // Set cookie
+        document.cookie = `portfolio_lang=${lang}; path=/; max-age=31536000; samesite=lax`;
+
+        // Reload page to apply new language
+        window.location.reload();
+      });
+    });
+  }
+
+  // Initialize on page load
+  initLanguageSwitcher();
+
+  // Re-initialize on Astro navigation
+  document.addEventListener("astro:page-load", initLanguageSwitcher);
+</script>

@@ -1,5 +1,15 @@
 ---
 import me from "../../assets/me.svg?url";
+import type { Language } from "../../i18n/config";
+
+interface Props {
+  lang: Language;
+  translations: any;
+}
+
+const { lang, translations } = Astro.props;
+const t = translations.about;
+
 const birthDate = new Date(2003, 7, 9);
 
 function calculateAge(birth: Date): number {
@@ -17,38 +27,32 @@ const age = calculateAge(birthDate);
 
 <section id="about">
   <div class="about__wrapper">
-    <h2 class="about__title" data-reveal="up"><span>A propos</span></h2>
+    <h2 class="about__title" data-reveal="up"><span>{t.title}</span></h2>
     <div class="about__cols">
       <div class="about__col about__col--left">
         <p data-reveal="up" data-reveal-delay="1">
-          Développeur Full Stack basé en Bretagne, je conçois des applications
-          web, desktop et mobile performantes.
+          {t.paragraphs.p1}
           <span class="highlighted highlighted-primary"
-            >Exigeant et méthodique</span
-          > j'accorde une importance capitale à la qualité du code et à l'expérience
-          utilisateur.
+            >{t.paragraphs.p1Highlighted}</span
+          > {t.paragraphs.p1End}
         </p>
         <p data-reveal="up" data-reveal-delay="2">
-          Diplômé d'un BUT Informatique à l'IUT de Vannes, je poursuis désormais
-          mes études en alternance pour valider un Master, dans le but de
-          continuer ma quête de connaissances.
+          {t.paragraphs.p2}
         </p>
         <p data-reveal="up" data-reveal-delay="3">
           <span class="highlighted highlighted-primary"
-            >Polyvalent et investi</span
-          > , j'ai également une grande affection pour le travail en équipe et le
-          management.
+            >{t.paragraphs.p3}</span
+          >{t.paragraphs.p3End}
         </p>
         <p data-reveal="up" data-reveal-delay="4">
-          Pour moi, le code est un formidable moyen de donner vie à n'importe
-          quelle idée.
+          {t.paragraphs.p4}
         </p>
         <div class="about__cta" data-reveal="up" data-reveal-delay="5">
           <a
             class="about__cta-cv"
             href="/clement_maillet_cv.pdf"
             download
-            draggable="false"><span>CV</span>Télécharger mon CV</a
+            draggable="false"><span>CV</span>{t.cta.cv}</a
           >
           <a
             class="about__cta-linkedin"
@@ -61,12 +65,12 @@ const age = calculateAge(birthDate);
               src="https://www.svgrepo.com/show/512419/linkedin-161.svg"
               alt="LinkedIn"
             />
-            M'ajouter sur Linkedin
+            {t.cta.linkedin}
           </a>
         </div>
       </div>
       <div class="about__col about__col--right" data-reveal="right" data-reveal-delay="2">
-        <img src={me} alt="Portrait de Clément" />
+        <img src={me} alt={t.imageAlt} />
       </div>
     </div>
   </div>

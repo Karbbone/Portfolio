@@ -1,0 +1,253 @@
+{
+  "header": {
+    "nav": {
+      "about": "À propos",
+      "skills": "Compétences",
+      "projects": "Projets",
+      "contact": "Contact",
+      "backToPortfolio": "Revenir au portfolio"
+    },
+    "mobileMenu": {
+      "ariaLabel": "Fermer le menu"
+    }
+  },
+  "hero": {
+    "name": "Clément Maillet",
+    "title": "Développeur Full Stack",
+    "description": {
+      "part1": "Développeur Full Stack",
+      "highlighted1": "surmotivé",
+      "part2": "avec une passion débordante pour l'innovation technologique.",
+      "part3": "Animé par l'ambition de créer des solutions numériques",
+      "highlighted2": "exceptionnelles",
+      "part4": "qui marquent la différence."
+    },
+    "cta": "Me découvrir",
+    "socialAlt": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "cv": "CV"
+    }
+  },
+  "about": {
+    "title": "A propos",
+    "paragraphs": {
+      "p1": "Développeur Full Stack basé en Bretagne, je conçois des applications web, desktop et mobile performantes.",
+      "p1Highlighted": "Exigeant et méthodique",
+      "p1End": "j'accorde une importance capitale à la qualité du code et à l'expérience utilisateur.",
+      "p2": "Diplômé d'un BUT Informatique à l'IUT de Vannes, je poursuis désormais mes études en alternance pour valider un Master, dans le but de continuer ma quête de connaissances.",
+      "p3": "Polyvalent et investi",
+      "p3End": ", j'ai également une grande affection pour le travail en équipe et le management.",
+      "p4": "Pour moi, le code est un formidable moyen de donner vie à n'importe quelle idée."
+    },
+    "cta": {
+      "cv": "Télécharger mon CV",
+      "linkedin": "M'ajouter sur Linkedin"
+    },
+    "imageAlt": "Portrait de Clément"
+  },
+  "work": {
+    "title": "C'est un réel plaisir de travailler ensemble",
+    "now": "Maintenant",
+    "technologies": "Technologies",
+    "companySite": "Site de l'entreprise",
+    "companies": {
+      "mediamag": {
+        "position": "Développeur Full Stack",
+        "dateRange": "Avril 2023 - Août 2024",
+        "tasks": [
+          "Développement de plusieurs applications internes afin d'améliorer l'autonomie des employés.",
+          "Développement d'une application permettant de s'ouvrir à de nouveaux clients sur le marché avec une nouvelle offre, permettant aux utilisateurs de s'enregistrer sans avoir à passer par les voix professionnelles de Médiamag.",
+          "Création de modules externes pour l'application principale de la société en C++, Python."
+        ]
+      },
+      "inovera": {
+        "position": "Développeur Full Stack",
+        "dateRange": "Novembre 2024",
+        "tasks": [
+          "Migration d'une application Symfony vers une nouvelle solution front-end en React avec transformation du backend Symfony en API REST/JSON.",
+          "Application du nouveau design sur les applications de la société.",
+          "Gestion et coordination des projets via Jira avec planification des tickets et méthodologie Kanban.",
+          "Maintenance et développement de nouvelles fonctionnalités sur les applications existantes de la société."
+        ]
+      }
+    }
+  },
+  "expH": {
+    "title": "Mes compétences Hard Skills",
+    "sections": {
+      "frontend": {
+        "title": "Développement Front-End",
+        "description": "J'aime concevoir des interfaces modernes, fluides et bien structurées. Je travaille avec HTML, CSS, JavaScript et TypeScript, en utilisant principalement React. J'organise mon code de façon",
+        "highlighted1": "modulaire",
+        "descriptionMiddle": "avec des composants réutilisables, ce qui me permet de",
+        "highlighted2": "maintenir",
+        "descriptionEnd": "mes interfaces plus facilement."
+      },
+      "backend": {
+        "title": "Développement Back-End",
+        "description": "Côté Back-End, j'aime explorer différentes technologies, que ce soit avec Java (Spring Boot) ou Node.js (Adonis, Nest) pour développer des API",
+        "highlighted": "fiables et bien organisées",
+        "descriptionEnd": ". Je gère aussi bien les bases de données relationnelles comme MySQL que les bases orientées documents comme MongoDB, ainsi que des buckets S3 pour la gestion et la sauvegarde de fichiers côté serveur."
+      },
+      "devops": {
+        "title": "DevOps & Outils",
+        "description": "J'utilise Git au quotidien, un outil essentiel. J'aime mettre en place des pipelines CI/CD pour mes projets personnels, avec des",
+        "highlighted": "déploiements automatiques",
+        "descriptionEnd": "vers mon VPS. J'utilise également Docker pour isoler mes environnements de développement et faciliter le déploiement."
+      }
+    },
+    "techAlt": "Logo",
+    "visitSite": "Visiter le site de"
+  },
+  "expS": {
+    "title": "Mes compétences Soft Skills",
+    "cards": {
+      "listening": {
+        "title": "Capacité d'écoute",
+        "description": "Je prends le temps de bien comprendre les besoins des utilisateurs afin de proposer des",
+        "highlighted": "solutions techniques adaptées",
+        "descriptionEnd": ". Cette écoute attentive me permet de mieux répondre aux attentes et de collaborer efficacement."
+      },
+      "teamwork": {
+        "title": "Travail d'équipe",
+        "description": "J'apprécie grandement le travail d'équipe et le partage de mes connaissances pour favoriser une",
+        "highlighted": "croissance collective",
+        "descriptionEnd": ". J'aime prendre le lead et faire en sorte d'organiser le développement comme j'ai pu le faire sur des projets personnels en équipe et sur le plan professionnel."
+      },
+      "curious": {
+        "title": "Curieux",
+        "description1": "J'ai une vraie",
+        "highlighted": "soif d'apprendre",
+        "description1End": ", j'aime découvrir de nouvelles technologies, explorer des environnements que je ne connais pas encore, et sortir de ma zone de confort.",
+        "description2": "Pour moi, chaque nouveauté est une opportunité d'apprendre, de progresser et de m'adapter !"
+      },
+      "fresque": {
+        "title": "Bénévole Fresque du Numérique",
+        "description": "Je suis bénévole pour la Fresque du Numérique, j'ai été formé en tant qu'animateur d'atelier. J'aime sensibiliser aux",
+        "highlighted": "enjeux environnementaux",
+        "descriptionEnd": "du numérique et partager mes connaissances pour encourager des pratiques plus responsables dans notre secteur.",
+        "cta": "Site de l'association"
+      }
+    }
+  },
+  "project": {
+    "title": "Mes projets",
+    "items": {
+      "pokemonStudio": {
+        "title": "Pokemon Studio",
+        "description": "Pokémon Studio est une",
+        "highlighted1": "application web open source",
+        "descriptionMiddle": "qui permet de créer son propre jeu Pokémon. Cet outil est totalement modulable, ce qui permet à l'utilisateur de créer un jeu Pokémon unique. Je contribue sur mon temps libre au projet avec une",
+        "highlighted2": "équipe distribuée",
+        "descriptionEnd": "suivant une méthodologie agile (Scrumban) adaptée au contexte projet, réunion de sprint et répartition des tâches.",
+        "cta": "Code Source"
+      },
+      "todaysFlag": {
+        "title": "Today's Flag",
+        "description": "Today's Flag est une",
+        "highlighted1": "application web ludique",
+        "descriptionMiddle": "qui permet chaque jour de tenter de deviner le pays caché derrière un drapeau. Cela permet de retenir plus facilement les drapeaux de tous les pays du monde. J'ai réalisé cette application avec Next.js afin d'expérimenter le",
+        "highlighted2": "framework",
+        "descriptionEnd": ".",
+        "cta": "Code Source"
+      }
+    },
+    "githubAlt": "GitHub Logo"
+  },
+  "contact": {
+    "title": "Contact",
+    "emailInfo": "Ou contactez-moi directement par email :",
+    "form": {
+      "labels": {
+        "lastName": "Nom",
+        "firstName": "Prénom",
+        "email": "Email",
+        "message": "Message"
+      },
+      "submit": "Envoyer",
+      "success": "Votre message a été envoyé avec succès !",
+      "error": "Une erreur s'est produite lors de l'envoi du message."
+    }
+  },
+  "footer": {
+    "copyright": "Clément Maillet ©",
+    "legalLink": "Mentions légales"
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "sections": {
+      "editor": {
+        "title": "Identification de l'éditeur",
+        "name": "Nom et prénom :",
+        "status": "Statut :",
+        "location": "Localisation :",
+        "email": "Email :",
+        "values": {
+          "name": "Clément Maillet",
+          "status": "Développeur Full Stack",
+          "location": "Bretagne, France"
+        }
+      },
+      "director": {
+        "title": "Directeur de la publication",
+        "director": "Directeur de la publication :",
+        "contact": "Contact :"
+      },
+      "hosting": {
+        "title": "Hébergement",
+        "provider": "Hébergeur :",
+        "address": "Adresse :",
+        "phone": "Téléphone :",
+        "website": "Site web :",
+        "note": "Site hébergé sur serveur privé virtuel (VPS)",
+        "values": {
+          "provider": "Hetzner Online GmbH",
+          "address": "Industriestr. 25, 91710 Gunzenhausen, Allemagne",
+          "phone": "+49 (0)9831 505-0"
+        }
+      },
+      "intellectual": {
+        "title": "Propriété intellectuelle",
+        "p1": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.",
+        "p2": "La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication."
+      },
+      "data": {
+        "title": "Données personnelles",
+        "p1": "Les informations recueillies via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes. Elles ne sont ni vendues, ni cédées à des tiers.",
+        "p2": "Conformément à la loi \"Informatique et Libertés\" du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant."
+      },
+      "analytics": {
+        "title": "Analyse d'audience et cookies",
+        "intro": "Ce site utilise les services suivants :",
+        "umami": "Umami Analytics : Outil d'analyse web respectueux de la vie privée qui collecte des statistiques anonymes de fréquentation (pages visitées, origine du trafic, type de navigateur). Umami n'utilise aucun cookie, ne collecte aucune donnée personnelle et ne permet aucun suivi entre sites.",
+        "recaptcha": "Google reCAPTCHA : Protection anti-spam du formulaire de contact. Ces cookies permettent de vérifier que vous n'êtes pas un robot.",
+        "emailjs": "EmailJS : Service d'envoi d'emails pour le formulaire de contact.",
+        "p1": "Les cookies de reCAPTCHA et EmailJS sont nécessaires au bon fonctionnement du formulaire de contact et à la sécurité du site. Ils ne sont pas utilisés à des fins d'analyse ou de suivi publicitaire.",
+        "p2": "Vous pouvez configurer votre navigateur pour refuser ces cookies, mais cela pourrait affecter le fonctionnement du formulaire de contact."
+      },
+      "liability": {
+        "title": "Limitation de responsabilité",
+        "p1": "Les informations contenues sur ce site sont aussi précises que possible et le site remis à jour à différentes périodes de l'année, mais peut toutefois contenir des inexactitudes ou des omissions.",
+        "p2": "Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir le signaler par email, à l'adresse clement.maillet56@gmail.com, en décrivant le problème de la manière la plus précise possible."
+      },
+      "accessibility": {
+        "title": "Accessibilité",
+        "p1": "Ce site s'efforce de respecter les standards d'accessibilité web. Pour toute difficulté d'accès au contenu ou suggestion d'amélioration, vous pouvez nous contacter à l'adresse : clement.maillet56@gmail.com"
+      },
+      "law": {
+        "title": "Droit applicable",
+        "p1": "Les présentes mentions légales sont soumises au droit français. Tout litige relatif à l'utilisation de ce site sera de la compétence exclusive des tribunaux français."
+      }
+    }
+  },
+  "meta": {
+    "description": "Clément Maillet, développeur Full Stack en Bretagne. Découvrez mon portfolio, mes compétences, mes projets et contactez-moi pour vos besoins en développement web, desktop ou mobile.",
+    "ogTitle": "Clément Maillet - Développeur Full Stack",
+    "ogDescription": "Portfolio de Clément Maillet, développeur Full Stack en Bretagne. Découvrez mes compétences, projets et contactez-moi.",
+    "keywords": "développeur, full stack, bretagne, web, react, node.js, portfolio, clément maillet, développement web, développement desktop, développement mobile",
+    "language": "fr",
+    "jobTitle": "Développeur Full Stack",
+    "jobDescription": "Développeur Full Stack en Bretagne"
+  }
+}

@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import "../sass/main.scss";
 import { getTranslations } from "../i18n/utils";
 
-const lang = "fr";
+const lang = "en";
 const translations = await getTranslations(lang);
 const t = translations.legal;
 ---
@@ -73,13 +73,13 @@ const t = translations.legal;
         <p>{t.sections.analytics.intro}</p>
         <ul>
           <li>
-            <strong>Umami Analytics :</strong> {t.sections.analytics.umami}
+            <strong>Umami Analytics:</strong> {t.sections.analytics.umami}
           </li>
           <li>
-            <strong>Google reCAPTCHA :</strong> {t.sections.analytics.recaptcha}
+            <strong>Google reCAPTCHA:</strong> {t.sections.analytics.recaptcha}
           </li>
           <li>
-            <strong>EmailJS :</strong> {t.sections.analytics.emailjs}
+            <strong>EmailJS:</strong> {t.sections.analytics.emailjs}
           </li>
         </ul>
         <p>

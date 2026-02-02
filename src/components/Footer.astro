@@ -1,5 +1,14 @@
 ---
+import type { Language } from "../i18n/config";
 
+interface Props {
+  lang: Language;
+  translations: any;
+}
+
+const { lang, translations } = Astro.props;
+const currentYear = new Date().getFullYear();
+const legalLink = lang === "fr" ? "/mentions-legales" : "/legal-notice";
 ---
 
 <footer class="footer">
@@ -72,9 +81,9 @@
     </div>
     <div class="footer__legal">
       <span class="footer__legal-copyright"
-        >Clément Maillet © {new Date().getFullYear()}</span
+        >{translations.footer.copyright} {currentYear}</span
       >
-      <a class="footer__legal-link" href="/mentions-legales">Mentions légales</a
+      <a class="footer__legal-link" href={legalLink}>{translations.footer.legalLink}</a
       >
     </div>
   </div>

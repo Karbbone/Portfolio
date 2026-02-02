@@ -1,12 +1,20 @@
 ---
+import type { Language } from "../../i18n/config";
 
+interface Props {
+  lang: Language;
+  translations: any;
+}
+
+const { lang, translations } = Astro.props;
+const t = translations.contact;
 ---
 
 <section id="contact">
   <div class="contact__wrapper">
-    <h2 class="contact__title"><span>Contact</span></h2>
+    <h2 class="contact__title"><span>{t.title}</span></h2>
     <p class="contact__email-info">
-      Ou contactez-moi directement par email :
+      {t.emailInfo}
       <a href="mailto:clement.maillet56@gmail.com" class="contact__email-link">
         clement.maillet56@gmail.com
       </a>
@@ -15,7 +23,7 @@
     <form class="contact__form" id="contact-form" autocomplete="off" novalidate>
       <input type="hidden" name="_captcha" value="false" />
       <div class="contact__form-group">
-        <label for="contact-nom" class="contact__form-label">Nom</label>
+        <label for="contact-nom" class="contact__form-label">{t.form.labels.lastName}</label>
         <input
           type="text"
           id="contact-nom"
@@ -25,7 +33,7 @@
         />
       </div>
       <div class="contact__form-group">
-        <label for="contact-prenom" class="contact__form-label">Prénom</label>
+        <label for="contact-prenom" class="contact__form-label">{t.form.labels.firstName}</label>
         <input
           type="text"
           id="contact-prenom"
@@ -35,7 +43,7 @@
         />
       </div>
       <div class="contact__form-group">
-        <label for="contact-email" class="contact__form-label">Email</label>
+        <label for="contact-email" class="contact__form-label">{t.form.labels.email}</label>
         <input
           type="email"
           id="contact-email"
@@ -45,7 +53,7 @@
         />
       </div>
       <div class="contact__form-group">
-        <label for="contact-message" class="contact__form-label">Message</label>
+        <label for="contact-message" class="contact__form-label">{t.form.labels.message}</label>
         <textarea
           id="contact-message"
           name="message"
@@ -61,7 +69,7 @@
         </div>
       </div>
       <button draggable="false" type="submit" class="contact__form-submit"
-        >Envoyer</button
+        >{t.form.submit}</button
       >
     </form>
   </div>

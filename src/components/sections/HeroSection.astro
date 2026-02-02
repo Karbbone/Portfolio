@@ -1,3 +1,15 @@
+---
+import type { Language } from "../../i18n/config";
+
+interface Props {
+  lang: Language;
+  translations: any;
+}
+
+const { lang, translations } = Astro.props;
+const t = translations.hero;
+---
+
 <section id="hero">
   <!-- Floating decorative elements -->
   <div class="hero__floating">
@@ -9,20 +21,20 @@
 
   <div class="hero__wrapper">
     <h1 class="hero__title" data-reveal="up">
-      <span class="hero__title-name">Clément Maillet</span>
+      <span class="hero__title-name">{t.name}</span>
       <br />
-      <span class="hero__title-highlighted">Développeur Full Stack</span>
+      <span class="hero__title-highlighted">{t.title}</span>
     </h1>
 
     <div class="hero__description" data-reveal="up" data-reveal-delay="1">
       <p>
-        Développeur Full Stack <span class="highlighted highlighted-primary"
-          >surmotivé</span
-        > avec une passion débordante pour l'innovation technologique.
+        {t.description.part1} <span class="highlighted highlighted-primary"
+          >{t.description.highlighted1}</span
+        > {t.description.part2}
         <br />
-        Animé par l'ambition de créer des solutions numériques <span
-          class="highlighted highlighted-primary">exceptionnelles</span
-        > qui marquent la différence.
+        {t.description.part3} <span
+          class="highlighted highlighted-primary">{t.description.highlighted2}</span
+        > {t.description.part4}
       </p>
     </div>
     <div class="hero__socials" data-reveal="up" data-reveal-delay="2">
@@ -34,7 +46,7 @@
       >
         <img
           src="https://www.svgrepo.com/show/512317/github-142.svg"
-          alt="GitHub"
+          alt={t.socialAlt.github}
         />
       </a>
       <a
@@ -45,17 +57,17 @@
       >
         <img
           src="https://www.svgrepo.com/show/512419/linkedin-161.svg"
-          alt="LinkedIn"
+          alt={t.socialAlt.linkedin}
         />
       </a>
       <a
         class="hero__socials-item hero__socials-item-cv"
         href="/clement_maillet_cv.pdf"
-        download>CV</a
+        download>{t.socialAlt.cv}</a
       >
     </div>
     <div class="hero__cta" data-reveal="up" data-reveal-delay="3">
-      <a href="#me" class="hero__cta-button" draggable="false">Me découvrir</a>
+      <a href="#about" class="hero__cta-button" draggable="false">{t.cta}</a>
     </div>
   </div>
 </section>

@@ -11,6 +11,15 @@ import reactLogo from "../../assets/technos/react.svg";
 import symfonyLogo from "../../assets/technos/symfony.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
 import TechTag from "../TechTag.astro";
+import type { Language } from "../../i18n/config";
+
+interface Props {
+  lang: Language;
+  translations: any;
+}
+
+const { lang, translations } = Astro.props;
+const t = translations.work;
 
 const workExperiences = [
   {
@@ -19,13 +28,9 @@ const workExperiences = [
       logo: mediamag,
       website: "https://www.mediamag-systeme.com/",
     },
-    position: "Développeur Full Stack",
-    dateRange: "Avril 2023 - Août 2024",
-    tasks: [
-      "Développement de plusieurs applications internes afin d'améliorer l'autonomie des employés.",
-      "Développement d'une application permettant de s'ouvrir à de nouveaux clients sur le marché avec une nouvelle offre, permettant aux utilisateurs de s'enregistrer sans avoir à passer par les voix professionnelles de Médiamag.",
-      "Création de modules externes pour l'application principale de la société en C++, Python.",
-    ],
+    position: t.companies.mediamag.position,
+    dateRange: t.companies.mediamag.dateRange,
+    tasks: t.companies.mediamag.tasks,
     technologies: [
       { name: "AdonisJS", logo: adonisLogo, url: "https://adonisjs.com/" },
       { name: "C++", logo: cplusplusLogo, url: "https://cplusplus.com/" },
@@ -45,15 +50,10 @@ const workExperiences = [
       logo: inovera,
       website: "https://www.inovera.fr/",
     },
-    position: "Développeur Full Stack",
-    dateRange: "Novembre 2024",
+    position: t.companies.inovera.position,
+    dateRange: t.companies.inovera.dateRange,
     isCurrentJob: true,
-    tasks: [
-      "Migration d'une application Symfony vers une nouvelle solution front-end en React avec transformation du backend Symfony en API REST/JSON.",
-      "Application du nouveau design sur les applications de la société.",
-      "Gestion et coordination des projets via Jira avec planification des tickets et méthodologie Kanban.",
-      "Maintenance et développement de nouvelles fonctionnalités sur les applications existantes de la société.",
-    ],
+    tasks: t.companies.inovera.tasks,
     technologies: [
       { name: "MySQL", logo: mysqlLogo, url: "https://www.mysql.com/" },
       { name: "PHP", logo: phpLogo, url: "https://www.php.net/" },
@@ -72,7 +72,7 @@ const workExperiences = [
 <section id="work">
   <div class="work__wrapper">
     <h2 class="work__title" data-reveal="up">
-      <span>C'est un réel plaisir <br /> de travailler ensemble</span>
+      <span>{t.title}</span>
     </h2>
     <div class="work__content" data-reveal="up" data-reveal-delay="1">
       {
@@ -97,7 +97,7 @@ const workExperiences = [
                   <>
                     {experience.dateRange} -{" "}
                     <span class="work__content__item__body__date-highlight">
-                      Maintenant
+                      {t.now}
                     </span>
                   </>
                 ) : (
@@ -111,7 +111,7 @@ const workExperiences = [
               </ul>
             </div>
             <footer class="work__content__item__footer">
-              <h3>Technologies</h3>
+              <h3>{t.technologies}</h3>
               <div class="work__content__item__footer__tags">
                 {experience.technologies.map((tech) => (
                   <TechTag
@@ -129,7 +129,7 @@ const workExperiences = [
                 class="work__content__item__footer-button"
                 draggable="false"
               >
-                Site de l'entreprise
+                {t.companySite}
               </a>
             </footer>
           </article>
@@ -153,7 +153,7 @@ const workExperiences = [
                   {experience.isCurrentJob && (
                     <>
                       {" "}
-                      - <span class="current-job-tag">Maintenant</span>
+                      - <span class="current-job-tag">{t.now}</span>
                     </>
                   )}
                 </span>

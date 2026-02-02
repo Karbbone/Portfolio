@@ -8,12 +8,21 @@ import prismaLogo from "../../assets/technos/prisma.svg";
 import reactLogo from "../../assets/technos/react.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
 import TechTag from "../TechTag.astro";
+import type { Language } from "../../i18n/config";
+
+interface Props {
+  lang: Language;
+  translations: any;
+}
+
+const { lang, translations } = Astro.props;
+const t = translations.project;
 ---
 
 <section id="project">
   <div class="project__wrapper">
     <h2 class="project__title" data-reveal="up">
-      <span>Mes projets</span>
+      <span>{t.title}</span>
     </h2>
     <div class="project__content">
       <!-- Pokemon Studio Project -->
@@ -22,16 +31,13 @@ import TechTag from "../TechTag.astro";
           <img src={pokemonStudio.src} alt="Pokemon Studio" />
         </div>
         <div class="project__item__col-right">
-          <h3 class="project__item-title">Pokemon Studio</h3>
+          <h3 class="project__item-title">{t.items.pokemonStudio.title}</h3>
           <p class="project__item-description">
-            Pokémon Studio est une <span class="highlighted highlighted-red"
-              >application web open source</span
-            > qui permet de créer son propre jeu Pokémon. Cet outil est totalement
-            modulable, ce qui permet à l'utilisateur de créer un jeu Pokémon unique.
-            Je contribue sur mon temps libre au projet avec une <span
-              class="highlighted highlighted-red">équipe distribuée</span
-            > suivant une méthodologie agile (Scrumban) adaptée au contexte projet,
-            réunion de sprint et répartition des tâches.
+            {t.items.pokemonStudio.description} <span class="highlighted highlighted-red"
+              >{t.items.pokemonStudio.highlighted1}</span
+            > {t.items.pokemonStudio.descriptionMiddle} <span
+              class="highlighted highlighted-red">{t.items.pokemonStudio.highlighted2}</span
+            > {t.items.pokemonStudio.descriptionEnd}
           </p>
           <div class="project__item__tags">
             <TechTag
@@ -62,9 +68,9 @@ import TechTag from "../TechTag.astro";
           >
             <img
               src="https://www.svgrepo.com/show/512317/github-142.svg"
-              alt="GitHub Logo"
+              alt={t.githubAlt}
             />
-            <span>Code Source</span>
+            <span>{t.items.pokemonStudio.cta}</span>
           </a>
         </div>
       </div>
@@ -75,14 +81,12 @@ import TechTag from "../TechTag.astro";
           <img src={todaysflagLogo.src} alt="Today's Flag" />
         </div>
         <div class="project__item__col-right">
-          <h3 class="project__item-title">Today's Flag</h3>
+          <h3 class="project__item-title">{t.items.todaysFlag.title}</h3>
           <p class="project__item-description">
-            Today's Flag est une <span class="highlighted highlighted-red"
-              >application web ludique</span
-            > qui permet chaque jour de tenter de deviner le pays caché derrière
-            un drapeau. Cela permet de retenir plus facilement les drapeaux de tous
-            les pays du monde. J'ai réalisé cette application avec Next.js afin d'expérimenter
-            le <span class="highlighted highlighted-red">framework</span>.
+            {t.items.todaysFlag.description} <span class="highlighted highlighted-red"
+              >{t.items.todaysFlag.highlighted1}</span
+            > {t.items.todaysFlag.descriptionMiddle}
+            <span class="highlighted highlighted-red">{t.items.todaysFlag.highlighted2}</span>{t.items.todaysFlag.descriptionEnd}
           </p>
           <div class="project__item__tags">
             <TechTag
@@ -125,9 +129,9 @@ import TechTag from "../TechTag.astro";
           >
             <img
               src="https://www.svgrepo.com/show/512317/github-142.svg"
-              alt="GitHub Logo"
+              alt={t.githubAlt}
             />
-            <span>Code Source</span>
+            <span>{t.items.todaysFlag.cta}</span>
           </a>
         </div>
       </div>

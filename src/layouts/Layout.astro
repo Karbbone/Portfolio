@@ -2,10 +2,32 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import navigationScript from "../navigation.js?url";
+import { getPreferredLanguage, setLanguageCookie } from "../i18n/languageManager";
+import { getTranslations } from "../i18n/utils";
+import type { Language } from "../i18n/config";
 
+// Detect language
+const acceptLanguage = Astro.request.headers.get("accept-language");
+const lang: Language = getPreferredLanguage(Astro.cookies, acceptLanguage);
+
+// Set cookie for persistence
+setLanguageCookie(Astro.cookies, lang);
+
+// Load translations
+const translations = await getTranslations(lang);
+
+// Get pathname for canonical URL
+const pathname = new URL(Astro.request.url).pathname;
+
+// Props
+interface Props {
+  title?: string;
+}
+
+const { title = "Clément Maillet" } = Astro.props;
 ---
 
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -26,18 +48,18 @@ import navigationScript from "../navigation.js?url";
 
     <meta
       name="description"
-      content="Clément Maillet, développeur Full Stack en Bretagne. Découvrez mon portfolio, mes compétences, mes projets et contactez-moi pour vos besoins en développement web, desktop ou mobile."
+      content={translations.meta.description}
     />
     <meta name="author" content="Clément Maillet" />
     <meta name="robots" content="index, follow" />
 
     <meta
       property="og:title"
-      content="Clément Maillet - Développeur Full Stack"
+      content={translations.meta.ogTitle}
     />
     <meta
       property="og:description"
-      content="Portfolio de Clément Maillet, développeur Full Stack en Bretagne. Découvrez mes compétences, projets et contactez-moi."
+      content={translations.meta.ogDescription}
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://maillet.bzh/" />
@@ -46,14 +68,14 @@ import navigationScript from "../navigation.js?url";
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Clément Maillet - Développeur Full Stack"
+      content={translations.meta.ogTitle}
     />
     <meta
       name="twitter:description"
-      content="Portfolio de Clément Maillet, développeur Full Stack en Bretagne."
+      content={translations.meta.ogDescription}
     />
     <meta name="twitter:image" content="https://maillet.bzh/Banner.png" />
-    <title>Clément Maillet</title>
+    <title>{title}</title>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -62,25 +84,37 @@ import navigationScript from "../navigation.js?url";
     ></script>
     <meta
       name="keywords"
-      content="développeur, full stack, bretagne, web, react, node.js, portfolio, clément maillet, développement web, développement desktop, développement mobile"
+      content={translations.meta.keywords}
     />
-    <meta name="language" content="fr" />
-    <script type="application/ld+json">
-      {
-        "@type": "Person",
-        "name": "Clément Maillet",
-        "jobTitle": "Développeur Full Stack",
-        "description": "Développeur Full Stack en Bretagne",
-        "url": "https://maillet.bzh",
-        "image": "https://maillet.bzh/Banner.png",
-        "sameAs": [
-          "https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/",
-          "https://github.com/Karbbone"
-        ]
-      }
-    </script>
-    <script type="text/javascript">
+    <meta name="language" content={lang} />
+
+    <!-- Hreflang tags for SEO -->
+    <link rel="alternate" hreflang="fr" href={`https://maillet.bzh${pathname}?lang=fr`} />
+    <link rel="alternate" hreflang="en" href={`https://maillet.bzh${pathname}?lang=en`} />
+    <link rel="alternate" hreflang="x-default" href={`https://maillet.bzh${pathname}`} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Clément Maillet",
+      "jobTitle": translations.meta.jobTitle,
+      "description": translations.meta.jobDescription,
+      "url": "https://maillet.bzh",
+      "image": "https://maillet.bzh/Banner.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/",
+        "https://github.com/Karbbone"
+      ]
+    })}></script>
+    <script type="text/javascript"
+      data-success-message={translations.contact.form.success}
+      data-error-message={translations.contact.form.error}
+      id="emailjs-config">
       document.addEventListener("DOMContentLoaded", function () {
+        const config = document.getElementById("emailjs-config");
+        const successMessage = config.getAttribute("data-success-message");
+        const errorMessage = config.getAttribute("data-error-message");
+
         // Attendre que EmailJS soit chargé (defer)
         function initEmailJS() {
           if (typeof emailjs !== "undefined") {
@@ -107,7 +141,7 @@ import navigationScript from "../navigation.js?url";
             emailjs.sendForm("service_r5nqngg", "template_0d1e8qq", this).then(
               function () {
                 const successDiv = document.querySelector(".contact__success");
-                successDiv.textContent = "Votre message a été envoyé avec succès !";
+                successDiv.textContent = successMessage;
                 successDiv.classList.add("contact__success--visible");
                 if (window.grecaptcha) window.grecaptcha.reset();
                 form.reset();
@@ -115,7 +149,7 @@ import navigationScript from "../navigation.js?url";
               },
               function () {
                 const successDiv = document.querySelector(".contact__success");
-                successDiv.textContent = "Une erreur s'est produite lors de l'envoi du message.";
+                successDiv.textContent = errorMessage;
                 successDiv.classList.add("contact__success--visible", "contact__success--error");
                 submitBtn.disabled = false;
               }
@@ -131,13 +165,13 @@ import navigationScript from "../navigation.js?url";
 
   <body>
     <div id="wrapper">
-      <Header />
+      <Header lang={lang} translations={translations} />
       <main>
-        <slot />
+        <slot lang={lang} translations={translations} />
       </main>
     </div>
 
-    <Footer />
+    <Footer lang={lang} translations={translations} />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </body>
 </html>

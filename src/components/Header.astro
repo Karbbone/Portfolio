@@ -1,4 +1,13 @@
 ---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import type { Language } from "../i18n/config";
+
+interface Props {
+  lang: Language;
+  translations: any;
+}
+
+const { lang, translations } = Astro.props;
 const { pathname } = Astro.url;
 const isHomePage = pathname === "/";
 ---
@@ -29,7 +38,7 @@ const isHomePage = pathname === "/";
                       href="#about"
                       class="header__menu-link header__menu-link--about"
                     >
-                      À propos
+                      {translations.header.nav.about}
                     </a>
                   </li>
                   <li class="header__menu-item">
@@ -37,7 +46,7 @@ const isHomePage = pathname === "/";
                       href="#exph"
                       class="header__menu-link header__menu-link--skills"
                     >
-                      Compétences
+                      {translations.header.nav.skills}
                     </a>
                   </li>
                   <li class="header__menu-item">
@@ -45,7 +54,7 @@ const isHomePage = pathname === "/";
                       href="#project"
                       class="header__menu-link header__menu-link--projects"
                     >
-                      Projets
+                      {translations.header.nav.projects}
                     </a>
                   </li>
                   <li class="header__menu-item header__menu-item--cta">
@@ -54,7 +63,7 @@ const isHomePage = pathname === "/";
                       href="#contact"
                       class="header__menu-link header__menu-link--contact"
                     >
-                      Contact
+                      {translations.header.nav.contact}
                     </a>
                   </li>
                 </>
@@ -68,13 +77,15 @@ const isHomePage = pathname === "/";
                     href="/"
                     class="header__menu-link header__menu-link--contact"
                   >
-                    Revenir au portfolio
+                    {translations.header.nav.backToPortfolio}
                   </a>
                 </li>
               )
             }
           </ul>
         </nav>
+
+        <LanguageSwitcher currentLang={lang} />
       </div>
     </div>
   </div>
@@ -82,29 +93,32 @@ const isHomePage = pathname === "/";
 
 <!-- Menu mobile plein écran -->
 <div class="mobile-menu" id="mobile-menu">
-  <button
-    class="mobile-menu__close"
-    id="mobile-menu-close"
-    aria-label="Fermer le menu"
-  >
-    <span class="mobile-menu__close-line"></span>
-    <span class="mobile-menu__close-line"></span>
-  </button>
+  <div class="mobile-menu__header">
+    <LanguageSwitcher currentLang={lang} />
+    <button
+      class="mobile-menu__close"
+      id="mobile-menu-close"
+      aria-label={translations.header.mobileMenu.ariaLabel}
+    >
+      <span class="mobile-menu__close-line"></span>
+      <span class="mobile-menu__close-line"></span>
+    </button>
+  </div>
   <nav class="mobile-menu__nav">
     {
       isHomePage && (
         <>
           <a href="#about" class="mobile-menu__link">
-            À propos
+            {translations.header.nav.about}
           </a>
           <a href="#exph" class="mobile-menu__link">
-            Compétences
+            {translations.header.nav.skills}
           </a>
           <a href="#project" class="mobile-menu__link">
-            Projets
+            {translations.header.nav.projects}
           </a>
           <a href="#contact" class="mobile-menu__link mobile-menu__link--cta">
-            Contact
+            {translations.header.nav.contact}
           </a>
         </>
       )
@@ -112,7 +126,7 @@ const isHomePage = pathname === "/";
     {
       !isHomePage && (
         <a href="/" class="mobile-menu__link mobile-menu__link--cta">
-          Revenir au portfolio
+          {translations.header.nav.backToPortfolio}
         </a>
       )
     }

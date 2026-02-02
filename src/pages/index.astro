@@ -10,17 +10,23 @@ import ExpSSection from "../components/sections/ExpSSection.astro";
 import ProjectSection from "../components/sections/ProjectSection.astro";
 import WorkSection from "../components/sections/WorkSection.astro";
 import "../sass/main.scss";
+import { getPreferredLanguage } from "../i18n/languageManager";
+import { getTranslations } from "../i18n/utils";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Detect language
+const acceptLanguage = Astro.request.headers.get("accept-language");
+const lang = getPreferredLanguage(Astro.cookies, acceptLanguage);
+
+// Load translations
+const translations = await getTranslations(lang);
 ---
 
 <Layout>
-  <HeroSection />
-  <AboutSection />
-  <WorkSection />
-  <ExpHSection />
-  <ExpSSection />
-  <ProjectSection />
-  <ContactSection />
+  <HeroSection lang={lang} translations={translations} />
+  <AboutSection lang={lang} translations={translations} />
+  <WorkSection lang={lang} translations={translations} />
+  <ExpHSection lang={lang} translations={translations} />
+  <ExpSSection lang={lang} translations={translations} />
+  <ProjectSection lang={lang} translations={translations} />
+  <ContactSection lang={lang} translations={translations} />
 </Layout>

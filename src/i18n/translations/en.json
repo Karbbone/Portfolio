@@ -1,0 +1,253 @@
+{
+  "header": {
+    "nav": {
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact",
+      "backToPortfolio": "Back to portfolio"
+    },
+    "mobileMenu": {
+      "ariaLabel": "Close menu"
+    }
+  },
+  "hero": {
+    "name": "Clément Maillet",
+    "title": "Full Stack Developer",
+    "description": {
+      "part1": "Full Stack Developer",
+      "highlighted1": "highly motivated",
+      "part2": "with an overflowing passion for technological innovation.",
+      "part3": "Driven by the ambition to create",
+      "highlighted2": "exceptional",
+      "part4": "digital solutions that make a difference."
+    },
+    "cta": "Discover me",
+    "socialAlt": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "cv": "CV"
+    }
+  },
+  "about": {
+    "title": "About",
+    "paragraphs": {
+      "p1": "Full Stack Developer based in Brittany, I design high-performance web, desktop, and mobile applications.",
+      "p1Highlighted": "Demanding and methodical",
+      "p1End": "I attach great importance to code quality and user experience.",
+      "p2": "Graduate of a BUT in Computer Science from IUT de Vannes, I am now pursuing my studies through work-study to validate a Master's degree, with the aim of continuing my quest for knowledge.",
+      "p3": "Versatile and committed",
+      "p3End": ", I also have a great affection for teamwork and management.",
+      "p4": "For me, code is a wonderful way to bring any idea to life."
+    },
+    "cta": {
+      "cv": "Download my CV",
+      "linkedin": "Add me on LinkedIn"
+    },
+    "imageAlt": "Portrait of Clément"
+  },
+  "work": {
+    "title": "It's a real pleasure to work together",
+    "now": "Now",
+    "technologies": "Technologies",
+    "companySite": "Company website",
+    "companies": {
+      "mediamag": {
+        "position": "Full Stack Developer",
+        "dateRange": "April 2023 - August 2024",
+        "tasks": [
+          "Development of several internal applications to improve employee autonomy.",
+          "Development of an application to open up to new customers in the market with a new offer, allowing users to register without having to go through Médiamag's professional channels.",
+          "Creation of external modules for the company's main application in C++, Python."
+        ]
+      },
+      "inovera": {
+        "position": "Full Stack Developer",
+        "dateRange": "November 2024",
+        "tasks": [
+          "Migration of a Symfony application to a new React front-end solution with transformation of the Symfony backend into a REST/JSON API.",
+          "Application of the new design to the company's applications.",
+          "Project management and coordination via Jira with ticket planning and Kanban methodology.",
+          "Maintenance and development of new features on the company's existing applications."
+        ]
+      }
+    }
+  },
+  "expH": {
+    "title": "My skills Hard Skills",
+    "sections": {
+      "frontend": {
+        "title": "Front-End Development",
+        "description": "I enjoy designing modern, fluid, and well-structured interfaces. I work with HTML, CSS, JavaScript, and TypeScript, primarily using React. I organize my code in a",
+        "highlighted1": "modular",
+        "descriptionMiddle": "way with reusable components, which allows me to",
+        "highlighted2": "maintain",
+        "descriptionEnd": "my interfaces more easily."
+      },
+      "backend": {
+        "title": "Back-End Development",
+        "description": "On the Back-End side, I enjoy exploring different technologies, whether with Java (Spring Boot) or Node.js (Adonis, Nest) to develop",
+        "highlighted": "reliable and well-organized",
+        "descriptionEnd": "APIs. I handle both relational databases like MySQL and document-oriented databases like MongoDB, as well as S3 buckets for server-side file management and backup."
+      },
+      "devops": {
+        "title": "DevOps & Tools",
+        "description": "I use Git daily, an essential tool. I enjoy setting up CI/CD pipelines for my personal projects, with",
+        "highlighted": "automatic deployments",
+        "descriptionEnd": "to my VPS. I also use Docker to isolate my development environments and facilitate deployment."
+      }
+    },
+    "techAlt": "Logo",
+    "visitSite": "Visit the site of"
+  },
+  "expS": {
+    "title": "My skills Soft Skills",
+    "cards": {
+      "listening": {
+        "title": "Listening skills",
+        "description": "I take the time to understand users' needs in order to propose",
+        "highlighted": "adapted technical solutions",
+        "descriptionEnd": ". This attentive listening allows me to better meet expectations and collaborate effectively."
+      },
+      "teamwork": {
+        "title": "Teamwork",
+        "description": "I greatly appreciate teamwork and sharing my knowledge to foster",
+        "highlighted": "collective growth",
+        "descriptionEnd": ". I enjoy taking the lead and organizing development as I have been able to do on personal team projects and professionally."
+      },
+      "curious": {
+        "title": "Curious",
+        "description1": "I have a real",
+        "highlighted": "thirst for learning",
+        "description1End": ", I enjoy discovering new technologies, exploring environments I don't yet know, and stepping out of my comfort zone.",
+        "description2": "For me, every novelty is an opportunity to learn, progress, and adapt!"
+      },
+      "fresque": {
+        "title": "Digital Collage Volunteer",
+        "description": "I am a volunteer for the Digital Collage, trained as a workshop facilitator. I enjoy raising awareness about the",
+        "highlighted": "environmental issues",
+        "descriptionEnd": "of digital technology and sharing my knowledge to encourage more responsible practices in our sector.",
+        "cta": "Association website"
+      }
+    }
+  },
+  "project": {
+    "title": "My projects",
+    "items": {
+      "pokemonStudio": {
+        "title": "Pokemon Studio",
+        "description": "Pokémon Studio is an",
+        "highlighted1": "open-source web application",
+        "descriptionMiddle": "that allows you to create your own Pokémon game. This tool is fully modular, which allows the user to create a unique Pokémon game. I contribute to the project in my free time with a",
+        "highlighted2": "distributed team",
+        "descriptionEnd": "following an agile methodology (Scrumban) adapted to the project context, sprint meetings, and task distribution.",
+        "cta": "Source Code"
+      },
+      "todaysFlag": {
+        "title": "Today's Flag",
+        "description": "Today's Flag is a",
+        "highlighted1": "playful web application",
+        "descriptionMiddle": "that allows you to guess the country hidden behind a flag every day. This makes it easier to remember the flags of all the countries in the world. I created this application with Next.js to experiment with the",
+        "highlighted2": "framework",
+        "descriptionEnd": ".",
+        "cta": "Source Code"
+      }
+    },
+    "githubAlt": "GitHub Logo"
+  },
+  "contact": {
+    "title": "Contact",
+    "emailInfo": "Or contact me directly by email:",
+    "form": {
+      "labels": {
+        "lastName": "Last name",
+        "firstName": "First name",
+        "email": "Email",
+        "message": "Message"
+      },
+      "submit": "Send",
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred while sending the message."
+    }
+  },
+  "footer": {
+    "copyright": "Clément Maillet ©",
+    "legalLink": "Legal notice"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "sections": {
+      "editor": {
+        "title": "Publisher Identification",
+        "name": "Name:",
+        "status": "Status:",
+        "location": "Location:",
+        "email": "Email:",
+        "values": {
+          "name": "Clément Maillet",
+          "status": "Full Stack Developer",
+          "location": "Brittany, France"
+        }
+      },
+      "director": {
+        "title": "Publication Director",
+        "director": "Publication Director:",
+        "contact": "Contact:"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "provider": "Provider:",
+        "address": "Address:",
+        "phone": "Phone:",
+        "website": "Website:",
+        "note": "Site hosted on Virtual Private Server (VPS)",
+        "values": {
+          "provider": "Hetzner Online GmbH",
+          "address": "Industriestr. 25, 91710 Gunzenhausen, Germany",
+          "phone": "+49 (0)9831 505-0"
+        }
+      },
+      "intellectual": {
+        "title": "Intellectual Property",
+        "p1": "The entire site falls under French and international legislation on copyright and intellectual property. All reproduction rights are reserved, including for downloadable documents and iconographic and photographic representations.",
+        "p2": "The reproduction of all or part of this site on any electronic medium whatsoever is strictly prohibited without the express authorization of the publication director."
+      },
+      "data": {
+        "title": "Personal Data",
+        "p1": "Information collected via the contact form is used only to respond to your requests. It is neither sold nor transferred to third parties.",
+        "p2": "In accordance with the \"Data Protection Act\" of January 6, 1978, as amended, and the General Data Protection Regulation (GDPR), you have the right to access, rectify, and delete data concerning you."
+      },
+      "analytics": {
+        "title": "Audience Analysis and Cookies",
+        "intro": "This site uses the following services:",
+        "umami": "Umami Analytics: Privacy-friendly web analytics tool that collects anonymous traffic statistics (pages visited, traffic source, browser type). Umami uses no cookies, collects no personal data, and allows no cross-site tracking.",
+        "recaptcha": "Google reCAPTCHA: Anti-spam protection for the contact form. These cookies verify that you are not a robot.",
+        "emailjs": "EmailJS: Email sending service for the contact form.",
+        "p1": "reCAPTCHA and EmailJS cookies are necessary for the proper functioning of the contact form and site security. They are not used for analysis or advertising tracking purposes.",
+        "p2": "You can configure your browser to refuse these cookies, but this could affect the functioning of the contact form."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "p1": "The information contained on this site is as accurate as possible and the site is updated at different times of the year, but may contain inaccuracies or omissions.",
+        "p2": "If you notice a gap, error, or what appears to be a malfunction, please report it by email to clement.maillet56@gmail.com, describing the problem as precisely as possible."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "p1": "This site strives to comply with web accessibility standards. For any difficulty accessing content or suggestions for improvement, you can contact us at: clement.maillet56@gmail.com"
+      },
+      "law": {
+        "title": "Applicable Law",
+        "p1": "These legal notices are subject to French law. Any dispute relating to the use of this site will be under the exclusive jurisdiction of French courts."
+      }
+    }
+  },
+  "meta": {
+    "description": "Clément Maillet, Full Stack Developer in Brittany. Discover my portfolio, my skills, my projects and contact me for your web, desktop or mobile development needs.",
+    "ogTitle": "Clément Maillet - Full Stack Developer",
+    "ogDescription": "Portfolio of Clément Maillet, Full Stack Developer in Brittany. Discover my skills, projects and contact me.",
+    "keywords": "developer, full stack, brittany, web, react, node.js, portfolio, clément maillet, web development, desktop development, mobile development",
+    "language": "en",
+    "jobTitle": "Full Stack Developer",
+    "jobDescription": "Full Stack Developer in Brittany"
+  }
+}
