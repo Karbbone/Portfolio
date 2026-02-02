@@ -74,146 +74,153 @@ const workExperiences = [
     <h2 class="work__title" data-reveal="up">
       <span>{t.title}</span>
     </h2>
-    <div class="work__content" data-reveal="up" data-reveal-delay="1">
-      {
-        workExperiences.map((experience, index) => (
-          <article
-            class="work__content__item"
-            style={index !== 0 ? "display: none;" : ""}
-            data-work-item={index}
-          >
-            <header class="work__content__item__header">
-              <img
-                src={experience.company.logo.src}
-                alt={experience.company.name}
-              />
-            </header>
-            <div class="work__content__item__body">
-              <h3 class="work__content__item__body__title">
-                {experience.position}
-              </h3>
-              <span class="work__content__item__body__date">
-                {experience.isCurrentJob ? (
-                  <>
-                    {experience.dateRange} -{" "}
-                    <span class="work__content__item__body__date-highlight">
-                      {t.now}
+
+    <div class="work__layout">
+      <!-- Tab Content -->
+      <div class="work__content" data-reveal="up" data-reveal-delay="1">
+        {
+          workExperiences.map((experience, index) => (
+            <article
+              class={`work__panel ${index === 0 ? "work__panel--active" : ""}`}
+              data-panel-index={index}
+              role="tabpanel"
+              id={`panel-${index}`}
+              aria-labelledby={`tab-${index}`}
+            >
+              <header class="work__panel-header">
+                <div class="work__panel-title">
+                  <img
+                    src={experience.company.logo.src}
+                    alt={experience.company.name}
+                    class="work__panel-logo"
+                  />
+                  <div class="work__panel-info">
+                    <h3>
+                      {experience.position}{" "}
+                      <span>@ {experience.company.name}</span>
+                    </h3>
+                    <span class="work__panel-date">
+                      {experience.dateRange}
+                      {experience.isCurrentJob && (
+                        <span class="work__panel-badge" />
+                      )}
                     </span>
-                  </>
-                ) : (
-                  experience.dateRange
-                )}
-              </span>
-              <ul>
+                  </div>
+                  <a
+                    href={experience.company.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="work__panel-cta"
+                    draggable="false"
+                  >
+                    {t.companySite}
+                  </a>
+                </div>
+              </header>
+
+              <ul class="work__panel-tasks">
                 {experience.tasks.map((task) => (
                   <li>{task}</li>
                 ))}
               </ul>
-            </div>
-            <footer class="work__content__item__footer">
-              <h3>{t.technologies}</h3>
-              <div class="work__content__item__footer__tags">
-                {experience.technologies.map((tech) => (
-                  <TechTag
-                    name={tech.name}
-                    logo={tech.logo}
-                    url={tech.url}
-                    className="work__content__item__footer__tags-tag"
-                  />
-                ))}
-              </div>
-              <a
-                href={experience.company.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="work__content__item__footer-button"
-                draggable="false"
-              >
-                {t.companySite}
-              </a>
-            </footer>
-          </article>
-        ))
-      }
-      <ul id="company-list" class="work__company-list">
+
+              <footer class="work__panel-footer">
+                <h4>{t.technologies}</h4>
+                <div class="work__panel-techs">
+                  {experience.technologies.map((tech) => (
+                    <TechTag
+                      name={tech.name}
+                      logo={tech.logo}
+                      url={tech.url}
+                      className="work__panel-tech"
+                    />
+                  ))}
+                </div>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="work__tabs" data-reveal="up" data-reveal-delay="2">
         {
           workExperiences.map((experience, index) => (
-            <li
-              class={`work__company-list__item ${index === 0 ? "active" : ""}`}
-              data-index={index}
+            <button
+              class={`work__tab ${index === 0 ? "work__tab--active" : ""}`}
+              data-tab-index={index}
+              type="button"
+              role="tab"
+              aria-selected={index === 0 ? "true" : "false"}
+              aria-controls={`panel-${index}`}
+              id={`tab-${index}`}
+              aria-label={experience.company.name}
             >
+              {experience.isCurrentJob && (
+                <span class="work__tab-pulse" aria-label="Poste actuel" />
+              )}
               <img
                 src={experience.company.logo.src}
                 alt={experience.company.name}
+                class="work__tab-logo"
               />
-              <div class="company-details">
-                <span class="company-name">{experience.company.name}</span>
-                <span class="company-date">
-                  {experience.dateRange}
-                  {experience.isCurrentJob && (
-                    <>
-                      {" "}
-                      - <span class="current-job-tag">{t.now}</span>
-                    </>
-                  )}
-                </span>
+              <div class="work__tab-info">
+                <span class="work__tab-position">{experience.position}</span>
+                <span class="work__tab-date">{experience.dateRange}</span>
               </div>
-            </li>
+            </button>
           ))
         }
-      </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<style is:global>
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .work__content__item.is-animating-in {
-    animation: fadeIn 0.4s ease-out;
-  }
-</style>
-
 <script>
-  const companyListItems = document.querySelectorAll(
-    ".work__company-list__item"
-  );
-  const workItems = document.querySelectorAll("[data-work-item]");
+  function initWorkTabs() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>(".work__tab");
+    const panels = document.querySelectorAll<HTMLElement>(".work__panel");
 
-  companyListItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      companyListItems.forEach((i) => i.classList.remove("active"));
-      item.classList.add("active");
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        // Remove active class from all tabs and panels
+        tabs.forEach((t) => {
+          t.classList.remove("work__tab--active");
+          t.setAttribute("aria-selected", "false");
+        });
+        panels.forEach((p) => p.classList.remove("work__panel--active"));
 
-      const selectedIndex = parseInt(
-        (item as HTMLElement).dataset.index || "0",
-        10
-      );
+        // Add active to clicked tab and corresponding panel
+        tab.classList.add("work__tab--active");
+        tab.setAttribute("aria-selected", "true");
+        panels[index].classList.add("work__panel--active");
+      });
+    });
 
-      workItems.forEach((workItem) => {
-        const workItemIndex = parseInt(
-          (workItem as HTMLElement).dataset.workItem || "0",
-          10
-        );
+    // Keyboard navigation
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("keydown", (e) => {
+        let newIndex = index;
 
-        workItem.classList.remove("is-animating-in");
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          e.preventDefault();
+          newIndex = index > 0 ? index - 1 : tabs.length - 1;
+        } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          e.preventDefault();
+          newIndex = index < tabs.length - 1 ? index + 1 : 0;
+        }
 
-        if (workItemIndex === selectedIndex) {
-          (workItem as HTMLElement).style.display = "";
-          workItem.classList.add("is-animating-in");
-        } else {
-          (workItem as HTMLElement).style.display = "none";
+        if (newIndex !== index) {
+          tabs[newIndex].click();
+          tabs[newIndex].focus();
         }
       });
     });
-  });
+  }
+
+  // Initialize on page load
+  initWorkTabs();
+
+  // Re-initialize on Astro navigation
+  document.addEventListener("astro:page-load", initWorkTabs);
 </script>
