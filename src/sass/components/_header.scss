@@ -98,6 +98,12 @@
       }
     }
 
+    &__lang-desktop {
+      @include bp.to("desktop") {
+        display: none;
+      }
+    }
+
     &__menu {
       display: flex;
       flex-direction: row;
