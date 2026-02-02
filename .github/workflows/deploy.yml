@@ -24,12 +24,12 @@ jobs:
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
-            - name: Deploy to VPS
+      - name: Deploy to VPS
         env:
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_HOST: ${{ secrets.VPS_HOST }}
           PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
-      - run: |
+        run: |
           ssh $VPS_USER@$VPS_HOST << 'EOF'
             set -e
 

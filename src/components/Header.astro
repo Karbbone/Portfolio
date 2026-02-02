@@ -79,3 +79,139 @@ const isHomePage = pathname === "/";
     </div>
   </div>
 </header>
+
+<!-- Menu mobile plein écran -->
+<div class="mobile-menu" id="mobile-menu">
+  <button
+    class="mobile-menu__close"
+    id="mobile-menu-close"
+    aria-label="Fermer le menu"
+  >
+    <span class="mobile-menu__close-line"></span>
+    <span class="mobile-menu__close-line"></span>
+  </button>
+  <nav class="mobile-menu__nav">
+    {
+      isHomePage && (
+        <>
+          <a href="#about" class="mobile-menu__link">
+            À propos
+          </a>
+          <a href="#exph" class="mobile-menu__link">
+            Compétences
+          </a>
+          <a href="#project" class="mobile-menu__link">
+            Projets
+          </a>
+          <a href="#contact" class="mobile-menu__link mobile-menu__link--cta">
+            Contact
+          </a>
+        </>
+      )
+    }
+    {
+      !isHomePage && (
+        <a href="/" class="mobile-menu__link mobile-menu__link--cta">
+          Revenir au portfolio
+        </a>
+      )
+    }
+  </nav>
+</div>
+
+<script>
+  const init = () => {
+    const burgerBtn = document.querySelector(".header__burger");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-menu__link");
+    const closeBtn = document.getElementById("mobile-menu-close");
+
+    if (!burgerBtn || !mobileMenu) return;
+
+    // Toggle menu
+    const toggleMenu = () => {
+      const isOpen = burgerBtn.classList.contains("header__burger--active");
+
+      if (isOpen) {
+        burgerBtn.classList.remove("header__burger--active");
+        burgerBtn.setAttribute("aria-expanded", "false");
+        mobileMenu.classList.remove("mobile-menu--active");
+        document.body.style.overflow = "";
+      } else {
+        burgerBtn.classList.add("header__burger--active");
+        burgerBtn.setAttribute("aria-expanded", "true");
+        mobileMenu.classList.add("mobile-menu--active");
+        document.body.style.overflow = "hidden";
+      }
+    };
+
+    // Fermer le menu
+    const closeMenu = () => {
+      burgerBtn.classList.remove("header__burger--active");
+      burgerBtn.setAttribute("aria-expanded", "false");
+      mobileMenu.classList.remove("mobile-menu--active");
+      document.body.style.overflow = "";
+    };
+
+    // Scroll vers une section
+    const scrollToSection = (sectionId: string) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const header = document.getElementById("header");
+        const headerHeight = header ? header.offsetHeight : 0;
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: sectionTop - headerHeight,
+          behavior: "smooth",
+        });
+      }
+    };
+
+    // Event listeners
+    burgerBtn.addEventListener("click", toggleMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+
+    // Liens du menu mobile
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          closeMenu();
+          setTimeout(() => {
+            scrollToSection(href.substring(1));
+          }, 100);
+        } else {
+          closeMenu();
+        }
+      });
+    });
+
+    // Liens desktop vers #contact
+    const desktopContactLinks = document.querySelectorAll(
+      '.header__menu-link[href^="#"]',
+    );
+    desktopContactLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = link.getAttribute("href");
+        if (href) {
+          scrollToSection(href.substring(1));
+        }
+      });
+    });
+
+    // Fermer avec Escape
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        mobileMenu.classList.contains("mobile-menu--active")
+      ) {
+        closeMenu();
+      }
+    });
+  };
+
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>
