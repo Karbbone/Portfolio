@@ -76,12 +76,6 @@ const { title = "Clément Maillet" } = Astro.props;
     />
     <meta name="twitter:image" content="https://maillet.bzh/Banner.png" />
     <title>{title}</title>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-      defer
-      referrerpolicy="strict-origin-when-cross-origin"
-    ></script>
     <meta
       name="keywords"
       content={translations.meta.keywords}
@@ -109,55 +103,56 @@ const { title = "Clément Maillet" } = Astro.props;
     <script type="text/javascript"
       data-success-message={translations.contact.form.success}
       data-error-message={translations.contact.form.error}
-      id="emailjs-config">
+      data-submit-text={translations.contact.form.submit}
+      id="contact-config">
       document.addEventListener("DOMContentLoaded", function () {
-        const config = document.getElementById("emailjs-config");
+        const config = document.getElementById("contact-config");
         const successMessage = config.getAttribute("data-success-message");
         const errorMessage = config.getAttribute("data-error-message");
 
-        // Attendre que EmailJS soit chargé (defer)
-        function initEmailJS() {
-          if (typeof emailjs !== "undefined") {
-            emailjs.init({ publicKey: "hMHpVGsPfIgHbQrdu" });
-            setupContactForm();
-          } else {
-            setTimeout(initEmailJS, 50);
+        const form = document.getElementById("contact-form");
+        if (!form) return;
+
+        const submitBtn = form.querySelector(".contact__form-submit");
+        const successDiv = document.querySelector(".contact__success");
+
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
           }
-        }
 
-        function setupContactForm() {
-          const form = document.getElementById("contact-form");
-          if (!form) return;
-          const submitBtn = form.querySelector(".contact__form-submit");
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Envoi en cours...";
 
-          form.addEventListener("submit", function (event) {
-            event.preventDefault();
-            if (!form.checkValidity()) {
-              form.reportValidity();
-              submitBtn.disabled = false;
-              return;
+          try {
+            const formData = new FormData(form);
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              body: formData,
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+              successDiv.textContent = successMessage;
+              successDiv.classList.remove("contact__success--error");
+              successDiv.classList.add("contact__success--visible");
+              if (window.grecaptcha) window.grecaptcha.reset();
+              form.reset();
+            } else {
+              throw new Error(data.error || errorMessage);
             }
-            submitBtn.disabled = true;
-            emailjs.sendForm("service_r5nqngg", "template_0d1e8qq", this).then(
-              function () {
-                const successDiv = document.querySelector(".contact__success");
-                successDiv.textContent = successMessage;
-                successDiv.classList.add("contact__success--visible");
-                if (window.grecaptcha) window.grecaptcha.reset();
-                form.reset();
-                submitBtn.disabled = false;
-              },
-              function () {
-                const successDiv = document.querySelector(".contact__success");
-                successDiv.textContent = errorMessage;
-                successDiv.classList.add("contact__success--visible", "contact__success--error");
-                submitBtn.disabled = false;
-              }
-            );
-          });
-        }
-
-        initEmailJS();
+          } catch (error) {
+            successDiv.textContent = errorMessage;
+            successDiv.classList.add("contact__success--visible", "contact__success--error");
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = config.getAttribute("data-submit-text") || "Envoyer";
+          }
+        });
       });
     </script>
     <script type="module" src={navigationScript}></script>
