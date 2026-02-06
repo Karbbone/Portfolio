@@ -32,6 +32,11 @@ main {
         z-index: 0;
         overflow: hidden;
 
+        // Cacher les bulles sur mobile
+        @include bp.to("desktop") {
+          display: none;
+        }
+
         &-shape {
           position: absolute;
           border-radius: 50%;
