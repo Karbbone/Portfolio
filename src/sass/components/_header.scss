@@ -20,37 +20,52 @@
   z-index: 900;
   transition: top 0.3s ease;
 
-  // Header compact au scroll
-  &.header--compact {
-    top: 1rem;
+  // Header compact au scroll - désactivé sur mobile
+  @include bp.from("desktop") {
+    &.header--compact {
+      top: 1rem;
 
-    .header__cols {
-      padding: 1.2rem 3rem;
-      box-shadow: 6px 6px 0 color.$black;
-    }
+      .header__cols {
+        @include utils.clamp(padding-left, 1.2, 3, 320, 1280);
+        @include utils.clamp(padding-right, 1.2, 3, 320, 1280);
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        box-shadow:
+          clamp(0.3rem, 0.3rem + (0.6rem - 0.3rem) * ((100vw - 32rem) / (128rem - 32rem)), 0.6rem)
+          clamp(0.3rem, 0.3rem + (0.6rem - 0.3rem) * ((100vw - 32rem) / (128rem - 32rem)), 0.6rem)
+          0 color.$black;
+      }
 
-    .header__site-title {
-      font-size: 1.8rem;
+      .header__site-title {
+        font-size: 1.8rem;
+      }
     }
   }
 
   .header {
     &__wrapper {
-      @include wrapper.class("small");
+      width: 100%;
+      height: 100%;
     }
 
     &__cols {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 3rem;
+      @include utils.clamp(gap, 1.5, 3, 320, 1280);
 
       background-color: rgba(color.$white, 0.9);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: solid 0.3rem color.$black;
-      box-shadow: 10px 10px 0 color.$black;
-      padding: 2rem 4.8rem;
+      box-shadow:
+        clamp(0.4rem, 0.4rem + (1rem - 0.4rem) * ((100vw - 32rem) / (128rem - 32rem)), 1rem)
+        clamp(0.4rem, 0.4rem + (1rem - 0.4rem) * ((100vw - 32rem) / (128rem - 32rem)), 1rem)
+        0 color.$black;
+      @include utils.clamp(padding-left, 1.5, 4.8, 320, 1280);
+      @include utils.clamp(padding-right, 1.5, 4.8, 320, 1280);
+      padding-top: 2rem;
+      padding-bottom: 2rem;
       transition:
         box-shadow 0.3s ease,
         transform 0.3s ease,
