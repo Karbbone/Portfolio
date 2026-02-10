@@ -44,13 +44,10 @@ jobs:
             git reset --hard origin/main
             git clean -fd
 
-            echo "🐳 Stop des containers"
-            docker-compose down
+            echo "🔨 Build des images (avec cache)"
+            docker-compose build
 
-            echo "🔨 Build des images"
-            docker-compose build --no-cache
-
-            echo "🚀 Lancement des containers"
+            echo "🚀 Recréation des containers"
             docker-compose up -d
 
             echo "🧹 Nettoyage des images inutiles"
