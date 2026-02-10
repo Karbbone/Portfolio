@@ -1,7 +1,13 @@
 import nodemailer from 'nodemailer';
+import path from 'node:path';
 import type { ContactFormData } from './types';
 import { getEmailConfig, TRANSPORT_OPTIONS } from './config';
 import { generateEmailHTML, generateEmailText } from './template';
+
+const bannerPath = path.join(
+  process.cwd(),
+  import.meta.env.PROD ? 'dist/client/Banner.png' : 'public/Banner.png',
+);
 
 export async function sendContactEmail(data: ContactFormData): Promise<void> {
   const config = getEmailConfig();
@@ -27,7 +33,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<void> {
     attachments: [
       {
         filename: 'banner.png',
-        path: './public/Banner.png',
+        path: bannerPath,
         cid: 'banner-image',
       },
     ],
