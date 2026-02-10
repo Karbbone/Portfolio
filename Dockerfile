@@ -14,7 +14,7 @@ FROM oven/bun:1-alpine
 
 WORKDIR /app
 
-COPY --from=build /app/package.json ./
+COPY --from=build /app/package.json /app/bun.lock ./
 RUN bun install --frozen-lockfile --production
 
 COPY --from=build /app/dist ./dist

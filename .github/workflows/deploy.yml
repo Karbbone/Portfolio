@@ -45,15 +45,15 @@ jobs:
             git clean -fd
 
             echo "🔨 Build des images (avec cache)"
-            docker-compose build
+            docker compose build
 
             echo "🚀 Recréation des containers"
-            docker-compose up -d
+            docker compose up -d
 
             echo "🧹 Nettoyage des images inutiles"
             docker image prune -af
 
-            docker-compose ps
+            docker compose ps
 
             echo "✅ Déploiement terminé avec succès!"
           EOF
