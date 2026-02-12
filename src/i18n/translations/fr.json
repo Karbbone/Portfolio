@@ -242,12 +242,13 @@
     }
   },
   "meta": {
-    "description": "Clément Maillet, développeur Full Stack en Bretagne. Découvrez mon portfolio, mes compétences, mes projets et contactez-moi pour vos besoins en développement web, desktop ou mobile.",
-    "ogTitle": "Clément Maillet - Développeur Full Stack",
-    "ogDescription": "Portfolio de Clément Maillet, développeur Full Stack en Bretagne. Découvrez mes compétences, projets et contactez-moi.",
-    "keywords": "développeur, full stack, bretagne, web, react, node.js, portfolio, clément maillet, développement web, développement desktop, développement mobile",
+    "pageTitle": "Clément Maillet - Développeur Full Stack en Bretagne | Portfolio",
+    "description": "Clément Maillet, développeur Full Stack basé en Bretagne. Portfolio présentant mes compétences en React, Node.js, TypeScript, Java Spring Boot, Docker et mes projets web, desktop et mobile. Disponible pour vos projets de développement.",
+    "ogTitle": "Clément Maillet - Développeur Full Stack en Bretagne",
+    "ogDescription": "Portfolio de Clément Maillet, développeur Full Stack en Bretagne. Expert React, Node.js, TypeScript, Java. Découvrez mes compétences, projets et contactez-moi.",
+    "keywords": "Clément Maillet, Clement Maillet, développeur Full Stack, développeur web, développeur Bretagne, portfolio développeur, React, Node.js, TypeScript, Java, Spring Boot, Docker, développement web, développement mobile, développement desktop, freelance Bretagne, Vannes, Morbihan",
     "language": "fr",
     "jobTitle": "Développeur Full Stack",
-    "jobDescription": "Développeur Full Stack en Bretagne"
+    "jobDescription": "Clément Maillet - Développeur Full Stack spécialisé en React, Node.js, TypeScript et Java, basé en Bretagne, France"
   }
 }

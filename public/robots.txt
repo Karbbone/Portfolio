@@ -3,10 +3,6 @@ Allow: /
 
 Sitemap: https://maillet.bzh/sitemap.xml
 
-Disallow: /mentions-legales
-Disallow: /favicon.ico
-Disallow: /favicon.svg
-Disallow: /*.js$
-Disallow: /*.css$
+Disallow: /api/
 Disallow: /src/
 Disallow: /node_modules/

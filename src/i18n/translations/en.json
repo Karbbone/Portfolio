@@ -242,12 +242,13 @@
     }
   },
   "meta": {
-    "description": "Clément Maillet, Full Stack Developer in Brittany. Discover my portfolio, my skills, my projects and contact me for your web, desktop or mobile development needs.",
-    "ogTitle": "Clément Maillet - Full Stack Developer",
-    "ogDescription": "Portfolio of Clément Maillet, Full Stack Developer in Brittany. Discover my skills, projects and contact me.",
-    "keywords": "developer, full stack, brittany, web, react, node.js, portfolio, clément maillet, web development, desktop development, mobile development",
+    "pageTitle": "Clément Maillet - Full Stack Developer in Brittany, France | Portfolio",
+    "description": "Clément Maillet, Full Stack Developer based in Brittany, France. Portfolio showcasing my skills in React, Node.js, TypeScript, Java Spring Boot, Docker and my web, desktop and mobile projects. Available for development projects.",
+    "ogTitle": "Clément Maillet - Full Stack Developer in Brittany, France",
+    "ogDescription": "Portfolio of Clément Maillet, Full Stack Developer in Brittany, France. Expert in React, Node.js, TypeScript, Java. Discover my skills, projects and contact me.",
+    "keywords": "Clément Maillet, Clement Maillet, Full Stack Developer, web developer, developer Brittany France, developer portfolio, React, Node.js, TypeScript, Java, Spring Boot, Docker, web development, mobile development, desktop development, Vannes, Morbihan",
     "language": "en",
     "jobTitle": "Full Stack Developer",
-    "jobDescription": "Full Stack Developer in Brittany"
+    "jobDescription": "Clément Maillet - Full Stack Developer specialized in React, Node.js, TypeScript and Java, based in Brittany, France"
   }
 }
