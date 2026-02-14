@@ -9,6 +9,7 @@ import reactLogo from "../../assets/technos/react.svg";
 import typescriptLogo from "../../assets/technos/typescript.svg";
 import TechTag from "../TechTag.astro";
 import type { Language } from "../../i18n/config";
+import githubLogo from "../../assets/github.svg";
 
 interface Props {
   lang: Language;
@@ -67,7 +68,7 @@ const t = translations.project;
             draggable="false"
           >
             <img
-              src="https://www.svgrepo.com/show/512317/github-142.svg"
+              src={githubLogo.src}
               alt={t.githubAlt}
             />
             <span>{t.items.pokemonStudio.cta}</span>
@@ -128,7 +129,7 @@ const t = translations.project;
             draggable="false"
           >
             <img
-              src="https://www.svgrepo.com/show/512317/github-142.svg"
+              src={githubLogo.src}
               alt={t.githubAlt}
             />
             <span>{t.items.todaysFlag.cta}</span>

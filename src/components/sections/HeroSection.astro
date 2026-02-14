@@ -1,5 +1,7 @@
 ---
 import type { Language } from "../../i18n/config";
+import githubLogo from "../../assets/github.svg";
+import linkedinLogo from "../../assets/linkedin.svg";
 
 interface Props {
   lang: Language;
@@ -45,7 +47,7 @@ const t = translations.hero;
         class="hero__socials-item hero__socials-item-github"
       >
         <img
-          src="https://www.svgrepo.com/show/512317/github-142.svg"
+          src={githubLogo.src}
           alt={t.socialAlt.github}
         />
       </a>
@@ -56,7 +58,7 @@ const t = translations.hero;
         rel="noopener noreferrer"
       >
         <img
-          src="https://www.svgrepo.com/show/512419/linkedin-161.svg"
+          src={linkedinLogo.src}
           alt={t.socialAlt.linkedin}
         />
       </a>
