@@ -3,7 +3,6 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import BackgroundShapes from "../components/BackgroundShapes.astro";
 import navigationScript from "../navigation.js?url";
-import gsapScript from "../gsap-animations.js?url";
 import { getPreferredLanguage, setLanguageCookie } from "../i18n/languageManager";
 import { getTranslations } from "../i18n/utils";
 import type { Language } from "../i18n/config";
@@ -203,7 +202,9 @@ const { title = translations.meta.pageTitle } = Astro.props;
       });
     </script>
     <script type="module" src={navigationScript}></script>
-    <script type="module" src={gsapScript}></script>
+    <script>
+      import "../gsap-animations.js";
+    </script>
     <noscript>
       <style>
         .highlighted::after,
