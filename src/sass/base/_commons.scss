@@ -23,6 +23,11 @@ button:active {
 
 @include utils.heading {
   @include utils.heading-base;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 /* Custom font-size */
