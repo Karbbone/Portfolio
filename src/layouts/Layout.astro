@@ -204,6 +204,16 @@ const { title = translations.meta.pageTitle } = Astro.props;
     </script>
     <script type="module" src={navigationScript}></script>
     <script type="module" src={gsapScript}></script>
+    <noscript>
+      <style>
+        .highlighted::after,
+        .highlighted-primary::after,
+        .highlighted-blue::after,
+        .highlighted-red::after,
+        .highlighted-orange::after { clip-path: inset(0 0% 0 0) !important; }
+        .char { opacity: 1 !important; }
+      </style>
+    </noscript>
   </head>
 
   <body>

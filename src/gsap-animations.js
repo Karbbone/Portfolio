@@ -10,20 +10,32 @@ const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
 
-if (prefersReducedMotion) {
-  // Make everything visible immediately
+const HIGHLIGHT_SELECTORS =
+  ".highlighted, .hero__title-highlighted, .about__title span, .work__title span, .exph__title span, .exph__cols-left p span, .exps__title span, .exps__card-title, .project__title span, .contact__title span";
+
+function revealAllContent() {
   document.querySelectorAll("[data-reveal]").forEach((el) => {
     el.style.opacity = "1";
     el.style.transform = "none";
   });
-  // Reveal all highlights (both HTML class and SCSS @extend mixin elements)
-  document.querySelectorAll(
-    ".highlighted, .hero__title-highlighted, .about__title span, .work__title span, .exph__title span, .exph__cols-left p span, .exps__title span, .exps__card-title, .project__title span, .contact__title span"
-  ).forEach((el) => {
+  document.querySelectorAll(HIGHLIGHT_SELECTORS).forEach((el) => {
     el.classList.add("highlighted--revealed");
   });
+  document.querySelectorAll(".char").forEach((el) => {
+    el.style.opacity = "1";
+  });
+}
+
+if (prefersReducedMotion) {
+  // Make everything visible immediately
+  revealAllContent();
 } else {
-  initGSAP();
+  try {
+    initGSAP();
+  } catch (e) {
+    console.error("GSAP init failed, revealing content:", e);
+    revealAllContent();
+  }
 }
 
 // ============================================

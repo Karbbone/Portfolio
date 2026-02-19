@@ -22,8 +22,9 @@
   }
 
   // Fallback if JS fails or for reduced motion
+  // Uses !important to override extended selectors with higher specificity
   &--revealed::after {
-    clip-path: inset(0 0% 0 0);
+    clip-path: inset(0 0% 0 0) !important;
   }
 
   &-primary {
