@@ -17,6 +17,13 @@
     will-change: transform;
     z-index: -1;
     padding: 0 2rem;
+    clip-path: inset(0 100% 0 0); // hidden by default, GSAP reveals
+    transition: none; // GSAP controls animation
+  }
+
+  // Fallback if JS fails or for reduced motion
+  &--revealed::after {
+    clip-path: inset(0 0% 0 0);
   }
 
   &-primary {

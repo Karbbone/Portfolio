@@ -1,65 +1,13 @@
 @use "colors" as color;
 
 // ============================================
-// SCROLL REVEAL ANIMATIONS
+// GSAP ANIMATION HELPERS
 // ============================================
 
-// Base state for elements before animation
-[data-reveal] {
+// Characters created by GSAP text split
+.char {
+  display: inline-block;
   opacity: 0;
-  transition:
-    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-[data-reveal="up"] {
-  transform: translateY(40px);
-}
-
-[data-reveal="down"] {
-  transform: translateY(-40px);
-}
-
-[data-reveal="left"] {
-  transform: none;
-}
-
-[data-reveal="right"] {
-  transform: none;
-}
-
-[data-reveal="scale"] {
-  transform: scale(0.9);
-}
-
-[data-reveal="fade"] {
-  transform: none;
-}
-
-// Revealed state
-[data-reveal].revealed {
-  opacity: 1;
-  transform: none;
-}
-
-// Staggered delays for lists
-[data-reveal-delay="1"] {
-  transition-delay: 0.1s;
-}
-[data-reveal-delay="2"] {
-  transition-delay: 0.2s;
-}
-[data-reveal-delay="3"] {
-  transition-delay: 0.3s;
-}
-[data-reveal-delay="4"] {
-  transition-delay: 0.4s;
-}
-[data-reveal-delay="5"] {
-  transition-delay: 0.5s;
-}
-[data-reveal-delay="6"] {
-  transition-delay: 0.6s;
 }
 
 // ============================================
@@ -235,8 +183,13 @@
     transition-duration: 0.01ms !important;
   }
 
+  // GSAP elements should be visible immediately
+  .char {
+    opacity: 1 !important;
+  }
+
   [data-reveal] {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

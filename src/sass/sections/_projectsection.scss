@@ -45,6 +45,7 @@ main {
 
           &__col-left {
             width: 100%;
+            overflow: hidden;
             @include bp.from("desktop") {
               width: 50%;
               flex-direction: row;

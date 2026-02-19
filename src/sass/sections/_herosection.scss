@@ -223,7 +223,7 @@ main {
         &__cta {
           text-align: center;
 
-          @include utils.clamp(margin-top, 3, 6);
+          @include utils.clamp(margin-top, 5, 8);
 
           &-button {
             @include button.class("secondary");

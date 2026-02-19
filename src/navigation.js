@@ -79,36 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   // ============================================
-  // SCROLL REVEAL ANIMATIONS
-  // ============================================
-  const revealElements = document.querySelectorAll("[data-reveal]");
-
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    }
-  );
-
-  revealElements.forEach((el) => {
-    revealObserver.observe(el);
-  });
-
-  // Reveal hero elements immediately with stagger
-  document.querySelectorAll("#hero [data-reveal]").forEach((el, index) => {
-    setTimeout(() => {
-      el.classList.add("revealed");
-    }, 100 + index * 100);
-  });
-
-  // ============================================
   // SCROLL EVENT HANDLER
   // ============================================
   function onScroll() {
