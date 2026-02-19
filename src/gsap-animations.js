@@ -100,14 +100,14 @@ function initHero() {
   if (heroSocials.length) gsap.set(heroSocials, { opacity: 0, y: 40 });
   if (heroCta) gsap.set(heroCta, { opacity: 0, y: 20 });
 
-  const masterTL = gsap.timeline({ delay: 0.3 });
+  const masterTL = gsap.timeline({ delay: 0.1 });
 
   // 1. Typewriter "Clément Maillet"
   const nameChars = splitTextIntoChars(heroName);
   masterTL.to(nameChars, {
     opacity: 1,
-    duration: 0.03,
-    stagger: 0.04,
+    duration: 0.02,
+    stagger: 0.02,
     ease: "none",
   });
 
@@ -121,11 +121,11 @@ function initHero() {
       highlightedChars,
       {
         opacity: 1,
-        duration: 0.03,
-        stagger: 0.04,
+        duration: 0.02,
+        stagger: 0.02,
         ease: "none",
       },
-      "+=0.2"
+      "+=0.05"
     );
 
     // Highlight sweep
@@ -133,10 +133,10 @@ function initHero() {
       heroHighlighted,
       {
         "--highlight-clip": "0%",
-        duration: 0.5,
+        duration: 0.3,
         ease: "power2.out",
       },
-      "+=0.15"
+      "+=0.05"
     );
   }
 
@@ -147,10 +147,10 @@ function initHero() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.4,
         ease: "power2.out",
       },
-      "+=0.1"
+      "-=0.1"
     );
     // Reveal inline highlights in description
     heroDescription.querySelectorAll(".highlighted").forEach((hl) => {
@@ -161,11 +161,11 @@ function initHero() {
       heroDescription.querySelectorAll(".highlighted"),
       {
         "--highlight-clip": "0%",
-        duration: 0.4,
-        stagger: 0.15,
+        duration: 0.3,
+        stagger: 0.1,
         ease: "power2.out",
       },
-      "-=0.2"
+      "-=0.15"
     );
   }
 
@@ -176,11 +176,11 @@ function initHero() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        stagger: 0.1,
+        duration: 0.35,
+        stagger: 0.08,
         ease: "back.out(1.7)",
       },
-      "+=0.1"
+      "+=0.05"
     );
   }
 
@@ -192,10 +192,10 @@ function initHero() {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "back.out(2)",
       },
-      "+=0.1"
+      "-=0.15"
     );
   }
 }
