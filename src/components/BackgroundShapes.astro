@@ -1,0 +1,42 @@
+---
+// Decorative background shapes scattered across the portfolio
+---
+
+<div class="bg-shapes" aria-hidden="true"></div>
+
+<script>
+  const COLORS = ["#80ca6e", "#c8aafb", "#f8bd83", "#5dbbfe", "#ff645e"];
+  const COLS = 3;
+  const ROWS = 2;
+  const container = document.querySelector(".bg-shapes");
+
+  if (container) {
+    const cellW = 100 / COLS;
+    const cellH = 100 / ROWS;
+
+    for (let row = 0; row < ROWS; row++) {
+      for (let col = 0; col < COLS; col++) {
+        const circle = document.createElement("div");
+        const size = Math.random() * 120 + 60;
+        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        // Random position within the cell (with padding to avoid edges)
+        const top = row * cellH + Math.random() * (cellH - 10) + 5;
+        const left = col * cellW + Math.random() * (cellW - 10) + 5;
+        const duration = Math.random() * 6 + 10;
+        const delay = Math.random() * -10;
+        const anim = Math.random() > 0.5 ? "bg-float" : "bg-float-reverse";
+
+        circle.className = "bg-shapes__circle";
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+        circle.style.background = color;
+        circle.style.top = `${top}%`;
+        circle.style.left = `${left}%`;
+        circle.style.animationName = anim;
+        circle.style.animationDuration = `${duration}s`;
+        circle.style.animationDelay = `${delay}s`;
+        container.appendChild(circle);
+      }
+    }
+  }
+</script>
