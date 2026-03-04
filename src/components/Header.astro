@@ -243,10 +243,11 @@ const isHomePage = pathname === "/";
       );
     });
 
-    const desktopContactLinks = document.querySelectorAll(
-      '.header__menu-link[href^="#"]',
+    // Tous les liens d'ancrage (header desktop + hero CTA)
+    const anchorLinks = document.querySelectorAll(
+      '.header__menu-link[href^="#"], .hero__cta-button[href^="#"]',
     );
-    desktopContactLinks.forEach((link) => {
+    anchorLinks.forEach((link) => {
       link.addEventListener(
         "click",
         (e) => {

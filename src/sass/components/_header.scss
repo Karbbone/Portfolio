@@ -141,19 +141,19 @@
         &--about {
           @include highlight.class("green", 0.5rem);
           &:hover {
-            color: color.$gray-dark;
+            color: color.$orange;
           }
         }
         &--skills {
           @include highlight.class("blue", 0.5rem);
           &:hover {
-            color: color.$gray-dark;
+            color: color.$orange;
           }
         }
         &--projects {
           @include highlight.class("red", 0.5rem);
           &:hover {
-            color: color.$gray-dark;
+            color: color.$orange;
           }
         }
       }
