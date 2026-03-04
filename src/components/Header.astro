@@ -22,7 +22,12 @@ const isHomePage = pathname === "/";
       </div>
 
       <div class="header__col header__col--right">
-        <button class="header__burger" aria-label="Menu" aria-expanded="false">
+        <button
+          class="header__burger"
+          id="burger-toggle"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
@@ -100,7 +105,7 @@ const isHomePage = pathname === "/";
     <button
       class="mobile-menu__close"
       id="mobile-menu-close"
-      aria-label={translations.header.mobileMenu.ariaLabel}
+      aria-label="Fermer le menu"
     >
       <span class="mobile-menu__close-line"></span>
       <span class="mobile-menu__close-line"></span>
@@ -136,15 +141,21 @@ const isHomePage = pathname === "/";
 </div>
 
 <script>
+  let controller: AbortController | null = null;
+
   const init = () => {
-    const burgerBtn = document.querySelector(".header__burger");
+    if (controller) controller.abort();
+    controller = new AbortController();
+    const { signal } = controller;
+
+    const burgerBtn = document.getElementById("burger-toggle");
+    const closeBtn = document.getElementById("mobile-menu-close");
     const mobileMenu = document.getElementById("mobile-menu");
     const mobileLinks = document.querySelectorAll(".mobile-menu__link");
-    const closeBtn = document.getElementById("mobile-menu-close");
     const header = document.getElementById("header");
     const heroSection = document.getElementById("hero");
 
-    if (!burgerBtn || !mobileMenu) return;
+    if (!burgerBtn || !mobileMenu || !closeBtn) return;
 
     // Animation de réduction du header au scroll
     if (header && heroSection) {
@@ -167,32 +178,36 @@ const isHomePage = pathname === "/";
       observer.observe(heroSection);
     }
 
-    // Toggle menu
-    const toggleMenu = () => {
-      const isOpen = burgerBtn.classList.contains("header__burger--active");
+    let savedScrollY = 0;
 
-      if (isOpen) {
-        burgerBtn.classList.remove("header__burger--active");
-        burgerBtn.setAttribute("aria-expanded", "false");
-        mobileMenu.classList.remove("mobile-menu--active");
-        document.body.style.overflow = "";
-      } else {
-        burgerBtn.classList.add("header__burger--active");
-        burgerBtn.setAttribute("aria-expanded", "true");
-        mobileMenu.classList.add("mobile-menu--active");
-        document.body.style.overflow = "hidden";
-      }
+    const openMenu = () => {
+      // Positionner la croix exactement sur le burger
+      const rect = burgerBtn.getBoundingClientRect();
+      closeBtn.style.position = "fixed";
+      closeBtn.style.top = `${rect.top + 10}px`;
+      closeBtn.style.left = `${rect.left + 10}px`;
+
+      // Sauvegarder la position de scroll et bloquer le body
+      savedScrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+
+      mobileMenu.classList.add("mobile-menu--active");
     };
 
-    // Fermer le menu
     const closeMenu = () => {
-      burgerBtn.classList.remove("header__burger--active");
-      burgerBtn.setAttribute("aria-expanded", "false");
       mobileMenu.classList.remove("mobile-menu--active");
-      document.body.style.overflow = "";
+
+      // Restaurer la position de scroll
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      window.scrollTo(0, savedScrollY);
     };
 
-    // Scroll vers une section
     const scrollToSection = (sectionId: string) => {
       const section = document.getElementById(sectionId);
       if (section) {
@@ -206,49 +221,57 @@ const isHomePage = pathname === "/";
       }
     };
 
-    // Event listeners
-    burgerBtn.addEventListener("click", toggleMenu);
-    closeBtn?.addEventListener("click", closeMenu);
+    burgerBtn.addEventListener("click", openMenu, { signal });
+    closeBtn.addEventListener("click", closeMenu, { signal });
 
-    // Liens du menu mobile
     mobileLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
-        if (href && href.startsWith("#")) {
-          e.preventDefault();
-          closeMenu();
-          setTimeout(() => {
-            scrollToSection(href.substring(1));
-          }, 100);
-        } else {
-          closeMenu();
-        }
-      });
+      link.addEventListener(
+        "click",
+        (e) => {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("#")) {
+            e.preventDefault();
+            closeMenu();
+            setTimeout(() => {
+              scrollToSection(href.substring(1));
+            }, 100);
+          } else {
+            closeMenu();
+          }
+        },
+        { signal },
+      );
     });
 
-    // Liens desktop vers #contact
     const desktopContactLinks = document.querySelectorAll(
       '.header__menu-link[href^="#"]',
     );
     desktopContactLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const href = link.getAttribute("href");
-        if (href) {
-          scrollToSection(href.substring(1));
-        }
-      });
+      link.addEventListener(
+        "click",
+        (e) => {
+          e.preventDefault();
+          const href = link.getAttribute("href");
+          if (href) {
+            scrollToSection(href.substring(1));
+          }
+        },
+        { signal },
+      );
     });
 
-    // Fermer avec Escape
-    document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        mobileMenu.classList.contains("mobile-menu--active")
-      ) {
-        closeMenu();
-      }
-    });
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (
+          e.key === "Escape" &&
+          mobileMenu.classList.contains("mobile-menu--active")
+        ) {
+          closeMenu();
+        }
+      },
+      { signal },
+    );
   };
 
   init();

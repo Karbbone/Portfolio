@@ -2,8 +2,11 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import BackgroundShapes from "../components/BackgroundShapes.astro";
-import navigationScript from "../navigation.js?url";
-import { getPreferredLanguage, setLanguageCookie } from "../i18n/languageManager";
+
+import {
+  getPreferredLanguage,
+  setLanguageCookie,
+} from "../i18n/languageManager";
 import { getTranslations } from "../i18n/utils";
 import type { Language } from "../i18n/config";
 
@@ -49,24 +52,18 @@ const { title = translations.meta.pageTitle } = Astro.props;
     <meta name="geo.position" content="47.6558;-2.7609" />
     <meta name="ICBM" content="47.6558, -2.7609" />
 
-    <meta
-      name="description"
-      content={translations.meta.description}
-    />
+    <meta name="description" content={translations.meta.description} />
     <meta name="author" content="Clément Maillet" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
 
     <!-- Canonical URL -->
     <link rel="canonical" href={`https://maillet.bzh${pathname}`} />
 
-    <meta
-      property="og:title"
-      content={translations.meta.ogTitle}
-    />
-    <meta
-      property="og:description"
-      content={translations.meta.ogDescription}
-    />
+    <meta property="og:title" content={translations.meta.ogTitle} />
+    <meta property="og:description" content={translations.meta.ogDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`https://maillet.bzh${pathname}`} />
     <meta property="og:image" content="https://maillet.bzh/Banner.png" />
@@ -77,80 +74,107 @@ const { title = translations.meta.pageTitle } = Astro.props;
     <meta property="og:site_name" content="Clément Maillet - Portfolio" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content={translations.meta.ogTitle}
-    />
+    <meta name="twitter:title" content={translations.meta.ogTitle} />
     <meta
       name="twitter:description"
       content={translations.meta.ogDescription}
     />
     <meta name="twitter:image" content="https://maillet.bzh/Banner.png" />
     <title>{title}</title>
-    <meta
-      name="keywords"
-      content={translations.meta.keywords}
-    />
+    <meta name="keywords" content={translations.meta.keywords} />
     <meta name="language" content={lang} />
 
     <!-- Hreflang tags for SEO -->
-    <link rel="alternate" hreflang="fr" href={`https://maillet.bzh${pathname}?lang=fr`} />
-    <link rel="alternate" hreflang="en" href={`https://maillet.bzh${pathname}?lang=en`} />
-    <link rel="alternate" hreflang="x-default" href={`https://maillet.bzh${pathname}`} />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href={`https://maillet.bzh${pathname}?lang=fr`}
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={`https://maillet.bzh${pathname}?lang=en`}
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={`https://maillet.bzh${pathname}`}
+    />
 
     <!-- Structured Data - Person -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Clément Maillet",
-      "givenName": "Clément",
-      "familyName": "Maillet",
-      "alternateName": ["Clement Maillet", "Clément Maillet"],
-      "jobTitle": translations.meta.jobTitle,
-      "description": translations.meta.jobDescription,
-      "url": "https://maillet.bzh",
-      "image": "https://maillet.bzh/Banner.png",
-      "email": "clement.maillet56@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "Bretagne",
-        "addressCountry": "FR"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "IUT de Vannes",
-        "url": "https://www.iutvannes.fr/"
-      },
-      "knowsAbout": [
-        "React", "TypeScript", "JavaScript", "Node.js", "Java", "Spring Boot",
-        "HTML", "CSS", "Docker", "Git", "CI/CD", "MySQL", "MongoDB",
-        "Développement web", "Développement Full Stack", "DevOps"
-      ],
-      "knowsLanguage": ["fr", "en"],
-      "sameAs": [
-        "https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/",
-        "https://github.com/Karbbone"
-      ]
-    })}></script>
-    <!-- Structured Data - Website -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Clément Maillet - Portfolio",
-      "alternateName": "Portfolio de Clément Maillet",
-      "url": "https://maillet.bzh",
-      "description": translations.meta.description,
-      "author": {
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Clément Maillet"
-      },
-      "inLanguage": [lang]
-    })}></script>
-    <script type="text/javascript"
+        name: "Clément Maillet",
+        givenName: "Clément",
+        familyName: "Maillet",
+        alternateName: ["Clement Maillet", "Clément Maillet"],
+        jobTitle: translations.meta.jobTitle,
+        description: translations.meta.jobDescription,
+        url: "https://maillet.bzh",
+        image: "https://maillet.bzh/Banner.png",
+        email: "clement.maillet56@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressRegion: "Bretagne",
+          addressCountry: "FR",
+        },
+        alumniOf: {
+          "@type": "EducationalOrganization",
+          name: "IUT de Vannes",
+          url: "https://www.iutvannes.fr/",
+        },
+        knowsAbout: [
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "Node.js",
+          "Java",
+          "Spring Boot",
+          "HTML",
+          "CSS",
+          "Docker",
+          "Git",
+          "CI/CD",
+          "MySQL",
+          "MongoDB",
+          "Développement web",
+          "Développement Full Stack",
+          "DevOps",
+        ],
+        knowsLanguage: ["fr", "en"],
+        sameAs: [
+          "https://www.linkedin.com/in/cl%C3%A9ment-maillet-632895255/",
+          "https://github.com/Karbbone",
+        ],
+      })}
+    />
+    <!-- Structured Data - Website -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Clément Maillet - Portfolio",
+        alternateName: "Portfolio de Clément Maillet",
+        url: "https://maillet.bzh",
+        description: translations.meta.description,
+        author: {
+          "@type": "Person",
+          name: "Clément Maillet",
+        },
+        inLanguage: [lang],
+      })}
+    />
+    <script
+      type="text/javascript"
       data-success-message={translations.contact.form.success}
       data-error-message={translations.contact.form.error}
       data-submit-text={translations.contact.form.submit}
-      id="contact-config">
+      id="contact-config"
+    >
       document.addEventListener("DOMContentLoaded", function () {
         const config = document.getElementById("contact-config");
         const successMessage = config.getAttribute("data-success-message");
@@ -193,15 +217,18 @@ const { title = translations.meta.pageTitle } = Astro.props;
             }
           } catch (error) {
             successDiv.textContent = errorMessage;
-            successDiv.classList.add("contact__success--visible", "contact__success--error");
+            successDiv.classList.add(
+              "contact__success--visible",
+              "contact__success--error",
+            );
           } finally {
             submitBtn.disabled = false;
-            submitBtn.textContent = config.getAttribute("data-submit-text") || "Envoyer";
+            submitBtn.textContent =
+              config.getAttribute("data-submit-text") || "Envoyer";
           }
         });
       });
     </script>
-    <script type="module" src={navigationScript}></script>
     <script>
       import "../gsap-animations.js";
     </script>
@@ -211,8 +238,12 @@ const { title = translations.meta.pageTitle } = Astro.props;
         .highlighted-primary::after,
         .highlighted-blue::after,
         .highlighted-red::after,
-        .highlighted-orange::after { clip-path: inset(0 0% 0 0) !important; }
-        .char { opacity: 1 !important; }
+        .highlighted-orange::after {
+          clip-path: inset(0 0% 0 0) !important;
+        }
+        .char {
+          opacity: 1 !important;
+        }
       </style>
     </noscript>
   </head>

@@ -169,9 +169,9 @@
       gap: $gap;
       background: transparent;
       border: none;
-      padding: 0;
+      padding: 1rem;
+      margin: -1rem;
       cursor: pointer;
-      z-index: 1001;
 
       @include bp.from("desktop") {
         display: none;
@@ -182,29 +182,12 @@
         height: $line-height;
         background-color: color.$black;
         border-radius: 0.15rem;
-        transition: all 0.3s ease;
-      }
-
-      &--active {
-        .header__burger-line {
-          &:nth-child(1) {
-            transform: translateY(0.8rem) rotate(45deg);
-          }
-
-          &:nth-child(2) {
-            opacity: 0;
-          }
-
-          &:nth-child(3) {
-            transform: translateY(-0.8rem) rotate(-45deg);
-          }
-        }
       }
     }
   }
 }
 
-// Menu mobile plein écran - en dehors du header
+// Menu mobile plein écran — AU-DESSUS du header
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -217,36 +200,42 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
+  clip-path: circle(0% at calc(100% - 5rem) 5rem);
   visibility: hidden;
+  pointer-events: none;
   transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+    clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s 0.5s;
 
   &--active {
-    opacity: 1;
+    clip-path: circle(150% at calc(100% - 5rem) 5rem);
     visibility: visible;
+    pointer-events: auto;
+    transition:
+      clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0s 0s;
   }
 
   &__header {
     position: absolute;
-    top: 3rem;
+    top: 0;
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 0 3rem;
+    padding: calc(3rem + 2rem) 3rem 0;
   }
 
   &__close {
-    position: relative;
-    width: 4rem;
-    height: 4rem;
+    // Positionné en fixed par JS pour s'aligner sur le burger
+    z-index: 1001;
+    width: 3rem;
+    height: 1.9rem;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 1rem;
 
     &-line {
       position: absolute;
@@ -267,6 +256,7 @@
     }
   }
 
+  // Animation d'apparition des liens
   &__nav {
     display: flex;
     flex-direction: column;
@@ -280,6 +270,26 @@
     color: color.$gray-dark;
     font-weight: 600;
     transition: color 0.3s ease;
+    opacity: 0;
+    transform: translateY(2rem);
+
+    .mobile-menu--active & {
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        color 0.3s ease,
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    // Délais échelonnés pour chaque lien
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        .mobile-menu--active & {
+          transition-delay: #{0.1 + $i * 0.05}s;
+        }
+      }
+    }
 
     &:hover {
       color: color.$orange;
